@@ -4,29 +4,51 @@ from django.db import models
 
 
 class Manufacturer(models.Model):
+    def __str__(self):
+        return self.name
+
     name = models.CharField(max_length=50, unique=True)
 
 
 class Wash(models.Model):
+    def __str__(self):
+        return self.name
+
     name = models.CharField(max_length=50, unique=True)
 
 class Material(models.Model):
+    def __str__(self):
+        return self.name
+
     name = models.CharField(max_length=50, unique=True)
     notes = models.CharField(max_length=200, blank=True)
 
 class Yarnshop(models.Model):
+    def __str__(self):
+        return self.name
+
     name = models.CharField(max_length=50, unique=True)
     notes = models.CharField(max_length=200, blank=True)
 
 class Weight(models.Model):
+    def __str__(self):
+        return self.name
+
     name = models.CharField(max_length=50, unique=True, primary_key=True)
 
 class Needlesize(models.Model):
+    def __str__(self):
+        return self.name
+
     name = models.CharField(max_length=50, unique=True, primary_key=True)
 
 
 class Yarn(models.Model):
+    def __str__(self):
+        return self.name
+
     name = models.CharField(max_length=50, unique=True)
+    color = models.CharField(max_length=20, unique=True)
     superwash = models.BooleanField
     own_it = models.BooleanField
     nr_in_stash = models.IntegerField(blank=True, null=True)
@@ -49,6 +71,9 @@ class Swatch(models.Model):
 
 
 class Projectideas(models.Model):
+    def __str__(self):
+        return self.name
+
     name = models.CharField(max_length=50)
     link = models.CharField(max_length=200, blank=True)
     notes = models.CharField(max_length=200, blank=True)
@@ -57,6 +82,9 @@ class Projectideas(models.Model):
 
 
 class FinishedObject(models.Model):
+    def __str__(self):
+        return self.name
+
     name = models.CharField(max_length=50)
     for_who = models.CharField(max_length=50, blank=True)
     stichnr = models.IntegerField(blank=True, null=True)
