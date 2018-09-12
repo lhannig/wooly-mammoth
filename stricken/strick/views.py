@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
-from .models import Yarn
+from strick.models import Yarn, Manufacturer
 
 # Create your views here.
 
@@ -11,6 +11,9 @@ def index(request):
     return HttpResponse(template.render(context, request))
 
 def yarns(request):
+
     yarns = Yarn.objects.all()
-    output = ', '.join([y.name for y in yarns])
-    return HttpResponse(output)
+
+    return render(request, 'strick/yarns.html', {'yarns': yarns})
+
+
