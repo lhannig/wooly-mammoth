@@ -8,10 +8,23 @@
 {% block title %}<h3>All yarns in stash</h3>{% endblock %}
 
 {% block content %}
-
-{% for yarn in yarns.all %}
-<p>  {{ yarn.name }}</p>
+<table style="width:30%">
+  <tr>
+      <th>Name</th>
+      <th>Color</th>
+      <th>Col Nr</th>
+      <th>stashed</th>
+  </tr>
+    {% for yarn in yarns.all %}
+<tr>
+    <td>{{ yarn.name }}</td>
+    <td>{{ yarn.color }}</td>
+    <td>{{ yarn.col_nr }}</td>
+    <td>{{ yarn.nr_in_stash }}</td>
+</tr>
 {% endfor %}
+</table>
+
 {% endblock %}
 
 </body>

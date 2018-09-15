@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
-from strick.models import Yarn, Manufacturer
+from .models import Yarn, Manufacturer
 
 # Create your views here.
 
