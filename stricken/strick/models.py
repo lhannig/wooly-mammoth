@@ -49,8 +49,6 @@ class Yarn(models.Model):
 
     name = models.CharField(max_length=50, unique=True)
     superwash = models.BooleanField(default=False)
-    own_it = models.BooleanField(default=False)
-    nr_in_stash = models.IntegerField(blank=True, null=True)
     notes = models.CharField(max_length=200, blank=True)
     manufacturer_id = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
     wash_id = models.ForeignKey(Wash, on_delete=models.CASCADE)
@@ -58,14 +56,18 @@ class Yarn(models.Model):
     materials = models.ManyToManyField(Material)
 
 
-class Skein(models.Model):
+class Color(models.Model):
     def __str__(self):
-        return self.name
+        name = str(self.yarntype) + ' ' + str(self.color)
+        return name
 
-    name = models.ForeignKey(Yarn, on_delete=models.CASCADE)
+    yarntype = models.ForeignKey(Yarn, on_delete=models.CASCADE)
     color = models.CharField(max_length=50, null=True)
     col_nr = models.IntegerField(null=True)
-    yarnshops = models.ManyToManyField(Yarnshop, blank=True)
+    own_it = models.BooleanField(default=False)
+    nr_in_stash = models.IntegerField(blank=True, null=True)
+    notes = models.CharField(max_length=200, blank=True)
+    yarnshop = models.ForeignKey(Yarnshop, on_delete=models.CASCADE)
 
 class Swatch(models.Model):
     name = models.CharField(max_length=50)
@@ -78,7 +80,7 @@ class Swatch(models.Model):
     notes = models.CharField(max_length=200, blank=True)
 
 
-class Projectideas(models.Model):
+class Projectidea(models.Model):
     def __str__(self):
         return self.name
 
@@ -86,7 +88,7 @@ class Projectideas(models.Model):
     link = models.CharField(max_length=200, blank=True)
     notes = models.CharField(max_length=200, blank=True)
     yarn_id = models.ManyToManyField(Yarn, blank=True)
-    skein_id = models.ForeignKey(Skein, on_delete=models.CASCADE)
+    color_id = models.ForeignKey(Color, on_delete=models.CASCADE)
     weight_id = models.ManyToManyField(Weight, blank=True)
 
 
@@ -99,6 +101,7 @@ class FinishedObject(models.Model):
     stichnr = models.IntegerField(blank=True, null=True)
     notes = models.CharField(max_length=200, blank=True)
     yarn_id = models.ForeignKey(Yarn, on_delete=models.CASCADE)
+    color_id = models.ForeignKey(Color, on_delete=models.CASCADE)
     needlsize_id = models.ManyToManyField(Needlesize)
 
 
