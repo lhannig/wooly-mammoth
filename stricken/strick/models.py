@@ -101,6 +101,7 @@ class FinishedObject(models.Model):
     stichnr = models.IntegerField(blank=True, null=True)
     notes = models.CharField(max_length=200, blank=True)
     yarn_id = models.ForeignKey(Yarn, on_delete=models.CASCADE)
+    skeins_used = models.IntegerField(blank=True, null=True)
     color_id = models.ForeignKey(Color, on_delete=models.CASCADE)
     needlsize_id = models.ManyToManyField(Needlesize)
 
