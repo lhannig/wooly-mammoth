@@ -75,8 +75,8 @@ class Swatch(models.Model):
     n_stitches = models.IntegerField(blank=True, null=True)
     n_rows_washed = models.IntegerField(blank=True, null=True)
     n_stitches_washed = models.IntegerField(blank=True, null=True)
-    needlesize_id = models.ForeignKey(Needlesize, on_delete=models.CASCADE)
-    yarn_id = models.ForeignKey(Yarn, on_delete=models.CASCADE)
+    needlesize = models.ForeignKey(Needlesize, on_delete=models.CASCADE)
+    yarn = models.ForeignKey(Yarn, on_delete=models.CASCADE)
     notes = models.CharField(max_length=200, blank=True)
 
 
@@ -87,9 +87,9 @@ class Projectidea(models.Model):
     name = models.CharField(max_length=50)
     link = models.CharField(max_length=200, blank=True)
     notes = models.CharField(max_length=200, blank=True)
-    yarn_id = models.ManyToManyField(Yarn, blank=True)
-    color_id = models.ForeignKey(Color, on_delete=models.CASCADE)
-    weight_id = models.ManyToManyField(Weight, blank=True)
+    yarn = models.ManyToManyField(Yarn, blank=True)
+    color = models.ManyToManyField(Color, blank=True)
+    weight = models.ManyToManyField(Weight, blank=True)
 
 
 class FinishedObject(models.Model):
@@ -100,20 +100,7 @@ class FinishedObject(models.Model):
     for_who = models.CharField(max_length=50, blank=True)
     stichnr = models.IntegerField(blank=True, null=True)
     notes = models.CharField(max_length=200, blank=True)
-    yarn_id = models.ForeignKey(Yarn, on_delete=models.CASCADE)
+    yarn = models.ForeignKey(Yarn, on_delete=models.CASCADE)
     skeins_used = models.IntegerField(blank=True, null=True)
-    color_id = models.ForeignKey(Color, on_delete=models.CASCADE)
-    needlsize_id = models.ManyToManyField(Needlesize)
-
-
-
-
-
-
-
-
-
-
-
-
-
+    color = models.ManyToManyField(Color, blank=True)
+    needlsize = models.ManyToManyField(Needlesize)
