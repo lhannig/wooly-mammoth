@@ -1,8 +1,12 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Yarns</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'strick/style.css' %}">
 </head>
 <body>
 {% block title %}<h3>All yarns in stash</h3>{% endblock %}
@@ -10,22 +14,49 @@
 {% block content %}
 
 
-<table style="width:30%">
+<table id='tab1' style="width:70%">
   <tr>
       <th>Name</th>
       <th>superwash</th>
       <th>Weight</th>
       <th>Materials</th>
+      <th>Available Colors</th>
+      <th>Available skeins</th>
   </tr>
     {% for yarn in yarns.all %}
+
 <tr>
     <td>{{ yarn.name }}</td>
     <td>{{ yarn.superwash }}</td>
     <td>{{ yarn.weight }}</td>
-    {% for m in yarn.materials.all %}
-    <td>{{ m.name }}</td>
-    {% endfor %}
-
+    <td id="tab2">
+        <table>
+            {% for m in yarn.materials.all %}
+            <tr>
+                    <td> {{ m.name }} </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </td>
+    <td>
+        <table id="tab3">
+            {% for c in yarn.color_set.all %}
+                <tr>
+                    <td>{{ c.color }}</td>
+                    <td> {{ c.col_nr }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </td>
+    <td>
+        <table id="tab4">
+            {% for c in yarn.color_set.all %}
+                <tr>
+                    <td>{{ c.nr_in_stash }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </td>
 </tr>
 {% endfor %}
 </table>
