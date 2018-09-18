@@ -50,9 +50,9 @@ class Yarn(models.Model):
     name = models.CharField(max_length=50, unique=True)
     superwash = models.BooleanField(default=False)
     notes = models.CharField(max_length=200, blank=True)
-    manufacturer_id = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
-    wash_id = models.ForeignKey(Wash, on_delete=models.CASCADE)
-    weight_id = models.ForeignKey(Weight, on_delete=models.CASCADE)
+    manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
+    wash = models.ForeignKey(Wash, on_delete=models.CASCADE)
+    weight = models.ForeignKey(Weight, on_delete=models.CASCADE)
     materials = models.ManyToManyField(Material)
 
 

@@ -8,19 +8,24 @@
 {% block title %}<h3>All yarns in stash</h3>{% endblock %}
 
 {% block content %}
+
+
 <table style="width:30%">
   <tr>
       <th>Name</th>
-      <th>Color</th>
-      <th>Col Nr</th>
-      <th>stashed</th>
+      <th>superwash</th>
+      <th>Weight</th>
+      <th>Materials</th>
   </tr>
     {% for yarn in yarns.all %}
 <tr>
     <td>{{ yarn.name }}</td>
-    <td>{{ yarn.color }}</td>
-    <td>{{ yarn.col_nr }}</td>
-    <td>{{ yarn.nr_in_stash }}</td>
+    <td>{{ yarn.superwash }}</td>
+    <td>{{ yarn.weight }}</td>
+    {% for m in yarn.materials.all %}
+    <td>{{ m.name }}</td>
+    {% endfor %}
+
 </tr>
 {% endfor %}
 </table>
