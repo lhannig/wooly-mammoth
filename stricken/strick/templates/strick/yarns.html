@@ -14,7 +14,7 @@
 {% block content %}
 
 
-<table id='tab1' style="width:70%">
+<table class='tabs' id='tab1' style="width:70%">
   <tr>
       <th>Name</th>
       <th>superwash</th>
@@ -26,7 +26,7 @@
     {% for yarn in yarns.all %}
 
 <tr>
-    <td>{{ yarn.name }}</td>
+    <td><a href="{% url 'yarntype' yarn.id %}">{{ yarn.name }}</a> </td>
     <td>{{ yarn.superwash }}</td>
     <td>{{ yarn.weight }}</td>
     <td id="tab2">

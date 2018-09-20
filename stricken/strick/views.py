@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.template import loader
 from itertools import islice, chain
 from .models import Yarn, Manufacturer, Material, Needlesize, Color, Projectidea
+from .forms import RenewNrinStash
 
 # Create your views here.
 
@@ -13,7 +14,7 @@ def index(request):
     return HttpResponse(template.render(context, request))
 
 def yarns(request):
-    context = {}
+
     yarns = Yarn.objects.filter(color__own_it = True).distinct()
     materials = Material.objects.all()
 
@@ -29,8 +30,27 @@ def projectideas(request):
 
     return render(request, 'strick/projectideas.html', {'projectideas': projectideas,})
 
-def yarntype(request, yarntype_id):
-    try:
-        yarntype = Color.objects.filter(yarntype=yarntype_id)
-    except: raise Http404('Yarn does not exist')
-    return render(request, 'strick/yarntype.html', {'yarntype': yarntype})
+
+def show_one_yarntype(request, yarntype_id):
+
+    if request.method == 'GET':
+
+        cols = Color.objects.filter(yarntype=yarntype_id).filter(own_it=True)
+        return render(request, 'strick/yarntype.html', {'cols': cols,})
+
+
+
+    if request.method == 'POST':
+
+        color = Color.objects.get(pk=request.POST['col_id'])
+        new_nr_form = RenewNrinStash(request.POST, instance=color)
+
+        new_nr_form.save()
+
+        cols = Color.objects.filter(yarntype=yarntype_id).filter(own_it=True)
+        return render(request, 'strick/yarntype.html', {'cols': cols, })
+
+
+
+
+

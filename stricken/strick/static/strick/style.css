@@ -1,35 +1,35 @@
-#tab1 tr:nth-child(even) {
+.tabs tr:nth-child(even) {
     background-color: #eee;
 }
 
-#tab1 tr:nth-child(even) #tab2 td {
+.tabs tr:nth-child(even) #tab2 td {
     background-color: #eee;
 }
 
-#tab1 tr:nth-child(odd) {
+.tabs tr:nth-child(odd) {
     background-color: #fff;
 }
 
-#tab1 tr:nth-child(odd) #tab2 td {
+.tabs tr:nth-child(odd) #tab2 td {
     background-color: #fff;
 }
 
-#tab1 tr:nth-child(even) #tab3 td {
+.tabs tr:nth-child(even) #tab3 td {
     background-color: #eee;
 }
 
-#tab1 tr:nth-child(odd) #tab3 td {
+.tabs tr:nth-child(odd) #tab3 td {
     background-color: #fff;
 }
 
-#tab1 tr:nth-child(even) #tab4 td {
+.tabs tr:nth-child(even) #tab4 td {
     background-color: #eee;
 }
 
-#tab1 tr:nth-child(odd) #tab4 td {
+.tabs tr:nth-child(odd) #tab4 td {
     background-color: #fff;
 }
 
-td {padding: 5px;}
 
-h3 {color: red;}
+
+.tabs td {padding: 5px;}

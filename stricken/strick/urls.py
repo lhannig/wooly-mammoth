@@ -5,6 +5,6 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('yarns', views.yarns, name='yarns'),
     path('projectideas', views.projectideas, name='projectideas'),
-    path('yarns/<yarntype_id>', views.yarntype, name='yarntype')
+    path('yarns/<int:yarntype_id>', views.show_one_yarntype, name='yarntype'),
 ]
 
