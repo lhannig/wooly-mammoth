@@ -1,11 +1,25 @@
 from django import forms
-from django.core.exceptions import ValidationError
-from .models import Color
 
-class RenewNrinStash(forms.ModelForm):
+from .models import Color, Yarn
 
+class ColorForm(forms.ModelForm):
     class Meta:
         model = Color
-        fields = ['yarntype', 'nr_in_stash']
+        fields = ['nr_in_stash', ]
+
+
+
+class YarnForm(forms.ModelForm):
+    class Meta:
+        model = Yarn
+        fields = ['name',
+                  'superwash',
+                  'notes',
+                  'manufacturer',
+                  'wash',
+                  'weight',
+                  'materials',
+                  ]
+
 
 

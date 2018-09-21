@@ -1,10 +1,11 @@
 from django.shortcuts import render, get_object_or_404
+from django.core.exceptions import ValidationError
 from django.http import Http404
 from django.http import HttpResponse
 from django.template import loader
 from itertools import islice, chain
 from .models import Yarn, Manufacturer, Material, Needlesize, Color, Projectidea
-from .forms import RenewNrinStash
+
 
 # Create your views here.
 
@@ -32,25 +33,19 @@ def projectideas(request):
 
 
 def show_one_yarntype(request, yarntype_id):
+    colors = Color.objects.filter(yarntype=yarntype_id).filter(own_it=True)
+    yarn = Yarn.objects.get(pk=yarntype_id)
 
-    if request.method == 'GET':
-
-        cols = Color.objects.filter(yarntype=yarntype_id).filter(own_it=True)
-        return render(request, 'strick/yarntype.html', {'cols': cols,})
-
+    return render(request, 'strick/yarntype.html', {'colors': colors, 'yarn': yarn,})
 
 
-    if request.method == 'POST':
+def show_color(request, yarntype_id, color_id):
+    color = Color.objects.filter(yarntype_id=yarntype_id).get(pk=color_id)
 
-        color = Color.objects.get(pk=request.POST['col_id'])
-        new_nr_form = RenewNrinStash(request.POST, instance=color)
-
-        new_nr_form.save()
-
-        cols = Color.objects.filter(yarntype=yarntype_id).filter(own_it=True)
-        return render(request, 'strick/yarntype.html', {'cols': cols, })
+    return render(request, 'strick/color.html', {'color': color,})
 
 
+def new_yarn(request):
 
-
+    return render(request, 'strick/new_yarn.html')
 

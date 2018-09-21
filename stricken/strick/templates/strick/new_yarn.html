@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Yarn</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'strick/style.css' %}">
+</head>
+<body>
+Here you can add a new yarn
+
+<form method="post">
+    <table>
+        <tr>
+            <td><label>Yarnname</label></td>
+            <td><input type="text" name="yarnname"/><br/></td>
+        </tr>
+        <tr>
+            <td><label>Superwash</label></td>
+            <td><input type="checkbox" name="superwash"><br/></td>
+        </tr>
+        <tr>
+            <td><label>Notes</label></td>
+            <td><input type="text" name="notes"><br/></td>
+        </tr>
+        <tr>
+            <td><label>Manufacturer</label></td>
+            <td><input type="text" name="manufacturer"><br/></td>
+        </tr>
+        <tr>
+            <td><label>Wash</label></td>
+            <td><input type="text" name="wash"><br/></td>
+        </tr>
+        <tr>
+            <td><label>Weight</label></td>
+            <td><input type="text" name="weight"><br/></td>
+        </tr>
+        <tr>
+            <td><label>Materials</label></td>
+            <td><input type="text" name="materials"></td>
+        </tr>
+
+    </table>
+
+
+
+
+</form>
+</body>
+</html>

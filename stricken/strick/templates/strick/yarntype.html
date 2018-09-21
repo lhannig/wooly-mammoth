@@ -8,7 +8,11 @@
 </head>
 <body>
 {% block content %}
-<h3>All colors of yarn {{ cols.yarntype }} in stash</h3>
+<h2>{{ yarn }}</h2>
+Notes about the yarn: {{ yarn.notes }}
+<h3>All colors of yarn {{ yarn.name }} in stash</h3>
+
+
 <table class='tabs'>
     <tr>
         <th>Color</th>
@@ -18,19 +22,13 @@
         <th>Nr of skeins in stash</th>
     </tr>
 
-    {% for col in cols.all %}
+    {% for c in colors.all %}
     <tr>
-        <td>{{col.color}}</td>
-        <td>{{col.col_nr}}</td>
-        <td>{{col.notes}}</td>
-        <td>{{col.yarnshop}}</td>
-        <td>{{col.nr_in_stash}}</td>
-        <td><form action="." method='POST'>
-            {% csrf_token %}
-            <input type="number" name="new_nr" >
-            <input type="number" name="col_id" value={{col.id}} >
-        </form>
-        </td>
+        <td><a href="{% url 'show_color' yarn.id c.id %}">{{c.color}}</a></td>
+        <td>{{c.col_nr}}</td>
+        <td>{{c.notes}}</td>
+        <td>{{c.yarnshop}}</td>
+        <td>{{c.nr_in_stash}}</td>
     </tr>
     {% endfor %}
 </table>

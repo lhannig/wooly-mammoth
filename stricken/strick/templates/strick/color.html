@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Color</title>
+     {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'strick/style.css' %}">
+</head>
+<body>
+<h3>{{ color }}</h3>
+
+<table>
+    <tr>
+        <th>Color Nr</th>
+        <th>Notes</th>
+        <th>Yarnshop</th>
+        <th>Nr of skeins in stash</th>
+    </tr>
+    <tr>
+        <td>{{ color.col_nr}}</td>
+        <td> {{ color.notes }}</td>
+        <td> {{ color.yarnshop }}</td>
+        <td> {{ color.nr_in_stash }}</td>
+    </tr>
+</table>
+
+
+</body>
+</html>
