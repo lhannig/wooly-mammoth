@@ -9,7 +9,33 @@
 <body>
 {% block content %}
 <h2>{{ yarn }}</h2>
-Notes about the yarn: {{ yarn.notes }}
+<table class="tabs">
+    <tr>
+        <th>Superwash</th>
+        <th>Notes</th>
+        <th>Manufacturer</th>
+        <th>Washing Instructions</th>
+        <th>Weight</th>
+        <th>Materials</th>
+    </tr>
+    <tr>
+        <td>{{ yarn.superwash }}</td>
+        <td>{{ yarn.notes }}</td>
+        <td>{{ yarn.manufacturer }}</td>
+        <td>{{ yarn.wash }}</td>
+        <td>{{ yarn.weight }}</td>
+        <td>
+            <table>
+            {% for m in yarn.materials.all %}
+            <tr>
+                    <td> {{ m.name }} </td>
+            </tr>
+            {% endfor %}
+            </table>
+        </td>
+    </tr>
+</table>
+
 <h3>All colors of yarn {{ yarn.name }} in stash</h3>
 
 

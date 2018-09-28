@@ -12,7 +12,7 @@
 {% block title %}<h3>All yarns in stash</h3>{% endblock %}
 
 {% block content %}
-<a href="{% url 'new_yarn' %}">Add a new yarn</a>
+<a href="{% url 'new_yarn' %}"><h4>Add a new yarn</h4></a>
 
 <table class='tabs' id='tab1' style="width:70%">
   <tr>
@@ -26,10 +26,10 @@
     {% for yarn in yarns.all %}
 
 <tr>
-    <td><a href="{% url 'yarntype' yarn.id %}">{{ yarn.name }}</a> </td>
+    <td><a href="{% url 'yarn_detail' yarn.id %}">{{ yarn.name }}</a> </td>
     <td>{{ yarn.superwash }}</td>
     <td>{{ yarn.weight }}</td>
-    <td id="tab2">
+    <td >
         <table>
             {% for m in yarn.materials.all %}
             <tr>
@@ -39,7 +39,7 @@
         </table>
     </td>
     <td>
-        <table id="tab3">
+        <table>
             {% for c in yarn.color_set.all %}
                 <tr>
                     <td>{{ c.color }}</td>
@@ -49,7 +49,7 @@
         </table>
     </td>
     <td>
-        <table id="tab4">
+        <table>
             {% for c in yarn.color_set.all %}
                 <tr>
                     <td>{{ c.nr_in_stash }}</td>

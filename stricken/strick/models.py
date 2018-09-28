@@ -65,7 +65,7 @@ class Color(models.Model):
     color = models.CharField(max_length=50, null=True)
     col_nr = models.IntegerField(null=True)
     own_it = models.BooleanField(default=False)
-    nr_in_stash = models.IntegerField(blank=True, null=True)
+    quantity = models.IntegerField(blank=True, null=True)
     notes = models.CharField(max_length=200, blank=True)
     yarnshop = models.ForeignKey(Yarnshop, on_delete=models.CASCADE)
 

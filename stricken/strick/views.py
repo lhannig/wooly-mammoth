@@ -1,11 +1,11 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.core.exceptions import ValidationError
 from django.http import Http404
 from django.http import HttpResponse
 from django.template import loader
 from itertools import islice, chain
 from .models import Yarn, Manufacturer, Material, Needlesize, Color, Projectidea
-
+from .forms import YarnForm
 
 # Create your views here.
 
@@ -47,5 +47,15 @@ def show_color(request, yarntype_id, color_id):
 
 def new_yarn(request):
 
-    return render(request, 'strick/new_yarn.html')
+    if request.method == 'POST':
+        form = YarnForm(request.POST)
+        if form.is_valid():
+            yarn = form.save()
+
+            return redirect('yarn_detail', yarntype_id=yarn.pk)
+
+    else:
+        form = YarnForm()
+
+    return render(request, 'strick/new_yarn.html', {'form': form,})
 

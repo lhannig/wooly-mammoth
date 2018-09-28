@@ -2,34 +2,17 @@
     background-color: #eee;
 }
 
-.tabs tr:nth-child(even) #tab2 td {
-    background-color: #eee;
-}
-
 .tabs tr:nth-child(odd) {
     background-color: #fff;
 }
 
-.tabs tr:nth-child(odd) #tab2 td {
-    background-color: #fff;
-}
-
-.tabs tr:nth-child(even) #tab3 td {
+.tabs tr:nth-child(even) table td {
     background-color: #eee;
 }
 
-.tabs tr:nth-child(odd) #tab3 td {
+.tabs tr:nth-child(odd) table td {
     background-color: #fff;
 }
-
-.tabs tr:nth-child(even) #tab4 td {
-    background-color: #eee;
-}
-
-.tabs tr:nth-child(odd) #tab4 td {
-    background-color: #fff;
-}
-
 
 
 .tabs td {padding: 5px;}
