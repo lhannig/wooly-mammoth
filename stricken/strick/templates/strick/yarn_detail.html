@@ -2,6 +2,7 @@
 {% block content %}
 <h2>{{ yarn }}</h2>
 <a href="{% url 'add_color' %}"><h3>Add a new color!</h3></a>
+<a href="{% url 'edit_yarn'  yarn.id %}"><h3>Edit the yarn</h3></a>
 <table class="tabs">
     <tr>
         <th>Superwash</th>
@@ -38,12 +39,12 @@
         <th>Color Nr</th>
         <th>Notes</th>
         <th>Yarnshop</th>
-        <th>Nr of skeins in stash</th>
+        <th>Quantity</th>
     </tr>
 
     {% for c in colors.all %}
     <tr>
-        <td><a href="{% url 'color_detail' yarn.id c.id %}">{{c.color}}</a></td>
+        <td><a href="{% url 'color_detail' yarntype_id=yarn.id color_id=c.id %}">{{c.color}}</a></td>
         <td>{{c.col_nr}}</td>
         <td>{{c.notes}}</td>
         <td>{{c.yarnshop}}</td>

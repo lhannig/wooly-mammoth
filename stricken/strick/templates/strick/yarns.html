@@ -10,10 +10,9 @@
       <th>Weight</th>
       <th>Materials</th>
       <th>Available Colors</th>
-      <th>Available skeins</th>
+      <th>Quantity</th>
   </tr>
     {% for yarn in yarns.all %}
-
 <tr>
     <td><a href="{% url 'yarn_detail' yarn.id %}">{{ yarn.name }}</a> </td>
     <td>{{ yarn.superwash }}</td>
