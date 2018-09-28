@@ -5,7 +5,14 @@ from .models import Color, Yarn
 class ColorForm(forms.ModelForm):
     class Meta:
         model = Color
-        fields = ['quantity', ]
+        fields = ['yarntype',
+                  'color',
+                  'col_nr',
+                  'own_it',
+                  'quantity',
+                  'notes',
+                  'yarnshop',
+                  ]
 
 
 

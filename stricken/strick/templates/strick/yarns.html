@@ -1,18 +1,7 @@
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Yarns</title>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'strick/style.css' %}">
-</head>
-<body>
-{% block title %}<h3>All yarns in stash</h3>{% endblock %}
+{% extends 'strick/base.html' %}
 
 {% block content %}
-<a href="{% url 'new_yarn' %}"><h4>Add a new yarn</h4></a>
+<a href="{% url 'add_yarn' %}"><h4>Add a new yarn</h4></a>
 
 <table class='tabs' id='tab1' style="width:70%">
   <tr>
@@ -52,7 +41,7 @@
         <table>
             {% for c in yarn.color_set.all %}
                 <tr>
-                    <td>{{ c.nr_in_stash }}</td>
+                    <td>{{ c.quantity }}</td>
                 </tr>
             {% endfor %}
         </table>
@@ -62,6 +51,3 @@
 </table>
 
 {% endblock %}
-
-</body>
-</html>

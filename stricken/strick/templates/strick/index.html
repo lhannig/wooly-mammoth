@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Wooldatabase</title>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'strick/style.css' %}">
-</head>
-<body>
-<h1>Wooldatabase: yarns in stash, ideas for projects and finished Objects!</h1>
-<a href="{% url 'yarns' %}">All yarns in stash</a>
-</body>
-</html>
+
+{% extends 'strick/base.html' %}
+
+{% block content %}
+<a href="{% url 'yarns' %}"><h4>All yarns in stash</h4></a>
+<a href="{% url 'add_yarn' %}"><h4>Add a new yarn</h4></a>
+{% endblock %}

@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.template import loader
 from itertools import islice, chain
 from .models import Yarn, Manufacturer, Material, Needlesize, Color, Projectidea
-from .forms import YarnForm
+from .forms import YarnForm, ColorForm
 
 # Create your views here.
 
@@ -32,20 +32,20 @@ def projectideas(request):
     return render(request, 'strick/projectideas.html', {'projectideas': projectideas,})
 
 
-def show_one_yarntype(request, yarntype_id):
+def yarn_detail(request, yarntype_id):
     colors = Color.objects.filter(yarntype=yarntype_id).filter(own_it=True)
     yarn = Yarn.objects.get(pk=yarntype_id)
 
-    return render(request, 'strick/yarntype.html', {'colors': colors, 'yarn': yarn,})
+    return render(request, 'strick/yarn_detail.html', {'colors': colors, 'yarn': yarn,})
 
 
-def show_color(request, yarntype_id, color_id):
+def color_detail(request, yarntype_id, color_id):
     color = Color.objects.filter(yarntype_id=yarntype_id).get(pk=color_id)
 
     return render(request, 'strick/color.html', {'color': color,})
 
 
-def new_yarn(request):
+def add_yarn(request):
 
     if request.method == 'POST':
         form = YarnForm(request.POST)
@@ -57,5 +57,21 @@ def new_yarn(request):
     else:
         form = YarnForm()
 
-    return render(request, 'strick/new_yarn.html', {'form': form,})
+    return render(request, 'strick/add_yarn.html', {'form': form,})
+
+
+def add_color(request):
+
+    if request.method == 'POST':
+        form = ColorForm(request.POST)
+        if form.is_valid():
+            color = form.save()
+            yarn = Yarn.objects.get(color=color.pk)
+
+            return redirect('color_detail', color_id=color.pk, yarn_id=yarn.pk)
+
+    else:
+        form = ColorForm()
+
+    return render(request, 'strick/add_color.html', {'form': form,})
 
