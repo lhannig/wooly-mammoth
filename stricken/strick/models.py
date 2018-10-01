@@ -89,6 +89,7 @@ class Projectidea(models.Model):
     link = models.CharField(max_length=200, blank=True)
     notes = models.CharField(max_length=200, blank=True)
     yardage_needed = models.IntegerField(blank=True, null=True)
+    skeins_needed = models.IntegerField(blank=True, null=True)
     yarn = models.ManyToManyField(Yarn, blank=True)
     color = models.ManyToManyField(Color, blank=True)
     weight = models.ManyToManyField(Weight, blank=True)
