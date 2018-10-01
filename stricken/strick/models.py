@@ -68,7 +68,7 @@ class Color(models.Model):
     own_it = models.BooleanField(default=False)
     quantity = models.IntegerField(blank=True, null=True)
     notes = models.CharField(max_length=200, blank=True)
-    yarnshop = models.ForeignKey(Yarnshop, on_delete=models.CASCADE)
+    yarnshop = models.ForeignKey(Yarnshop, on_delete=models.CASCADE, blank=True)
 
 class Swatch(models.Model):
     name = models.CharField(max_length=50)

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,10 +21,18 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("WDB_SECRET_KEY", 'jy@ozkuq#2(hwq*x2mlt0p_7v8s-w=6l4dw0scbvm(g!_fd_q&')
+SECRET_KEY_DEFAULT = "please change me!"
+SECRET_KEY = os.getenv("WDB_SECRET_KEY", SECRET_KEY_DEFAULT)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+if not DEBUG and SECRET_KEY == SECRET_KEY_DEFAULT:
+    # Scream at admin!
+    print("Application not configured for production")
+    sys.exit(-1)
+
+
 
 ALLOWED_HOSTS = []
 
@@ -79,7 +88,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'stricken',
         'USER': 'postgres',
-        'PASSWORD': 'einoel123',
+        'PASSWORD': os.getenv('WDB_DB_PASSWORD'),
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
