@@ -49,6 +49,7 @@ class Yarn(models.Model):
 
     name = models.CharField(max_length=50, unique=True)
     superwash = models.BooleanField(default=False)
+    yardage = models.IntegerField(blank=True, null=True)
     notes = models.CharField(max_length=200, blank=True)
     manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
     wash = models.ForeignKey(Wash, on_delete=models.CASCADE)
@@ -87,9 +88,11 @@ class Projectidea(models.Model):
     name = models.CharField(max_length=50)
     link = models.CharField(max_length=200, blank=True)
     notes = models.CharField(max_length=200, blank=True)
+    yardage_needed = models.IntegerField(blank=True, null=True)
     yarn = models.ManyToManyField(Yarn, blank=True)
     color = models.ManyToManyField(Color, blank=True)
     weight = models.ManyToManyField(Weight, blank=True)
+
 
 
 class FinishedObject(models.Model):
