@@ -10,7 +10,7 @@ urlpatterns = [
          name='color_detail'),
     path('yarns/<int:yarntype_id>', views.yarn_detail, name='yarn_detail'),
     path('yarns/add_yarn', views.add_yarn, name='add_yarn'),
-    path('yarns/add_color/<int:yarntype_id>', views.add_color, name='add_color'),
+    path('yarns/<int:yarntype_id>/add_color', views.add_color, name='add_color'),
     path('yarns/edit_yarn/<int:yarntype_id>', views.edit_yarn, name='edit_yarn'),
     path('yarns/edit_color/<int:color_id>',
          views.edit_color, name='edit_color'),

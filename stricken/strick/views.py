@@ -17,16 +17,17 @@ def index(request):
     return HttpResponse(template.render(context, request))
 
 def yarns(request):
-    '''shows all yarns in stash'''
+    '''shows all yarns in stash and yarns currently unstashed'''
 
-    yarns = Yarn.objects.filter(color__own_it = True).distinct()
+    yarns = Yarn.objects.filter(color__own_it = True).distinct().order_by('name')
+    unstashed_yarns = Yarn.objects.filter(color__own_it = False).distinct()
 
     materials = Material.objects.all()
     colors = Color.objects.all()
 
     return render(request, 'strick/yarns.html',
                    {'yarns': yarns, 'materials': materials,
-                    'colors': colors,})
+                    'colors': colors, 'unstashed_yarns': unstashed_yarns})
 
 
 def yarn_detail(request, yarntype_id):
@@ -69,7 +70,8 @@ def add_color(request, yarntype_id):
         if form.is_valid():
 
             color = form.save(commit=False)
-            color.yarntype = yarntype_id
+            yarn = Yarn.objects.get(pk=yarntype_id)
+            color.yarntype = yarn
 
             color.save()
 
