@@ -1,12 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Projectideas</title>
-   {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'strick/style.css' %}">
-</head>
-<body>
+{%extends 'strick/base.html' %}
+
+{% block content %}
 <h3>Projectideas</h3>
-</body>
-</html>
+
+<table class="tabs">
+    <tr>
+        <th>Name</th>
+        <th>Link</th>
+        <th>Yarns</th>
+        <th>Colors</th>
+        <th>Weight</th>
+        <th>Notes</th>
+        <th>Needed yardage</th>
+        <th>Needed nr of skeins</th>
+
+    </tr>
+    {% for p in projectideas.all %}
+    <tr>
+        <td>{{ p.name }}</td>
+        <td>{{ p.link }}</td>
+        <td>
+                <table>
+                    {% for y in p.yarn_set.all %}
+                    <tr>
+                       <td>{{ y.name }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+        </td>
+
+        <td>
+                <table>
+                    {% for c in p.color_set.all %}
+                    <tr>
+                       <td>{{ c.name }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+        </td>
+
+        <td>
+            {% for w in p.weight_set.all %}
+            {{ w.name }}
+            {% endfor %}
+        </td>
+        <td> {{ p.notes }}</td>
+        <td>{{ p.yardage_needed }}</td>
+        <td>{{ p.skeins_needed }}</td>
+
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

@@ -14,5 +14,6 @@ urlpatterns = [
     path('yarns/edit_yarn/<int:yarntype_id>', views.edit_yarn, name='edit_yarn'),
     path('yarns/edit_color/<int:color_id>',
          views.edit_color, name='edit_color'),
+
                 ]
 

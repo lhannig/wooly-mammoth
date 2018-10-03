@@ -4,35 +4,34 @@ from django.http import Http404
 from django.http import HttpResponse
 from django.template import loader
 from itertools import islice, chain
-from .models import Yarn, Manufacturer, Material, Needlesize, Color, Projectidea
+from .models import Yarn, Manufacturer, Material, Needlesize, Color,\
+    Projectidea, Weight
 from .forms import YarnForm, ColorForm
 
 # Create your views here.
 
 def index(request):
+    '''returns index site'''
     template = loader.get_template('strick/index.html')
     context = {}
     return HttpResponse(template.render(context, request))
 
 def yarns(request):
+    '''shows all yarns in stash'''
 
     yarns = Yarn.objects.filter(color__own_it = True).distinct()
-    materials = Material.objects.all()
 
     materials = Material.objects.all()
     colors = Color.objects.all()
 
     return render(request, 'strick/yarns.html',
-                   {'yarns': yarns, 'materials': materials, 'colors': colors,})
-
-
-def projectideas(request):
-    projectideas = Projectidea.objects.all()
-
-    return render(request, 'strick/projectideas.html', {'projectideas': projectideas,})
+                   {'yarns': yarns, 'materials': materials,
+                    'colors': colors,})
 
 
 def yarn_detail(request, yarntype_id):
+    '''shows one single yarn type and its proberties'''
+
     colors = Color.objects.filter(yarntype=yarntype_id).filter(own_it=True)
     yarn = Yarn.objects.get(pk=yarntype_id)
 
@@ -40,12 +39,14 @@ def yarn_detail(request, yarntype_id):
 
 
 def color_detail(request, yarntype_id, color_id):
+    '''shows one color of a specific yarn'''
     color = Color.objects.filter(yarntype_id=yarntype_id).get(pk=color_id)
 
     return render(request, 'strick/color.html', {'color': color,})
 
 
 def add_yarn(request):
+    '''add a new yarn type'''
 
     if request.method == 'POST':
         form = YarnForm(request.POST)
@@ -61,6 +62,7 @@ def add_yarn(request):
 
 
 def add_color(request):
+    '''add a new color for an existing yarn type'''
 
     if request.method == 'POST':
         form = ColorForm(request.POST)
@@ -77,6 +79,7 @@ def add_color(request):
 
 
 def edit_yarn(request, yarntype_id):
+    '''edit an existing yarn type'''
 
     instance = get_object_or_404(Yarn, id=yarntype_id)
     form = YarnForm(request.POST or None, instance=instance)
@@ -87,6 +90,7 @@ def edit_yarn(request, yarntype_id):
 
 
 def edit_color(request, color_id):
+    '''edit an existing color'''
 
     instance = get_object_or_404(Color, id=color_id)
     yarntype_id = Yarn.objects.get(color=instance.id).id
@@ -96,3 +100,16 @@ def edit_color(request, color_id):
         form.save()
         return redirect('color_detail', yarntype_id=yarntype_id, color_id=instance.id)
     return render(request, 'strick/edit_color.html', {'form': form,})
+
+
+def projectideas(request):
+    '''show all existing projectideas'''
+
+    projectideas = Projectidea.objects.all()
+    yarns = Yarn.objects.all()
+    colors = Color.objects.all()
+    weights = Weight.objects.all()
+
+    return render(request, 'strick/projectideas.html',
+                  {'projectideas': projectideas, 'yarns': yarns,
+                   'colors': colors, 'weights': weights,})

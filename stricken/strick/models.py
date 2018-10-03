@@ -63,7 +63,7 @@ class Color(models.Model):
         return name
 
     yarntype = models.ForeignKey(Yarn, on_delete=models.CASCADE)
-    color = models.CharField(max_length=50, null=True)
+    color = models.CharField(max_length=50)
     col_nr = models.IntegerField(null=True)
     own_it = models.BooleanField(default=False)
     quantity = models.IntegerField(blank=True, null=True)
@@ -90,9 +90,9 @@ class Projectidea(models.Model):
     notes = models.CharField(max_length=200, blank=True)
     yardage_needed = models.IntegerField(blank=True, null=True)
     skeins_needed = models.IntegerField(blank=True, null=True)
-    yarn = models.ManyToManyField(Yarn, blank=True)
-    color = models.ManyToManyField(Color, blank=True)
-    weight = models.ManyToManyField(Weight, blank=True)
+    yarn = models.ForeignKey(Yarn, on_delete=models.CASCADE,  blank=True, null=True)
+    color = models.ManyToManyField(Color, blank=True, null=True)
+    weight = models.ForeignKey(Weight, on_delete=models.CASCADE, blank=True, null=True)
 
 
 
@@ -106,5 +106,5 @@ class FinishedObject(models.Model):
     notes = models.CharField(max_length=200, blank=True)
     yarn = models.ForeignKey(Yarn, on_delete=models.CASCADE)
     skeins_used = models.IntegerField(blank=True, null=True)
-    color = models.ManyToManyField(Color, blank=True)
+    color = models.ManyToManyField(Color, blank=True, null=True)
     needlsize = models.ManyToManyField(Needlesize)
