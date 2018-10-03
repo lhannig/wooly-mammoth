@@ -20,7 +20,7 @@ def yarns(request):
     '''shows all yarns in stash and yarns currently unstashed'''
 
     yarns = Yarn.objects.filter(color__own_it = True).distinct().order_by('name')
-    unstashed_yarns = Yarn.objects.filter(color__own_it = False).distinct()
+    unstashed_yarns = Yarn.objects.exclude(color__own_it = True).distinct()
 
     materials = Material.objects.all()
     colors = Color.objects.all()
