@@ -91,7 +91,7 @@ class Projectidea(models.Model):
     yardage_needed = models.IntegerField(blank=True, null=True)
     skeins_needed = models.IntegerField(blank=True, null=True)
     yarn = models.ForeignKey(Yarn, on_delete=models.CASCADE,  blank=True, null=True)
-    color = models.ManyToManyField(Color, blank=True, null=True)
+    color = models.ManyToManyField(Color, blank=True)
     weight = models.ForeignKey(Weight, on_delete=models.CASCADE, blank=True, null=True)
 
 
@@ -106,5 +106,5 @@ class FinishedObject(models.Model):
     notes = models.CharField(max_length=200, blank=True)
     yarn = models.ForeignKey(Yarn, on_delete=models.CASCADE)
     skeins_used = models.IntegerField(blank=True, null=True)
-    color = models.ManyToManyField(Color, blank=True, null=True)
+    color = models.ManyToManyField(Color, blank=True)
     needlsize = models.ManyToManyField(Needlesize)

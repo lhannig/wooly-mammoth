@@ -61,16 +61,19 @@ def add_yarn(request):
     return render(request, 'strick/add_yarn.html', {'form': form,})
 
 
-def add_color(request):
+def add_color(request, yarntype_id):
     '''add a new color for an existing yarn type'''
 
     if request.method == 'POST':
         form = ColorForm(request.POST)
         if form.is_valid():
-            color = form.save()
-            yarn = Yarn.objects.get(color=color.pk)
 
-            return redirect('color_detail', yarntype_id=yarn.pk, color_id=color.pk)
+            color = form.save(commit=False)
+            color.yarntype = yarntype_id
+
+            color.save()
+
+            return redirect('color_detail', yarntype_id=yarntype_id, color_id=color.pk)
 
     else:
         form = ColorForm()
