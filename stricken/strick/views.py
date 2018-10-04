@@ -17,10 +17,10 @@ def index(request):
     return HttpResponse(template.render(context, request))
 
 def yarns(request):
-    '''shows all yarns in stash and yarns currently unstashed'''
+    ''' shows all yarns in stash and yarns currently unstashed '''
 
-    yarns = Yarn.objects.filter(color__own_it = True).distinct().order_by('name')
-    unstashed_yarns = Yarn.objects.exclude(color__own_it = True).distinct()
+    yarns = Yarn.objects.filter(color__own_it=True).distinct().order_by('name')
+    unstashed_yarns = Yarn.objects.exclude(color__own_it=True).distinct()
 
     materials = Material.objects.all()
     colors = Color.objects.all()
@@ -102,8 +102,12 @@ def edit_color(request, color_id):
 
     form = ColorForm(request.POST or None, instance=instance)
     if form.is_valid():
+        if (instance.quantity <= 0):
+            instance.own_it = False
         form.save()
-        return redirect('color_detail', yarntype_id=yarntype_id, color_id=instance.id)
+
+        return redirect('color_detail', yarntype_id=yarntype_id,
+                        color_id=instance.id)
     return render(request, 'strick/edit_color.html', {'form': form,})
 
 

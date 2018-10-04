@@ -6,6 +6,7 @@
 <h3>All yarns currently in stash</h3>
 <table class='tabs' id='tab1' style="width:70%">
   <tr>
+      <th>Manufacturer</th>
       <th>Name</th>
       <th>superwash</th>
       <th>Weight</th>
@@ -15,6 +16,7 @@
   </tr>
     {% for yarn in yarns.all %}
 <tr>
+    <td>{{ yarn.manufacturer }}</td>
     <td><a href="{% url 'yarn_detail' yarn.id %}">{{ yarn.name }}</a> </td>
     <td>{{ yarn.superwash }}</td>
     <td>{{ yarn.weight }}</td>
@@ -31,7 +33,7 @@
         <table>
             {% for c in yarn.color_set.all %}
                 <tr>
-                    <td>{{ c.color }}</td>
+                    <td><a href="{% url 'edit_color'  c.id %}">{{ c.color }}</a></td>
                     <td> {{ c.col_nr }}</td>
                 </tr>
             {% endfor %}
@@ -53,14 +55,17 @@
 <h3>Yarns currently not in stash</h3>
 <table class='tabs'  style="width:70%">
   <tr>
+      <th>Manufacturer</th>
       <th>Name</th>
       <th>superwash</th>
       <th>Weight</th>
       <th>Materials</th>
+      <th>Colors</th>
 
   </tr>
     {% for yarn in unstashed_yarns.all %}
 <tr>
+    <td>{{ yarn.manufacturer }}</td>
     <td><a href="{% url 'yarn_detail' yarn.id %}">{{ yarn.name }}</a> </td>
     <td>{{ yarn.superwash }}</td>
     <td>{{ yarn.weight }}</td>
@@ -70,6 +75,16 @@
             <tr>
                     <td> {{ m.name }} </td>
             </tr>
+            {% endfor %}
+        </table>
+    </td>
+    <td>
+        <table>
+            {% for c in yarn.color_set.all %}
+                <tr>
+                    <td><a href="{% url 'edit_color'  c.id %}">{{ c.color }}</a></td>
+                    <td> {{ c.col_nr }}</td>
+                </tr>
             {% endfor %}
         </table>
     </td>
