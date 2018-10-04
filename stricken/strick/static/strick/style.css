@@ -1,23 +1,23 @@
-.tabs tr:nth-child(even) {
+table tr:nth-child(even) {
     background-color: #eee;
 }
 
-.tabs tr:nth-child(odd) {
+table tr:nth-child(odd) {
     background-color: #fff;
 }
 
-.tabs tr:nth-child(even) table td {
+table tr:nth-child(even) table td {
     background-color: #eee;
 }
 
-.tabs tr:nth-child(odd) table td {
+table tr:nth-child(odd) table td {
     background-color: #fff;
 }
 
 
-.tabs td {padding: 5px;}
+table td,th {padding: 5px;}
 
-.tabs {style="width:70%"}
+table {width:70%}
 
 input {margin: 5px}
 label {margin: 5px}
