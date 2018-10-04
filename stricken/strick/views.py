@@ -19,8 +19,11 @@ def index(request):
 def yarns(request):
     ''' shows all yarns in stash and yarns currently unstashed '''
 
-    yarns = Yarn.objects.filter(color__own_it=True).distinct().order_by('name')
-    unstashed_yarns = Yarn.objects.exclude(color__own_it=True).distinct()
+    yarns = Yarn.objects.filter(color__own_it=True).distinct().\
+                                order_by('manufacturer__name', 'name')
+
+    unstashed_yarns = Yarn.objects.exclude(color__own_it=True).distinct().\
+                                               order_by('manufacturer__name', 'name')
 
     materials = Material.objects.all()
     colors = Color.objects.all()
@@ -72,10 +75,13 @@ def add_color(request, yarntype_id):
             color = form.save(commit=False)
             yarn = Yarn.objects.get(pk=yarntype_id)
             color.yarntype = yarn
+            if (color.quantity > 0):
+                color.own_it = True
 
             color.save()
 
-            return redirect('color_detail', yarntype_id=yarntype_id, color_id=color.pk)
+            return redirect('color_detail', yarntype_id=yarntype_id,
+                            color_id=color.pk)
 
     else:
         form = ColorForm()
@@ -104,6 +110,8 @@ def edit_color(request, color_id):
     if form.is_valid():
         if (instance.quantity <= 0):
             instance.own_it = False
+        elif (instance.quantity > 0):
+            instance.own_it = True
         form.save()
 
         return redirect('color_detail', yarntype_id=yarntype_id,
