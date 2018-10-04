@@ -162,7 +162,7 @@ def edit_projectidea(request, projectidea_id):
 
     instance = get_object_or_404(Projectidea, id=projectidea_id)
 
-    form = ProjectideaForm(request.POSt or None, instance=instance)
+    form = ProjectideaForm(request.POST or None, instance=instance)
     if form.is_valid():
         form.save()
 

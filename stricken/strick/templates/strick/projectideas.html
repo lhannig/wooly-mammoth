@@ -18,7 +18,7 @@
     </tr>
     {% for p in projectideas.all %}
     <tr>
-        <td>{{ p.name }}</td>
+        <td><a href="{% url 'projectidea_detail' p.id %}">{{ p.name }}</a></td>
         <td>{{ p.link }}</td>
         <td>
                 <table>
