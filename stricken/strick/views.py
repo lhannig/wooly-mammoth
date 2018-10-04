@@ -6,7 +6,7 @@ from django.template import loader
 from itertools import islice, chain
 from .models import Yarn, Manufacturer, Material, Needlesize, Color,\
     Projectidea, Weight
-from .forms import YarnForm, ColorForm
+from .forms import YarnForm, ColorForm, ProjectideaForm
 
 # Create your views here.
 
@@ -23,7 +23,8 @@ def yarns(request):
                                 order_by('manufacturer__name', 'name')
 
     unstashed_yarns = Yarn.objects.exclude(color__own_it=True).distinct().\
-                                               order_by('manufacturer__name', 'name')
+                                               order_by('manufacturer__name',
+                                                        'name')
 
     materials = Material.objects.all()
     colors = Color.objects.all()
@@ -130,3 +131,41 @@ def projectideas(request):
     return render(request, 'strick/projectideas.html',
                   {'projectideas': projectideas, 'yarns': yarns,
                    'colors': colors, 'weights': weights,})
+
+def add_projectidea(request):
+    '''add a new idea for a project'''
+
+    if request.method == 'POST':
+        form = ProjectideaForm(request.POST)
+        if form.is_valid():
+            projectidea = form.save()
+
+            return redirect ('projectidea_detail',
+                             projectidea_id=projectidea.pk)
+
+    else:
+        form = ProjectideaForm()
+
+    return render(request, 'strick/add_projectidea.html', {'form': form},)
+
+def projectidea_detail(request, projectidea_id):
+    '''display one projectidea'''
+
+    projectidea = Projectidea.objects.get(pk=projectidea_id)
+    colors = Color.objects.all()
+
+    return render(request, 'strick/projectidea_detail.html',
+                  {'projectidea': projectidea, 'colors': colors})
+
+def edit_projectidea(request, projectidea_id):
+    '''edit an existing projectidea'''
+
+    instance = get_object_or_404(Projectidea, id=projectidea_id)
+
+    form = ProjectideaForm(request.POSt or None, instance=instance)
+    if form.is_valid():
+        form.save()
+
+        return redirect('projectidea_detail', projectidea_id=instance.id)
+
+    return render(request, 'strick/edit_projectidea.html', {'form': form})

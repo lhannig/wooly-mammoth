@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Color, Yarn
+from .models import Color, Yarn, Projectidea
 
 class ColorForm(forms.ModelForm):
     class Meta:
@@ -31,3 +31,15 @@ class YarnForm(forms.ModelForm):
 
 
 
+class ProjectideaForm(forms.ModelForm):
+    class Meta:
+        model = Projectidea
+        fields = ['name',
+                  'link',
+                  'notes',
+                  'yardage_needed',
+                  'skeins_needed',
+                  'yarn',
+                  'color',
+                  'weight',
+                  ]

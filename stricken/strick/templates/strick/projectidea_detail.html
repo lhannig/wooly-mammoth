@@ -1,0 +1,40 @@
+{% extends 'strick/base.html' %}
+
+{% block content %}
+<h2>{{ projectidea }}</h2>
+<a href="{% url 'edit_projectidea'  projectidea.id %}"><h3>Edit color</h3></a>
+
+<table class="tabs">
+    <tr>
+        <th>Name</th>
+        <th>Link</th>
+        <th>Notes</th>
+        <th>Yarn</th>
+        <th>Weight</th>
+        <th>Colors</th>
+        <th>Yardage needed</th>
+        <th>Skeins needed</th>
+
+    </tr>
+    <tr>
+        <td>{{ projectidea.name }}</td>
+        <td> {{ projectidea.link }}</td>
+        <td> {{ projectidea.notes }}</td>
+        <td> {{ projectidea.yarn }}</td>
+        <td> {{ projectidea.weight }}</td>
+
+        <td>
+            <table>
+                {% for c in projectidea.colors.all %}
+                <tr>
+                    <td>{{ c.name }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </td>
+
+        <td> {{ projectidea.yardage_needed }}</td>
+        <td> {{ projectidea.skeins_needed }}</td>
+    </tr>
+</table>
+{% endblock %}
