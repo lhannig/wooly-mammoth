@@ -130,7 +130,7 @@ def projectideas(request):
 
     return render(request, 'strick/projectideas.html',
                   {'projectideas': projectideas, 'yarns': yarns,
-                   'colors': colors, 'weights': weights,})
+                   'colors': colors, 'weights': weights})
 
 def add_projectidea(request):
     '''add a new idea for a project'''
@@ -152,7 +152,7 @@ def projectidea_detail(request, projectidea_id):
     '''display one projectidea'''
 
     projectidea = Projectidea.objects.get(pk=projectidea_id)
-    colors = Color.objects.all()
+    colors = Color.objects.filter(projectidea__id=projectidea_id)
 
     return render(request, 'strick/projectidea_detail.html',
                   {'projectidea': projectidea, 'colors': colors})

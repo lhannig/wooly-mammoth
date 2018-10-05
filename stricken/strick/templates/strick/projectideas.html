@@ -8,7 +8,7 @@
     <tr>
         <th>Name</th>
         <th>Link</th>
-        <th>Yarns</th>
+        <th>Yarn</th>
         <th>Colors</th>
         <th>Weight</th>
         <th>Notes</th>
@@ -21,29 +21,21 @@
         <td><a href="{% url 'projectidea_detail' p.id %}">{{ p.name }}</a></td>
         <td>{{ p.link }}</td>
         <td>
-                <table>
-                    {% for y in p.yarn_set.all %}
-                    <tr>
-                       <td>{{ y.name }}</td>
-                    </tr>
-                    {% endfor %}
-                </table>
+                {{ p.yarn }}
+        </td>
+        <td>
+            <table>
+            {% for c in p.color.all %}
+
+                <tr>
+                    <td>{{ c.color }}</td>
+                </tr>
+                {% endfor %}
+            </table>
         </td>
 
         <td>
-                <table>
-                    {% for c in p.color_set.all %}
-                    <tr>
-                       <td>{{ c.name }}</td>
-                    </tr>
-                    {% endfor %}
-                </table>
-        </td>
-
-        <td>
-            {% for w in p.weight_set.all %}
-            {{ w.name }}
-            {% endfor %}
+            {{ p.weight }}
         </td>
         <td> {{ p.notes }}</td>
         <td>{{ p.yardage_needed }}</td>
