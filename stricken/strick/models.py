@@ -77,7 +77,7 @@ class Swatch(models.Model):
     n_rows_washed = models.IntegerField(blank=True, null=True)
     n_stitches_washed = models.IntegerField(blank=True, null=True)
     needlesize = models.ForeignKey(Needlesize, on_delete=models.CASCADE)
-    yarn = models.ForeignKey(Yarn, on_delete=models.CASCADE)
+    yarn = models.ForeignKey(Yarn, null=True, on_delete=models.SET_NULL)
     notes = models.CharField(max_length=200, blank=True)
 
 
@@ -104,7 +104,7 @@ class FinishedObject(models.Model):
     for_who = models.CharField(max_length=50, blank=True)
     stichnr = models.IntegerField(blank=True, null=True)
     notes = models.CharField(max_length=200, blank=True)
-    yarn = models.ForeignKey(Yarn, on_delete=models.CASCADE)
+    yarn = models.ForeignKey(Yarn, null=True, on_delete=models.SET_NULL)
     skeins_used = models.IntegerField(blank=True, null=True)
     color = models.ManyToManyField(Color, blank=True)
     needlsize = models.ManyToManyField(Needlesize)
