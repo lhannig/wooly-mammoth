@@ -169,3 +169,13 @@ def edit_projectidea(request, projectidea_id):
         return redirect('projectidea_detail', projectidea_id=instance.id)
 
     return render(request, 'strick/edit_projectidea.html', {'form': form})
+
+def delete_projectidea(request):
+    """remove an object from db"""
+
+    projectidea_id = request.POST['projectidea_id']
+    project = Projectidea.objects.get(pk=projectidea_id)
+    project.delete()
+
+    return render(request, 'strick/confirmation.html')
+

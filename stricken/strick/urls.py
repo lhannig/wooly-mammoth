@@ -21,6 +21,9 @@ urlpatterns = [
     path('yarns/projectideas/<int:projectidea_id>', views.projectidea_detail,
          name='projectidea_detail'),
     path('yarns/edit_projectidea/<int:projectidea_id>', views.edit_projectidea,
-         name='edit_projectidea')
+         name='edit_projectidea'),
+    path('yarns/projectideas/delete_projectidea',
+         views.delete_projectidea, name='delete_projectidea'),
+
                 ]
 
