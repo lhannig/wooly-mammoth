@@ -11,13 +11,13 @@ from .forms import YarnForm, ColorForm, ProjectideaForm
 # Create your views here.
 
 def index(request):
-    '''returns index site'''
+    """returns index site"""
     template = loader.get_template('strick/index.html')
     context = {}
     return HttpResponse(template.render(context, request))
 
 def yarns(request):
-    ''' shows all yarns in stash and yarns currently unstashed '''
+    """shows all yarns in stash and yarns currently unstashed """
 
     yarns = Yarn.objects.filter(color__own_it=True).distinct().\
                                 order_by('manufacturer__name', 'name')
@@ -43,15 +43,25 @@ def yarn_detail(request, yarntype_id):
     return render(request, 'strick/yarn_detail.html', {'colors': colors, 'yarn':yarn,})
 
 
+def delete_yarn(request):
+    """ delete a yarntype from the database """
+
+    yarn_id = request.POST['yarn_id']
+    yarn = get_object_or_404(Yarn, pk=yarn_id)
+    yarn.delete()
+
+    return render(request, 'strick/confirmation.html')
+
+
 def color_detail(request, yarntype_id, color_id):
-    '''shows one color of a specific yarn'''
+    """hows one color of a specific yarn"""
     color = Color.objects.filter(yarntype_id=yarntype_id).get(pk=color_id)
 
     return render(request, 'strick/color.html', {'color': color,})
 
 
 def add_yarn(request):
-    '''add a new yarn type'''
+    """add a new yarn type"""
 
     if request.method == 'POST':
         form = YarnForm(request.POST)
@@ -67,7 +77,7 @@ def add_yarn(request):
 
 
 def add_color(request, yarntype_id):
-    '''add a new color for an existing yarn type'''
+    """add a new color for an existing yarn type"""
 
     if request.method == 'POST':
         form = ColorForm(request.POST)
@@ -91,7 +101,7 @@ def add_color(request, yarntype_id):
 
 
 def edit_yarn(request, yarntype_id):
-    '''edit an existing yarn type'''
+    """edit an existing yarn type"""
 
     instance = get_object_or_404(Yarn, id=yarntype_id)
     form = YarnForm(request.POST or None, instance=instance)
@@ -102,7 +112,7 @@ def edit_yarn(request, yarntype_id):
 
 
 def edit_color(request, color_id):
-    '''edit an existing color'''
+    """edit an existing color"""
 
     instance = get_object_or_404(Color, id=color_id)
     yarntype_id = Yarn.objects.get(color=instance.id).id
@@ -121,7 +131,7 @@ def edit_color(request, color_id):
 
 
 def projectideas(request):
-    '''show all existing projectideas'''
+    """show all existing projectideas"""
 
     projectideas = Projectidea.objects.all()
     yarns = Yarn.objects.all()
@@ -132,8 +142,9 @@ def projectideas(request):
                   {'projectideas': projectideas, 'yarns': yarns,
                    'colors': colors, 'weights': weights})
 
+
 def add_projectidea(request):
-    '''add a new idea for a project'''
+    """add a new idea for a project"""
 
     if request.method == 'POST':
         form = ProjectideaForm(request.POST)
@@ -148,17 +159,18 @@ def add_projectidea(request):
 
     return render(request, 'strick/add_projectidea.html', {'form': form},)
 
-def projectidea_detail(request, projectidea_id):
-    '''display one projectidea'''
 
-    projectidea = Projectidea.objects.get(pk=projectidea_id)
+def projectidea_detail(request, projectidea_id):
+    """display one projectidea"""
+
+    projectidea = get_object_or_404(Projectidea, pk=projectidea_id)
     colors = Color.objects.filter(projectidea__id=projectidea_id)
 
     return render(request, 'strick/projectidea_detail.html',
                   {'projectidea': projectidea, 'colors': colors})
 
 def edit_projectidea(request, projectidea_id):
-    '''edit an existing projectidea'''
+    """edit an existing projectidea"""
 
     instance = get_object_or_404(Projectidea, id=projectidea_id)
 
@@ -171,10 +183,10 @@ def edit_projectidea(request, projectidea_id):
     return render(request, 'strick/edit_projectidea.html', {'form': form})
 
 def delete_projectidea(request):
-    """remove an object from db"""
+    """remove a projectidea from db"""
 
     projectidea_id = request.POST['projectidea_id']
-    project = Projectidea.objects.get(pk=projectidea_id)
+    project = get_object_or_404(Projectidea, pk=projectidea_id)
     project.delete()
 
     return render(request, 'strick/confirmation.html')

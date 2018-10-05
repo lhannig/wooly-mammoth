@@ -3,6 +3,13 @@
 <h2>{{ yarn }}</h2>
 <a href="{% url 'add_color' yarn.id %}"><h3>Add a new color!</h3></a>
 <a href="{% url 'edit_yarn'  yarn.id %}"><h3>Edit the yarn</h3></a>
+
+<form method="post" action="delete_yarn" >
+    {% csrf_token %}
+    <input type="hidden" name="yarn_id" value="{{ yarn.id }}" >
+    <button type="submit"  name="Delete">Delete this yarn</button>
+</form>
+
 <table class="tabs">
     <tr>
         <th>Superwash</th>
