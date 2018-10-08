@@ -52,13 +52,14 @@ def yarn_detail(request, yarntype_id):
     })
 
 
-def delete_yarn(request, yarn_id):
-    """ delete a yarntype from the database """
+def delete_yarn(request, yarntype_id):
+    """ delete a yarntype from the database and all of its colors"""
 
-    yarn = get_object_or_404(Yarn, pk=yarn_id)
+    yarn = get_object_or_404(Yarn, pk=yarntype_id)
     yarn.delete()
+    messages.info(request, 'The yarn %s was successfully deleted' %yarn.name)
 
-    return render(request, 'strick/confirmation.html')
+    return redirect('yarns')
 
 
 def color_detail(request, yarntype_id, color_id):

@@ -3,6 +3,17 @@
 {% block content %}
 <a href="{% url 'add_yarn' %}"><h4>Add a new yarn</h4></a>
 
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+    {{ message }}
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
 <h3>All yarns currently in stash</h3>
 <table class='tabs' >
   <tr>

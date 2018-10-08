@@ -87,7 +87,7 @@ class Color(models.Model):
 
 class Swatch(models.Model):
     """swatch made with a yarn"""
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, unique=True)
     n_rows = models.IntegerField(blank=True, null=True)
     n_stitches = models.IntegerField(blank=True, null=True)
     n_rows_washed = models.IntegerField(blank=True, null=True)
@@ -100,7 +100,7 @@ class Swatch(models.Model):
 class Projectidea(models.Model):
     """idea for a project and yarn/color to use"""
 
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, unique=True)
     link = models.CharField(max_length=200, blank=True)
     notes = models.CharField(max_length=200, blank=True)
     yardage_needed = models.IntegerField(blank=True, null=True)
@@ -116,7 +116,7 @@ class Projectidea(models.Model):
 class FinishedObject(models.Model):
     """finished item"""
 
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, unique=True)
     for_who = models.CharField(max_length=50, blank=True)
     stichnr = models.IntegerField(blank=True, null=True)
     notes = models.CharField(max_length=200, blank=True)
