@@ -93,10 +93,21 @@ def add_color(request, yarntype_id):
         if form.is_valid():
 
             color = form.save(commit=False)
+            # check if color is already in db
+            if Color.objects.filter(color=color.color,
+                                    col_nr=color.col_nr,
+                                    yarntype=yarntype_id):
+                col = Color.objects.get(color=color.color,
+                                        yarntype=yarntype_id )
+                return redirect('edit_color', yarntype_id=col.yarntype.id,
+                                color_id=col.id)
+
+
             yarn = Yarn.objects.get(pk=yarntype_id)
             color.yarntype = yarn
             if color.quantity > 0:
                 color.own_it = True
+
 
             color.save()
 
