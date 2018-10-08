@@ -4,9 +4,8 @@
 <a href="{% url 'add_color' yarn.id %}"><h3>Add a new color!</h3></a>
 <a href="{% url 'edit_yarn'  yarn.id %}"><h3>Edit the yarn</h3></a>
 
-<form method="post" action="delete_yarn" >
+<form method="post" action="{% url 'yarns/delete_yarn' yarn.id }" >
     {% csrf_token %}
-    <input type="hidden" name="yarn_id" value="{{ yarn.id }}" >
     <button type="submit"  name="Delete">Delete this yarn</button>
 </form>
 
@@ -51,7 +50,7 @@
 
     {% for c in colors.all %}
     <tr>
-        <td><a href="{% url 'color_detail' yarntype_id=yarn.id color_id=c.id %}">{{c.color}}</a></td>
+        <td><a href="{% url 'color_detail' yarn.id c.id %}">{{c.color}}</a></td>
         <td>{{c.col_nr}}</td>
         <td>{{c.notes}}</td>
         <td>{{c.yarnshop}}</td>

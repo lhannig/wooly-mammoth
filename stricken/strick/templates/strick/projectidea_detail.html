@@ -2,10 +2,10 @@
 
 {% block content %}
 <h2>{{ projectidea }}</h2>
-{{ projectidea.id }}
+
 <a href="{% url 'edit_projectidea'  projectidea.id %}"><h3>Edit Project</h3></a>
 
-<form method="post" action="delete_projectidea" >
+<form method="post" action="{% url 'delete_projectidea'  projectidea.id %}" >
     {% csrf_token %}
     <input type="hidden" name="projectidea_id" value="{{ projectidea.id }}" >
     <button type="submit"  name="Delete">Delete this projectidea</button>

@@ -33,7 +33,7 @@
         <table>
             {% for c in yarn.color_set.all %}
                 <tr>
-                    <td><a href="{% url 'edit_color'  c.id %}">{{ c.color }}</a></td>
+                    <td><a href="{% url 'color_detail'  yarn.id c.id %}">{{ c.color }}</a></td>
                     <td> {{ c.col_nr }}</td>
                 </tr>
             {% endfor %}
@@ -82,7 +82,7 @@
         <table>
             {% for c in yarn.color_set.all %}
                 <tr>
-                    <td><a href="{% url 'edit_color'  c.id %}">{{ c.color }}</a></td>
+                    <td><a href="{% url 'color_detail'  yarn.id c.id %}">{{ c.color }}</a></td>
                     <td> {{ c.col_nr }}</td>
                 </tr>
             {% endfor %}

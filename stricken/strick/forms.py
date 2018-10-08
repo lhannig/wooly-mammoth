@@ -3,6 +3,7 @@ from django import forms
 from .models import Color, Yarn, Projectidea
 
 class ColorForm(forms.ModelForm):
+    """add/edit a colorway to a yarn"""
     class Meta:
         model = Color
         exclude = ('yarntype',)
@@ -18,6 +19,7 @@ class ColorForm(forms.ModelForm):
 
 
 class YarnForm(forms.ModelForm):
+    """add/edit a yarntype"""
     class Meta:
         model = Yarn
         fields = ['name',
@@ -32,6 +34,7 @@ class YarnForm(forms.ModelForm):
 
 
 class ProjectideaForm(forms.ModelForm):
+    """add/edit a projectidea"""
     class Meta:
         model = Projectidea
         fields = ['name',

@@ -3,28 +3,44 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
+
+    # Yarns
     path('yarns', views.yarns, name='yarns'),
-    path('projectideas', views.projectideas, name='projectideas'),
+
+
+
+    path('yarns/<int:yarntype_id>',
+         views.yarn_detail, name='yarn_detail'),
+
+    path('yarns/<int:yarntype_id>/edit', views.edit_yarn,
+         name='edit_yarn'),
+
+    path('yarns/add', views.add_yarn, name='add_yarn'),
+
+    path('yarns/<int:yarn_id>/delete', views.delete_yarn, name='delete_yarn'),
+
+
+    # Colors
     path('yarns/<int:yarntype_id>/colors/<int:color_id>',
          views.color_detail,
          name='color_detail'),
-    path('yarns/<int:yarntype_id>', views.yarn_detail, name='yarn_detail'),
-    path('yarns/add_yarn', views.add_yarn, name='add_yarn'),
-    path('yarns/<int:yarntype_id>/add_color', views.add_color,
+    path('yarns/<int:yarntype_id>/colors/add', views.add_color,
          name='add_color'),
-    path('yarns/edit_yarn/<int:yarntype_id>', views.edit_yarn,
-         name='edit_yarn'),
-    path('yarns/edit_color/<int:color_id>',
+    path('yarns/<int:yarntype_id>/colors/<int:color_id>/edit',
          views.edit_color, name='edit_color'),
-    path('yarns/add_projectidea', views.add_projectidea,
+
+    # Projectideas
+    path('projectideas', views.projectideas, name='projectideas'),
+    path('projectideas/add', views.add_projectidea,
          name='add_projectidea'),
-    path('yarns/projectideas/<int:projectidea_id>', views.projectidea_detail,
+    path('projectideas/<int:projectidea_id>',
+         views.projectidea_detail,
          name='projectidea_detail'),
-    path('yarns/edit_projectidea/<int:projectidea_id>', views.edit_projectidea,
+    path('projectideas/<int:projectidea_id>/edit',
+         views.edit_projectidea,
          name='edit_projectidea'),
-    path('yarns/projectideas/delete_projectidea',
+    path('projectideas/<int:projectidea_id>/delete',
          views.delete_projectidea, name='delete_projectidea'),
-    path('yarns/delete_yarn', views.delete_yarn, name='delete_yarn')
 
                 ]
 
