@@ -61,14 +61,6 @@ def delete_yarn(request, yarntype_id):
 
     return redirect('yarns')
 
-
-def color_detail(request, yarntype_id, color_id):
-    """shows one color of a specific yarn"""
-    color = Color.objects.filter(yarntype_id=yarntype_id).get(pk=color_id)
-
-    return render(request, 'strick/color.html', {'color': color,})
-
-
 def add_yarn(request):
     """Add a new yarn"""
     if request.method != "POST":
@@ -85,6 +77,25 @@ def add_yarn(request):
     return render(request, 'strick/add_yarn.html', {
         'form': form,
     })
+
+
+def edit_yarn(request, yarntype_id):
+    """edit an existing yarn type"""
+    yarn = get_object_or_404(Yarn, id=yarntype_id)
+    form = YarnForm(request.POST or None, instance=yarn)
+    if form.is_valid():
+        form.save()
+
+        return redirect('yarn_detail', yarntype_id=yarn.id)
+
+    return render(request, 'strick/edit_yarn.html', {'form': form, })
+
+def color_detail(request, yarntype_id, color_id):
+    """shows one color of a specific yarn"""
+    color = Color.objects.filter(yarntype_id=yarntype_id).get(pk=color_id)
+
+    return render(request, 'strick/color.html', {'color': color,})
+
 
 
 def add_color(request, yarntype_id):
@@ -122,17 +133,6 @@ def add_color(request, yarntype_id):
     return render(request, 'strick/add_color.html', {'form': form, })
 
 
-def edit_yarn(request, yarntype_id):
-    """edit an existing yarn type"""
-    yarn = get_object_or_404(Yarn, id=yarntype_id)
-    form = YarnForm(request.POST or None, instance=yarn)
-    if form.is_valid():
-        form.save()
-
-        return redirect('yarn_detail', yarntype_id=yarn.id)
-
-    return render(request, 'strick/edit_yarn.html', {'form': form, })
-
 
 def edit_color(request, yarntype_id, color_id):
     """edit an existing color"""
@@ -148,6 +148,14 @@ def edit_color(request, yarntype_id, color_id):
                         color_id=instance.id)
 
     return render(request, 'strick/edit_color.html', {'form': form, })
+
+def delete_color(request, yarntype_id, color_id):
+    """ delete a color from the db """
+    color = get_object_or_404(Color, pk=color_id)
+    color.delete()
+    messages.info(request, 'The color %s was successfully deleted' % color.color)
+
+    return redirect('yarn_detail', yarntype_id)
 
 
 def projectideas(request):

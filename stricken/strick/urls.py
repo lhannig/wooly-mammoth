@@ -27,6 +27,8 @@ urlpatterns = [
          name='add_color'),
     path('yarns/<int:yarntype_id>/colors/<int:color_id>/edit',
          views.edit_color, name='edit_color'),
+    path('yarns/<int:yarntype_id>/colors/<int:color_id>/delete',
+         views.delete_color, name='delete_color'),
 
     # Projectideas
     path('projectideas', views.projectideas, name='projectideas'),
