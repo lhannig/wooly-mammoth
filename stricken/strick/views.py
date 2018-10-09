@@ -205,8 +205,10 @@ def delete_projectidea(request, projectidea_id):
     """remove a projectidea from db"""
     project = get_object_or_404(Projectidea, pk=projectidea_id)
     project.delete()
+    messages.info(request,
+                  'The projectidea %s was successfully deleted' % project.name)
 
-    return render(request, 'strick/confirmation.html')
+    return redirect('projectideas')
 
 
 def edit_projectidea(request, projectidea_id):
