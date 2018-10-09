@@ -153,7 +153,8 @@ def delete_color(request, yarntype_id, color_id):
     """ delete a color from the db """
     color = get_object_or_404(Color, pk=color_id)
     color.delete()
-    messages.info(request, 'The color %s was successfully deleted' % color.color)
+    messages.info(request,
+                  'The color %s was successfully deleted' % color.color)
 
     return redirect('yarn_detail', yarntype_id)
 
