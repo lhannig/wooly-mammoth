@@ -6,6 +6,7 @@ from django.http import Http404
 from django.http import HttpResponse
 from django.template import loader
 from django.contrib import messages
+from django.forms import formset_factory
 
 from strick.models import Yarn, Manufacturer, Material, Needlesize, Color, \
                           Projectidea, Weight
@@ -176,6 +177,7 @@ def projectideas(request):
 
 def add_projectidea(request):
     """add a new idea for a project"""
+
     if request.method == 'POST':
         form = ProjectideaForm(request.POST)
         if form.is_valid():
@@ -188,6 +190,15 @@ def add_projectidea(request):
         form = ProjectideaForm()
 
     return render(request, 'strick/add_projectidea.html', {'form': form},)
+
+
+def load_colors(request):
+    """load colors depending on yarnchoice"""
+    yarn_id = request.GET.get('yarn')
+    colors = Color.objects.filter(yarntype=yarn_id).order_by('color')
+
+    return render(request, 'strick/dropdownlist_colors.html',
+                  {'colors': colors,})
 
 
 def projectidea_detail(request, projectidea_id):

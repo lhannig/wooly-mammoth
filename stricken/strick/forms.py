@@ -1,4 +1,5 @@
 from django import forms
+from django.forms import formset_factory
 
 from .models import Color, Yarn, Projectidea
 
@@ -42,7 +43,27 @@ class ProjectideaForm(forms.ModelForm):
                   'notes',
                   'yardage_needed',
                   'skeins_needed',
-                  'yarn',
-                  'color',
                   'weight',
+                  'yarn',
+                  'color'
                   ]
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['color'].queryset = Color.objects.none()
+
+        if 'yarn' in self.data:
+            try:
+                yarn_id = int(self.data.get('yarn'))
+                self.fields['color'].queryset = Color.objects.filter(yarntype=yarn_id).order_by('color')
+            except (ValueError, TypeError):
+                pass
+
+        elif self.instance.pk:
+            self.fields['color'].queryset = self.instance.yarn.coler_set.order_by('color')
+
+
+
+
+
+
