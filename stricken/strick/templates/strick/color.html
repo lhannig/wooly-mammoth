@@ -2,7 +2,9 @@
 
 {% block content %}
 <h2>{{ color }}</h2>
-<a href="{% url 'edit_color'  color.id %}"><h3>Edit color</h3></a>
+<a href="{% url 'add_color' color.yarntype.id %}"><h3>Add a new color!</h3></a>
+<a href="{% url 'edit_color' color.yarntype.id color.id  %}"><h3>Edit this color</h3></a>
+<a href="{% url 'delete_color' color.yarntype.id color.id  %}"><h3>Delete this color</h3></a>
 <a href="{% url 'yarn_detail' color.yarntype.id %}"><h3>Back</h3></a>
 <table>
     <tr>

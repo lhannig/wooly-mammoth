@@ -2,11 +2,13 @@
 
 {% block content %}
 
-<h3>Edit yarn!</h3>
+<h3>Edit projectidea!</h3>
 
     <form method="post" >
     {% csrf_token %}
     {{ form.as_p }}
    <button type="submit" name="Save">Save</button>
+        <input type="hidden" name="projectidea_id" value="{{ projectidea.id }}" >
 </form>
+
 {% endblock %}
