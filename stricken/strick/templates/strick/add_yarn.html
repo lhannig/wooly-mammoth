@@ -4,8 +4,10 @@
 
 
 <form method="post">
+    <div class="form-group">
     {% csrf_token %}
     {{ form.as_p }}
    <button type="submit" name="Save">Save</button>
+    </div>
 </form>
  {% endblock %}
