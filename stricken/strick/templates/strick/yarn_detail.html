@@ -1,14 +1,35 @@
 {% extends 'strick/base.html' %}
 {% block content %}
 <h2>{{ yarn }}</h2>
-<a href="{% url 'add_color' yarn.id %}"><h3>Add a new color!</h3></a>
-<a href="{% url 'edit_yarn'  yarn.id %}"><h3>Edit the yarn</h3></a>
 
-<form method="post" action="{% url 'delete_yarn' yarn.id %}">
+
+
+
+<div class="container-fluid">
+    <div class="row align-items-center">
+        <div class="col-lg-1">
+            <p><a class="btn btn-primary btn-lg"
+                  href="{% url 'edit_yarn'  yarn.id %}"
+                  role="button">Edit the yarn</a></p>
+        </div>
+        <div class="col-lg-1">
+           <p><a class="btn btn-success btn-lg"
+                 href="{% url 'add_color' yarn.id %}"
+                 role="button">Add a new color!</a></p>
+        </div>
+
+        <div class="col-lg-6"></div>
+        <div class="col-lg-4">
+            <form method="post" action="{% url 'delete_yarn' yarn.id %}">
     {% csrf_token %}
-    <button type="submit"  name="Delete">Delete this yarn</button>
+    <button class="btn btn-danger btn-lg" type="submit"  name="Delete">Delete this yarn</button>
     <input type="hidden" name="yarn_id" value="{{yarn.id}}">
 </form>
+        </div>
+</div>
+</div>
+
+
 
 
 
@@ -61,4 +82,6 @@
     </tr>
     {% endfor %}
 </table>
+
+
 {% endblock %}

@@ -3,7 +3,17 @@
 {% block content %}
 <h3>Projectideas</h3>
 
-<a href="{% url 'add_projectidea' %}"><h4>Add a new projectidea</h4></a>
+<div class="container-fluid">
+    <div class="row align-items-center">
+        <div class="col-lg-1">
+            <p><a class="btn btn-success btn-lg"
+                  href="{% url 'add_projectidea' %}"
+                  role="button">Add a new projectidea</a></p>
+        </div>
+    </div>
+</div>
+
+
 
 <table class="tabs">
     <tr>

@@ -138,15 +138,15 @@ def add_color(request, yarntype_id):
 def edit_color(request, yarntype_id, color_id):
     """edit an existing color"""
 
-    instance = get_object_or_404(Color, pk=color_id)
-    form = ColorForm(request.POST or None, instance=instance)
+    color = get_object_or_404(Color, pk=color_id)
+    form = ColorForm(request.POST or None, instance=color)
     if form.is_valid():
-        instance.own_it = instance.quantity > 0
+        color.own_it = color.quantity > 0
         form.save()
 
         return redirect('color_detail',
                         yarntype_id=yarntype_id,
-                        color_id=instance.id)
+                        color_id=color.id)
 
     return render(request, 'strick/edit_color.html', {'form': form, })
 

@@ -1,11 +1,35 @@
 {% extends 'strick/base.html' %}
 
 {% block content %}
-<h2>{{ color }}</h2>
-<a href="{% url 'add_color' color.yarntype.id %}"><h3>Add a new color!</h3></a>
-<a href="{% url 'edit_color' color.yarntype.id color.id  %}"><h3>Edit this color</h3></a>
-<a href="{% url 'delete_color' color.yarntype.id color.id  %}"><h3>Delete this color</h3></a>
 <a href="{% url 'yarn_detail' color.yarntype.id %}"><h3>Back</h3></a>
+<h2>{{ color }}</h2>
+
+
+<div class="container-fluid">
+    <div class="row align-items-center">
+        <div class="col-lg-1">
+            <p><a class="btn btn-primary btn-lg"
+                  href="{% url 'edit_color'  color.yarntype.id color.id  %}"
+                  role="button">Edit the color</a></p>
+        </div>
+        <div class="col-lg-1">
+           <p><a class="btn btn-success btn-lg"
+                 href="{% url 'add_color' color.yarntype.id %}"
+                 role="button">Add a new color!</a></p>
+        </div>
+
+        <div class="col-lg-6"></div>
+        <div class="col-lg-4">
+            <form method="post" action="{% url 'delete_color'  color.yarntype.id color.id  %}">
+    {% csrf_token %}
+    <button class="btn btn-danger btn-lg" type="submit"  name="Delete">Delete this color</button>
+</form>
+        </div>
+</div>
+</div>
+
+
+
 <table>
     <tr>
         <th>Color Nr</th>
