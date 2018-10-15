@@ -42,7 +42,11 @@ urlpatterns = [
          name='edit_projectidea'),
     path('projectideas/<int:projectidea_id>/delete',
          views.delete_projectidea, name='delete_projectidea'),
-    path('ajax/load-colors/', views.load_colors, name='ajax_load_colors')
+    path('ajax/load-colors/', views.load_colors, name='ajax_load_colors'),
+
+    # finished objects
+    path('finishedobjects', views.finishedobjects, name='finishedobjects'),
+
 
                 ]
 

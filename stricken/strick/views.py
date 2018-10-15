@@ -9,7 +9,7 @@ from django.contrib import messages
 from django.forms import formset_factory
 
 from strick.models import Yarn, Manufacturer, Material, Needlesize, Color, \
-                          Projectidea, Weight
+                          Projectidea, Weight, FinishedObject
 from strick.forms import YarnForm, ColorForm, ProjectideaForm
 
 # Create your views here.
@@ -236,4 +236,16 @@ def edit_projectidea(request, projectidea_id):
     return render(request, 'strick/edit_projectidea.html', {'form': form})
 
 
+def finishedobjects(request):
+    """show all finished objects"""
+    finishedobjects = FinishedObject.objects.all()
+    yarns = Yarn.objects.all()
+    needlesizes = Needlesize.objects.all()
+    colors = Color.objects.all()
 
+    return render(request, 'strick/finishedobjects.html',
+                  {'finishedobjects': finishedobjects, 'yarns':yarns,
+                            'needlesizes': needlesizes, 'colors':colors},)
+
+def add_fo(request):
+    """add a finished object"""

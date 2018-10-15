@@ -117,13 +117,13 @@ class FinishedObject(models.Model):
     """finished item"""
 
     name = models.CharField(max_length=50, unique=True)
-    for_who = models.CharField(max_length=50, blank=True)
+    recipient = models.CharField(max_length=50, blank=True)
     stichnr = models.IntegerField(blank=True, null=True)
     notes = models.CharField(max_length=200, blank=True)
     yarn = models.ForeignKey(Yarn, null=True, on_delete=models.SET_NULL)
     skeins_used = models.IntegerField(blank=True, null=True)
     color = models.ManyToManyField(Color, blank=True)
-    needlsize = models.ManyToManyField(Needlesize)
+    needlesize = models.ManyToManyField(Needlesize)
 
     def __str__(self):
         return self.name
