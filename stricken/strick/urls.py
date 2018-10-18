@@ -46,7 +46,13 @@ urlpatterns = [
 
     # finished objects
     path('finishedobjects', views.finishedobjects, name='finishedobjects'),
-
+    path('finishedobjects/add', views.add_fo, name='add_fo'),
+    path('finishedobjects/<int:finishedobject_id>',
+         views.finishedobject_detail, name='finishedobject_detail'),
+    path('finishedobjects/<int:finishedobject_id>/delete',
+         views.delete_finishedobject, name='delete_finishedobject'),
+    path('finishedobjects/<int:finishedobject_id>/edit',
+         views.edit_fo, name='edit_finishedobject'),
 
                 ]
 

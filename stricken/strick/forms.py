@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import formset_factory
 
-from .models import Color, Yarn, Projectidea
+from .models import Color, Yarn, Projectidea, FinishedObject
 
 class ColorForm(forms.ModelForm):
     """add/edit a colorway to a yarn"""
@@ -60,10 +60,39 @@ class ProjectideaForm(forms.ModelForm):
                 pass
 
         elif self.instance.pk:
-            self.fields['color'].queryset = self.instance.yarn.coler_set.order_by('color')
+            self.fields['color'].queryset = self.instance.yarn.color_set.order_by('color')
 
 
+class FinishedObjectForm(forms.ModelForm):
+    """add a new finished object"""
+    class Meta:
+        model = FinishedObject
+        fields = ['name',
+                  'recipient',
+                  'stichnr',
+                  'notes',
+                  'yarn',
+                  'color',
+                  'skeins_used',
+                  'needlesize',
+                  ]
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['color'].queryset = Color.objects.none()
+
+        if 'yarn' in self.data:
+            try:
+                yarn_id = int(self.data.get('yarn'))
+                self.fields['color'].queryset = Color.objects.filter(
+                    yarntype=yarn_id).order_by('color')
+            except (ValueError, TypeError):
+                pass
+
+        elif self.instance.pk:
+            self.fields[
+                'color'].queryset = self.instance.yarn.color_set.order_by(
+                'color')
 
 
 

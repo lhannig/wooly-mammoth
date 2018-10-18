@@ -7,7 +7,7 @@
     <div class="row align-items-center">
         <div class="col-lg-1">
             <p><a class="btn btn-success btn-lg"
-                  href="{% url 'add_yarn' %}"
+                  href="{% url 'add_fo' %}"
                   role="button">Add a new finished object</a></p>
         </div>
     </div>
@@ -30,7 +30,7 @@
     </tr>
     {% for fo in finishedobjects %}
     <tr>
-        <td>{{ fo.name }}</td>
+        <td><a href="{% url 'finishedobject_detail' fo.id %}">{{ fo.name }}</a></td>
         <td>{{ fo.recipient }}</td>
         <td>{{ fo.stichnr }}</td>
         <td>{{ fo.notes }}</td>

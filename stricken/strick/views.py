@@ -10,7 +10,7 @@ from django.forms import formset_factory
 
 from strick.models import Yarn, Manufacturer, Material, Needlesize, Color, \
                           Projectidea, Weight, FinishedObject
-from strick.forms import YarnForm, ColorForm, ProjectideaForm
+from strick.forms import YarnForm, ColorForm, ProjectideaForm, FinishedObjectForm
 
 # Create your views here.
 
@@ -54,7 +54,7 @@ def yarn_detail(request, yarntype_id):
 
 
 def delete_yarn(request, yarntype_id):
-    """ delete a yarntype from the database and all of its colors"""
+    """delete a yarntype from the database and all of its colors"""
 
     yarn = get_object_or_404(Yarn, pk=yarntype_id)
     yarn.delete()
@@ -183,7 +183,7 @@ def add_projectidea(request):
         if form.is_valid():
             projectidea = form.save()
 
-            return redirect ('projectidea_detail',
+            return redirect('projectidea_detail',
                              projectidea_id=projectidea.pk)
 
     else:
@@ -249,3 +249,51 @@ def finishedobjects(request):
 
 def add_fo(request):
     """add a finished object"""
+
+    if request.method == 'POST':
+        form = FinishedObjectForm(request.POST)
+        if form.is_valid():
+            finishedobject = form.save()
+
+            return redirect('finishedobject_detail',
+                            finishedobject_id=finishedobject.pk)
+
+    else:
+        form = FinishedObjectForm()
+
+    return render(request, 'strick/add_finishedobject.html', {'form': form}, )
+
+
+def finishedobject_detail(request, finishedobject_id):
+    """shows details of a selected finished object"""
+
+    finishedobject = FinishedObject.objects.get(pk=finishedobject_id)
+    colors = Color.objects.all()
+    needlesizes = Needlesize.objects.all()
+
+    return render(request, 'strick/finishedobject_detail.html',
+                  {'finishedobject': finishedobject, 'colors': colors,
+                   'needlesizes': needlesizes},)
+
+def delete_finishedobject(request, finishedobject_id):
+    """delete a finished object"""
+
+    fo = get_object_or_404(FinishedObject, pk=finishedobject_id)
+    fo.delete()
+    messages.info(request, 'The finished object %s was successfully deleted' % fo.name)
+
+    return redirect('finishedobjects')
+
+
+def edit_fo(request, finishedobject_id):
+    """edit an existing finished object"""
+
+    fo = get_object_or_404(FinishedObject, id=finishedobject_id)
+
+    form = FinishedObjectForm(request.POST or None, instance=fo)
+    if form.is_valid():
+        form.save()
+
+        return redirect('finishedobject_detail', finishedobject_id=fo.id)
+
+    return render(request, 'strick/edit_finishedobject.html', {'form': form})
