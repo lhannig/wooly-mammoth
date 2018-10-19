@@ -54,5 +54,10 @@ urlpatterns = [
     path('finishedobjects/<int:finishedobject_id>/edit',
          views.edit_fo, name='edit_finishedobject'),
 
+    # manufacturers
+    path('manufacturers', views.manufacturers, name='manufacturers'),
+    path('manufacturers/add', views.add_manufacturer, name='add_manufacturer'),
+
+
                 ]
 

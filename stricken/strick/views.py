@@ -10,7 +10,7 @@ from django.forms import formset_factory
 
 from strick.models import Yarn, Manufacturer, Material, Needlesize, Color, \
                           Projectidea, Weight, FinishedObject
-from strick.forms import YarnForm, ColorForm, ProjectideaForm, FinishedObjectForm
+from strick.forms import YarnForm, ColorForm, ProjectideaForm, FinishedObjectForm, ManufacturerForm
 
 # Create your views here.
 
@@ -297,3 +297,28 @@ def edit_fo(request, finishedobject_id):
         return redirect('finishedobject_detail', finishedobject_id=fo.id)
 
     return render(request, 'strick/edit_finishedobject.html', {'form': form})
+
+
+def manufacturers(request):
+    """show all manufacturers in db"""
+    manufacturers = Manufacturer.objects.all()
+
+    return render(request, 'strick/manufacturers.html', {'manufacturers':manufacturers})
+
+
+def add_manufacturer(request):
+    """add a new manufacturer"""
+
+    if request.method == 'POST':
+        form = ManufacturerForm(request.POST)
+        if form.is_valid():
+            manufacturer = form.save()
+
+            return redirect('manufacturers')
+
+    else:
+        form = ManufacturerForm()
+
+    return render(request, 'strick/add_manufacturer.html', {'form': form}, )
+
+
