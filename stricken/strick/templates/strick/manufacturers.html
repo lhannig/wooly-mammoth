@@ -21,10 +21,17 @@
 <table class="tabs">
     <tr>
         <th>Name</th>
+        <th></th>
     </tr>
     {% for manufacturer in manufacturers %}
     <tr>
         <td>{{manufacturer}}</td>
+        <td>
+                    <form method="post" action="{% url 'delete_manufacturer' manufacturer.id %}">
+    {% csrf_token %}
+    <button class="btn btn-danger btn-sm pull-right" type="submit" name="Delete">Delete this manufacturer</button>
+</form>
+        </td>
     </tr>
     {% endfor %}
 </table>

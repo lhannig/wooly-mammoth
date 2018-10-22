@@ -9,8 +9,8 @@ from django.contrib import messages
 from django.forms import formset_factory
 
 from strick.models import Yarn, Manufacturer, Material, Needlesize, Color, \
-                          Projectidea, Weight, FinishedObject
-from strick.forms import YarnForm, ColorForm, ProjectideaForm, FinishedObjectForm, ManufacturerForm
+                          Projectidea, Weight, FinishedObject, Yarnshop, Swatch
+from strick.forms import YarnForm, ColorForm, ProjectideaForm, FinishedObjectForm, ManufacturerForm, YarnshopForm
 
 # Create your views here.
 
@@ -321,4 +321,47 @@ def add_manufacturer(request):
 
     return render(request, 'strick/add_manufacturer.html', {'form': form}, )
 
+def delete_manufacturer(request, manufacturer_id):
+    """delete selected manufacturer from db"""
+
+    manufacturer = get_object_or_404(Manufacturer, pk=manufacturer_id)
+    manufacturer.delete()
+
+    messages.info(request, 'The manufacturer %s was successfully deleted' % manufacturer.name)
+
+    return redirect('manufacturers')
+
+
+def yarnshops(request):
+    """show all yarnshops"""
+
+    yarnshops = Yarnshop.objects.all()
+
+    return render(request, 'strick/yarnshops.html', {'yarnshops': yarnshops})
+
+
+def add_yarnshop(request):
+    """add a new yarnshop"""
+
+    if request.method == 'POST':
+        form = YarnshopForm(request.POST)
+        if form.is_valid():
+            yarnshop = form.save()
+
+            return redirect('yarnshops')
+
+    else:
+        form = YarnshopForm()
+
+    return render(request, 'strick/add_yarnshop.html', {'form': form})
+
+
+def delete_yarnshop(request, yarnshop_id):
+    """delete a specific yarnshop"""
+
+    shop = get_object_or_404(Yarnshop, pk=yarnshop_id)
+    shop.delete()
+    messages.info(request, 'The yarnshop %s was successfully deleted' % shop.name)
+
+    return redirect('yarnshops')
 

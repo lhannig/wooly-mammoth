@@ -57,7 +57,12 @@ urlpatterns = [
     # manufacturers
     path('manufacturers', views.manufacturers, name='manufacturers'),
     path('manufacturers/add', views.add_manufacturer, name='add_manufacturer'),
+    path('manufacturers/<int:manufacturer_id>/delete', views.delete_manufacturer, name='delete_manufacturer'),
 
+    # yarnshops
+    path('yarnshops', views.yarnshops, name='yarnshops'),
+    path('yarnshops/add', views.add_yarnshop, name='add_yarnshop'),
+    path('yarnshops/<int:yarnshop_id>/delete', views.delete_yarnshop, name='delete_yarnshop')
 
                 ]
 

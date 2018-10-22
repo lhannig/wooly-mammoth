@@ -91,11 +91,11 @@ WSGI_APPLICATION = 'stricken.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('WDB_NAME'),
-        'USER': os.getenv('WDB_USER'),
+        'NAME': os.getenv('WDB_DB_NAME'),
+        'USER': os.getenv('WDB_DB_USER'),
         'PASSWORD': os.getenv('WDB_DB_PASSWORD'),
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'HOST': os.getenv('WDB_DB_HOST'),
+        'PORT': os.getenv('WDB_DB_PORT'),
     }
 }
 
