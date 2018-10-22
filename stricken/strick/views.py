@@ -10,7 +10,8 @@ from django.forms import formset_factory
 
 from strick.models import Yarn, Manufacturer, Material, Needlesize, Color, \
                           Projectidea, Weight, FinishedObject, Yarnshop, Swatch
-from strick.forms import YarnForm, ColorForm, ProjectideaForm, FinishedObjectForm, ManufacturerForm, YarnshopForm
+from strick.forms import YarnForm, ColorForm, ProjectideaForm, FinishedObjectForm, ManufacturerForm,\
+                        YarnshopForm, SwatchForm, MaterialForm
 
 # Create your views here.
 
@@ -364,4 +365,71 @@ def delete_yarnshop(request, yarnshop_id):
     messages.info(request, 'The yarnshop %s was successfully deleted' % shop.name)
 
     return redirect('yarnshops')
+
+
+def swatches(request):
+    """show all swatches"""
+
+    swatches = Swatch.objects.all()
+
+    return render(request, 'strick/swatches.html', {'swatches': swatches})
+
+def add_swatch(request):
+    """add a swatch"""
+
+    if request.method == 'POST':
+        form = SwatchForm(request.POSt)
+        if form.is_valid():
+            swatch = form.save()
+
+            return redirect('swatches')
+
+    else:
+        form = SwatchForm()
+
+    return render(request, 'strick/add_swatch.html', {'form': form})
+
+
+def delete_swatch(request, swatch_id):
+    """delete swatch from db"""
+
+    swatch = get_object_or_404(Swatch, pk=swatch_id)
+    swatch.delete()
+    messages.info(request, 'The swatch %s was successfully deleted' % swatch.name)
+
+    return redirect('swatches')
+
+
+def materials(request):
+    """show all materials"""
+
+    materials = Material.objects.all()
+
+    return render(request, 'strick/materials.html', {'materials': materials})
+
+def add_material(request):
+    """ add a material"""
+    if request.method == 'POST':
+        form = MaterialForm(request.POST)
+        if form.is_valid():
+            material = form.save()
+
+            return redirect('materials')
+
+    else:
+        form = MaterialForm()
+
+    return render(request, 'strick/add_material.html', {'form': form})
+
+
+def delete_material(request, material_id):
+    """delete material from db"""
+    material = get_object_or_404(Material, pk=material_id)
+    material.delete()
+    messages.info(request, 'The material %s was successfully deleted' % material.name)
+
+    return redirect('materials')
+
+
+
 

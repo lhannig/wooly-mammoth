@@ -2,15 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e643b3c-3c68-47c0-a721-0ec0880fe2b5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/strick/templates/strick/add_yarnshop.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/strick/templates/strick/yarnshops.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strick/templates/strick/add_material.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strick/templates/strick/add_swatch.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strick/templates/strick/materials.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/strick/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/strick/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/strick/templates/strick/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/strick/templates/strick/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/strick/templates/strick/color.html" beforeDir="false" afterPath="$PROJECT_DIR$/strick/templates/strick/color.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/strick/templates/strick/manufacturers.html" beforeDir="false" afterPath="$PROJECT_DIR$/strick/templates/strick/manufacturers.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/strick/templates/strick/swatches.html" beforeDir="false" afterPath="$PROJECT_DIR$/strick/templates/strick/swatches.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/strick/templates/strick/yarn_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/strick/templates/strick/yarn_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/strick/templates/strick/yarns.html" beforeDir="false" afterPath="$PROJECT_DIR$/strick/templates/strick/yarns.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/strick/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/strick/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/strick/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/strick/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stricken/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/stricken/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,26 +35,26 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="14" />
-          <entry key="py" value="22" />
+          <entry key="html" value="31" />
+          <entry key="py" value="26" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="14" />
-          <entry key="Python" value="22" />
+          <entry key="HTML" value="31" />
+          <entry key="Python" value="26" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="1479" />
-          <entry key="py" value="7290" />
+          <entry key="html" value="2122" />
+          <entry key="py" value="9290" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="1479" />
-          <entry key="Python" value="7290" />
+          <entry key="HTML" value="2122" />
+          <entry key="Python" value="9290" />
         </counts>
       </usages-collector>
     </session>
@@ -58,95 +62,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/strick/views.py">
+        <entry file="file://$PROJECT_DIR$/strick/templates/strick/materials.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="326" column="54" selection-start-line="326" selection-start-column="54" selection-end-line="326" selection-end-column="54" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-                <marker date="1540216614736" expanded="true" signature="9596:11076" ph="..." />
-                <marker date="1540216614736" expanded="true" signature="9997:10279" ph="..." />
-                <marker date="1540216614736" expanded="true" signature="10302:10453" ph="..." />
-              </folding>
+            <state relative-caret-position="225">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/strick/models.py">
+        <entry file="file://$PROJECT_DIR$/strick/templates/strick/projectideas.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="56" column="4" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="15" />
+            <state relative-caret-position="300">
+              <caret line="20" column="21" lean-forward="true" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/strick/templates/strick/base.html">
+        <entry file="file://$PROJECT_DIR$/strick/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="725">
-              <caret line="50" column="14" lean-forward="true" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/strick/templates/strick/yarn_detail.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/strick/templates/strick/add_manufacturer.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="32" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/strick/templates/strick/add_yarnshop.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="14" lean-forward="true" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/strick/forms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="860">
-              <caret line="111" column="24" selection-start-line="111" selection-start-column="24" selection-end-line="111" selection-end-column="24" />
-              <folding>
-                <element signature="e#0#24#0" expanded="true" />
-                <marker date="1540214430756" expanded="true" signature="2743:2748" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/strick/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="755">
-              <caret line="59" column="110" selection-start-line="59" selection-start-column="110" selection-end-line="59" selection-end-column="110" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/strick/templates/strick/yarnshops.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="35" selection-end-column="7" />
+            <state relative-caret-position="345">
+              <caret line="74" column="64" lean-forward="true" selection-start-line="74" selection-start-column="64" selection-end-line="74" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -154,10 +91,62 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/strick/templates/strick/manufacturers.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="114" selection-start-line="31" selection-start-column="114" selection-end-line="31" selection-end-column="114" />
+            <state relative-caret-position="225">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/strick/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5011">
+              <caret line="419" column="8" selection-start-line="419" selection-start-column="8" selection-end-line="419" selection-end-column="8" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+                <marker date="1540220167786" expanded="true" signature="9647:12695" ph="..." />
+                <marker date="1540220167786" expanded="true" signature="10048:10330" ph="..." />
+                <marker date="1540220167786" expanded="true" signature="10353:10504" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/strick/templates/strick/yarns.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/strick/templates/strick/edit_color.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/strick/templates/strick/swatches.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/strick/templates/strick/color.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="58" selection-start-line="10" selection-start-column="58" selection-end-line="10" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/strick/templates/strick/add_color.html">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -182,7 +171,6 @@
         <option value="$PROJECT_DIR$/strick/models.py" />
         <option value="$PROJECT_DIR$/strick/templates/strick/index.html" />
         <option value="$PROJECT_DIR$/strick/tests.py" />
-        <option value="$PROJECT_DIR$/strick/templates/strick/yarns.html" />
         <option value="$PROJECT_DIR$/strick/templates/strick/finishedobjects.html" />
         <option value="$PROJECT_DIR$/strick/templates/strick/Manufacturers.html" />
         <option value="$PROJECT_DIR$/strick/templates/strick/edit_manufacturer.html" />
@@ -190,17 +178,25 @@
         <option value="$PROJECT_DIR$/strick/migrations/0005_auto_20181019_1459.py" />
         <option value="$PROJECT_DIR$/stricken/settings.py" />
         <option value="$PROJECT_DIR$/strick/templates/strick/add_yarnshop.html" />
-        <option value="$PROJECT_DIR$/strick/forms.py" />
         <option value="$PROJECT_DIR$/strick/templates/strick/yarnshops.html" />
+        <option value="$PROJECT_DIR$/strick/templates/strick/swatches.html" />
+        <option value="$PROJECT_DIR$/strick/templates/strick/add_swatch.html" />
+        <option value="$PROJECT_DIR$/strick/forms.py" />
         <option value="$PROJECT_DIR$/strick/urls.py" />
-        <option value="$PROJECT_DIR$/strick/templates/strick/manufacturers.html" />
         <option value="$PROJECT_DIR$/strick/views.py" />
+        <option value="$PROJECT_DIR$/strick/templates/strick/add_material.html" />
         <option value="$PROJECT_DIR$/strick/templates/strick/base.html" />
+        <option value="$PROJECT_DIR$/strick/templates/strick/color.html" />
+        <option value="$PROJECT_DIR$/strick/templates/strick/yarn_detail.html" />
+        <option value="$PROJECT_DIR$/strick/templates/strick/manufacturers.html" />
+        <option value="$PROJECT_DIR$/strick/templates/strick/materials.html" />
+        <option value="$PROJECT_DIR$/strick/templates/strick/yarns.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-1" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-388" />
+    <option name="y" value="55" />
     <option name="width" value="2046" />
     <option name="height" value="1117" />
   </component>
@@ -338,10 +334,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="0" width="2046" height="1117" extended-state="0" />
+    <frame x="-1" y="0" width="1682" height="1023" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25174826" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30769232" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -421,20 +417,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/strick/templates/strick/yarns.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/strick/templates/strick/projectideas.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/strick/templates/strick/finishedobjects.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -497,31 +479,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/strick/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="56" column="4" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/strick/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="860">
-          <caret line="111" column="24" selection-start-line="111" selection-start-column="24" selection-end-line="111" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-            <marker date="1540214430756" expanded="true" signature="2743:2748" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/strick/templates/strick/yarn_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/strick/templates/strick/add_yarnshop.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -529,47 +486,135 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/strick/templates/strick/add_yarn.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="1" selection-start-column="1" selection-end-line="34" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/strick/templates/strick/yarnshops.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="35" selection-end-column="7" />
+        <state>
+          <caret selection-end-line="40" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strick/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1049">
+          <caret line="14" column="29" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+            <marker date="1540219966092" expanded="true" signature="2761:2766" ph="..." />
+            <marker date="1540219966092" expanded="true" signature="3424:3535" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/strick/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="755">
-          <caret line="59" column="110" selection-start-line="59" selection-start-column="110" selection-end-line="59" selection-end-column="110" />
+        <state relative-caret-position="781">
+          <caret line="74" column="94" selection-start-line="74" selection-start-column="94" selection-end-line="74" selection-end-column="94" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/strick/templates/strick/manufacturers.html">
+    <entry file="file://$PROJECT_DIR$/strick/templates/strick/add_material.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="114" selection-start-line="31" selection-start-column="114" selection-end-line="31" selection-end-column="114" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/strick/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="326" column="54" selection-start-line="326" selection-start-column="54" selection-end-line="326" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <marker date="1540216614736" expanded="true" signature="9596:11076" ph="..." />
-            <marker date="1540216614736" expanded="true" signature="9997:10279" ph="..." />
-            <marker date="1540216614736" expanded="true" signature="10302:10453" ph="..." />
-          </folding>
+        <state relative-caret-position="165">
+          <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/strick/templates/strick/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="725">
-          <caret line="50" column="14" lean-forward="true" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
+        <state relative-caret-position="451">
+          <caret line="38" column="75" selection-start-line="38" selection-start-column="75" selection-end-line="38" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strick/templates/strick/add_swatch.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strick/templates/strick/yarn_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strick/templates/strick/manufacturers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strick/templates/strick/projectideas.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="21" lean-forward="true" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strick/templates/strick/materials.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strick/templates/strick/swatches.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strick/templates/strick/yarns.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strick/templates/strick/edit_color.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strick/templates/strick/color.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="58" selection-start-line="10" selection-start-column="58" selection-end-line="10" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strick/templates/strick/add_color.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strick/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5011">
+          <caret line="419" column="8" selection-start-line="419" selection-start-column="8" selection-end-line="419" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+            <marker date="1540220167786" expanded="true" signature="9647:12695" ph="..." />
+            <marker date="1540220167786" expanded="true" signature="10048:10330" ph="..." />
+            <marker date="1540220167786" expanded="true" signature="10353:10504" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strick/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="74" column="64" lean-forward="true" selection-start-line="74" selection-start-column="64" selection-end-line="74" selection-end-column="64" />
         </state>
       </provider>
     </entry>

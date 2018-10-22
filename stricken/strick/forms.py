@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import formset_factory
 
-from .models import Color, Yarn, Projectidea, FinishedObject, Manufacturer, Yarnshop
+from .models import Color, Yarn, Projectidea, FinishedObject, Manufacturer, Yarnshop, Swatch, Material
 
 class ColorForm(forms.ModelForm):
     """add/edit a colorway to a yarn"""
@@ -110,3 +110,26 @@ class YarnshopForm(forms.ModelForm):
         model = Yarnshop
         fields = ['name',
                   'notes']
+
+
+class SwatchForm(forms.ModelForm):
+    """create a new swatch"""
+    class Meta:
+        model = Swatch
+        fields = ['name',
+                  'n_rows',
+                  'n_stitches',
+                  'n_rows_washed',
+                  'n_stitches_washed',
+                  'needlesize',
+                  'yarn',
+                  'notes']
+
+
+class MaterialForm(forms.ModelForm):
+    """create a new Material"""
+    class Meta:
+        model = Material
+        fields = ['name', 'notes']
+
+

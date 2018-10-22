@@ -62,7 +62,17 @@ urlpatterns = [
     # yarnshops
     path('yarnshops', views.yarnshops, name='yarnshops'),
     path('yarnshops/add', views.add_yarnshop, name='add_yarnshop'),
-    path('yarnshops/<int:yarnshop_id>/delete', views.delete_yarnshop, name='delete_yarnshop')
+    path('yarnshops/<int:yarnshop_id>/delete', views.delete_yarnshop, name='delete_yarnshop'),
+
+    # swatches
+    path('swatches', views.swatches, name='swatches'),
+    path('swatches/add', views.add_swatch, name='add_swatch'),
+    path('swatches/<int:swatch_id>/delete', views.delete_swatch, name='delete_swatch'),
+
+    # materials
+    path('materials', views.materials, name='materials'),
+    path('materials/add', views.add_material, name='add_material'),
+    path('materials/<int:material_id>/delete', views.delete_material, name='delete_material'),
 
                 ]
 
