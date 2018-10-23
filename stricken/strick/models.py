@@ -76,7 +76,7 @@ class Color(models.Model):
     color = models.CharField(max_length=50)
     col_nr = models.IntegerField(null=True)
     own_it = models.BooleanField(default=False)
-    quantity = models.IntegerField(blank=True, null=True)
+    quantity = models.IntegerField(blank=True, null=True, default=0)
     notes = models.CharField(max_length=200, blank=True)
     yarnshop = models.ForeignKey(Yarnshop, on_delete=models.CASCADE, blank=True)
 
@@ -117,6 +117,7 @@ class FinishedObject(models.Model):
     """finished item"""
 
     name = models.CharField(max_length=50, unique=True)
+    projectidea = models.ForeignKey(Projectidea, on_delete=models.SET_NULL, null=True, blank=True)
     recipient = models.CharField(max_length=50, blank=True)
     stichnr = models.IntegerField(blank=True, null=True)
     notes = models.CharField(max_length=200, blank=True)
