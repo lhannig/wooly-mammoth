@@ -1,0 +1,35 @@
+{% extends 'Backend/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <h3>Edit the Manufacturer!</h3>
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+
+<div class="row">
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+
+    <form method="post" >
+    {% csrf_token %}
+    {{ form|crispy }}
+   <button type="submit" name="Save">Save</button>
+        <input type="hidden" name="manufacturer_id" value="{{ manufacturer.id }}">
+</form>
+                 </div>
+        <div class="col-lg-4"></div>
+    </div>
+</div>
+</div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{%extends 'Backend/base.html' %}
+
+{% block content %}
+<h3>Swatches</h3>
+
+<div class="container-fluid">
+    <div class="row align-items-center">
+        <div class="col-lg-1">
+            <p><a class="btn btn-success btn-lg"
+                  href="{% url 'add_swatch' %}"
+                  role="button">Add a new swatch</a></p>
+        </div>
+    </div>
+</div>
+
+
+
+<table class="tabs">
+    <tr>
+        <th>Name</th>
+        <th>Nr of rows</th>
+        <th>Nr of stitches</th>
+        <th>Nr of rows washed</th>
+        <th>Nr of stitches washed</th>
+        <th>Needlesize</th>
+        <th>Yarn</th>
+        <th>Notes</th>
+
+    </tr>
+    {% for swatch in swatches.all %}
+    <tr>
+        <td>{{ swatch.name }}</td>
+        <td>{{ swatch.n_rows }}</td>
+        <td>
+                {{ swatch.n_stitches }}
+        </td>
+        <td>{{ swatch.n_rows_washed}}</td>
+        <td>{{ swatch.n_stitches_washed }}</td>
+        <td> {{ s.needlesize }} </td>
+
+        <td>
+            {{ p.yarn }}
+        </td>
+        <td> {{ p.notes }}</td>
+          </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
