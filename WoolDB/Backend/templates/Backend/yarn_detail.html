@@ -1,0 +1,87 @@
+{% extends 'Backend/base.html' %}
+{% block content %}
+<h2>{{ yarn }}</h2>
+
+
+
+
+<div class="container-fluid">
+    <div class="row align-items-center">
+        <div class="col-lg-1">
+            <p><a class="btn btn-primary btn-lg"
+                  href="{% url 'edit_yarn'  yarn.id %}"
+                  role="button">Edit the yarn</a></p>
+        </div>
+        <div class="col-lg-1">
+           <p><a class="btn btn-success btn-lg "
+                 href="{% url 'add_color' yarn.id %}"
+                 role="button">Add a new color!</a></p>
+        </div>
+
+        <div class="col-lg-6"></div>
+        <div class="col-lg-4">
+            <form method="post" action="{% url 'delete_yarn' yarn.id %}">
+    {% csrf_token %}
+    <button class="btn btn-danger btn-lg" type="submit"  name="Delete">Delete this yarn</button>
+    <input type="hidden" name="yarn_id" value="{{yarn.id}}">
+</form>
+        </div>
+</div>
+</div>
+
+
+
+
+
+<table class="tabs">
+    <tr>
+        <th>Superwash</th>
+        <th>Notes</th>
+        <th>Manufacturer</th>
+        <th>Washing Instructions</th>
+        <th>Weight</th>
+        <th>Materials</th>
+    </tr>
+    <tr>
+        <td>{{ yarn.superwash }}</td>
+        <td>{{ yarn.notes }}</td>
+        <td>{{ yarn.manufacturer }}</td>
+        <td>{{ yarn.wash }}</td>
+        <td>{{ yarn.weight }}</td>
+        <td>
+            <table>
+            {% for m in yarn.materials.all %}
+            <tr>
+                    <td> {{ m.name }} </td>
+            </tr>
+            {% endfor %}
+            </table>
+        </td>
+    </tr>
+</table>
+
+<h3>All colors of yarn {{ yarn.name }} in stash</h3>
+
+
+<table class='tabs'>
+    <tr>
+        <th>Color</th>
+        <th>Color Nr</th>
+        <th>Notes</th>
+        <th>Yarnshop</th>
+        <th>Quantity</th>
+    </tr>
+
+    {% for c in colors.all %}
+    <tr>
+        <td><a href="{% url 'color_detail' yarn.id c.id %}">{{c.color}}</a></td>
+        <td>{{c.col_nr}}</td>
+        <td>{{c.notes}}</td>
+        <td>{{c.yarnshop}}</td>
+        <td>{{c.quantity}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+{% endblock %}

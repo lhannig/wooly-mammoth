@@ -1,0 +1,109 @@
+{% extends 'Backend/base.html' %}
+
+{% block content %}
+
+<h3>Here are the yarns!!!</h3>
+<div class="container-fluid">
+    <div class="row align-items-center">
+        <div class="col-lg-1">
+            <p><a class="btn btn-success btn-lg"
+                  href="{% url 'add_yarn' %}"
+                  role="button">Add a new yarn</a></p>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <h3 class="mt-2">All yarns currently in stash</h3>
+
+<table class='tabs' >
+  <tr>
+      <th>Manufacturer</th>
+      <th>Name</th>
+      <th>superwash</th>
+      <th>Weight</th>
+      <th>Materials</th>
+      <th>Available Colors</th>
+      <th>Quantity</th>
+  </tr>
+    {% for yarn in yarns.all %}
+<tr>
+    <td>{{ yarn.manufacturer }}</td>
+    <td><a href="{% url 'yarn_detail' yarn.id %}">{{ yarn.name }}</a> </td>
+    <td>{{ yarn.superwash }}</td>
+    <td>{{ yarn.weight }}</td>
+    <td >
+        <table>
+            {% for m in yarn.materials.all %}
+            <tr>
+                    <td> {{ m.name }} </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </td>
+    <td>
+        <table>
+            {% for c in yarn.color_set.all %}
+                <tr>
+                    <td><a href="{% url 'color_detail'  yarn.id c.id %}">{{ c.color }}</a></td>
+                    <td> {{ c.col_nr }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </td>
+    <td>
+        <table>
+            {% for c in yarn.color_set.all %}
+                <tr>
+                    <td>{{ c.quantity }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </td>
+</tr>
+{% endfor %}
+</table>
+</div>
+
+<div class="container-fluid">
+<h3>Yarns currently not in stash</h3>
+<table class='tabs' >
+  <tr>
+      <th>Manufacturer</th>
+      <th>Name</th>
+      <th>superwash</th>
+      <th>Weight</th>
+      <th>Materials</th>
+      <th>Colors</th>
+
+  </tr>
+    {% for yarn in unstashed_yarns.all %}
+<tr>
+    <td>{{ yarn.manufacturer }}</td>
+    <td><a href="{% url 'yarn_detail' yarn.id %}">{{ yarn.name }}</a> </td>
+    <td>{{ yarn.superwash }}</td>
+    <td>{{ yarn.weight }}</td>
+    <td >
+        <table>
+            {% for m in yarn.materials.all %}
+            <tr>
+                    <td> {{ m.name }} </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </td>
+    <td>
+        <table>
+            {% for c in yarn.color_set.all %}
+                <tr>
+                    <td><a href="{% url 'color_detail'  yarn.id c.id %}">{{ c.color }}</a></td>
+                    <td> {{ c.col_nr }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </td>
+</tr>
+{% endfor %}
+</table>
+</div>
+{% endblock %}

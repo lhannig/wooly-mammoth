@@ -1,0 +1,41 @@
+{% extends 'Backend/base.html' %}
+
+{% block content %}
+
+<h3>Yarnshops</h3>
+<div class="container-fluid">
+    <div class="row align-items-center">
+        <div class="col-lg-1">
+            <p><a class="btn btn-success btn-lg"
+                  href="{% url 'add_yarnshop' %}"
+                  role="button">Add a new yarnshop</a></p>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <h3 class="mt-2">All yarnshops</h3>
+
+</div>
+
+<table class="tabs">
+    <tr>
+        <th>Name</th>
+        <th>Notes</th>
+        <th></th>
+    </tr>
+    {% for yarnshop in yarnshops %}
+    <tr>
+        <td>{{yarnshop}}</td>
+        <td>{{ yarnshop.notes }}</td>
+        <td>
+             <form method="post" action="{% url 'delete_yarnshop' yarnshop.id %}">
+    {% csrf_token %}
+    <button class="btn btn-danger btn-sm pull-right" type="submit" name="Delete">Delete this yarnshop</button>
+    <input type="hidden" name="yarnshop_id" value="{{yarnshop.id}}">
+</form>
+        </td>
+    {% endfor %}
+</table>
+
+    {% endblock %}
