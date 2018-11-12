@@ -5,70 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/WoolDB.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/WoolDB.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/forms.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/migrations/0002_auto_20181005_1704.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/migrations/0003_auto_20181008_1459.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/migrations/0004_auto_20181015_1347.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/migrations/0005_auto_20181019_1459.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/migrations/0006_auto_20181023_0839.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/migrations/0007_auto_20181023_1528.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/migrations/0008_auto_20181023_1552.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/migrations/0009_auto_20181023_1554.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/migrations/0010_auto_20181023_1555.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/static/Backend/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/static/bootstrap/css/bootstrap-theme.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/static/bootstrap/css/bootstrap-theme.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/static/bootstrap/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/static/bootstrap/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/static/bootstrap/fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/static/bootstrap/fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/static/bootstrap/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/static/bootstrap/fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/static/bootstrap/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/static/bootstrap/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/static/misc/html5shiv.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/static/misc/jquery-3.3.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/static/misc/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/static/misc/respond.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/templates/backend/add_color.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/templates/backend/add_finishedobject.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/templates/backend/add_manufacturer.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/templates/backend/add_manufacturer_modal.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/templates/backend/add_material.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/templates/backend/add_projectidea.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/templates/backend/add_swatch.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/templates/backend/add_yarn.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/templates/backend/add_yarnshop.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/templates/backend/base.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/templates/backend/color.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/templates/backend/dropdownlist_colors.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/templates/backend/edit_color.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/templates/backend/edit_finishedobject.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/templates/backend/edit_manufacturer.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/templates/backend/edit_projectidea.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/templates/backend/edit_yarn.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/templates/backend/finishedobject_detail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/templates/backend/finishedobjects.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/templates/backend/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/templates/backend/manufacturers.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/templates/backend/materials.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/templates/backend/projectidea_detail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/templates/backend/projectideas.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/templates/backend/swatches.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/templates/backend/yarn_detail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/templates/backend/yarns.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/templates/backend/yarnshops.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoolDB/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/WoolDB/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoolDB/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/WoolDB/urls.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -115,6 +51,7 @@
     <session id="-1205131806">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.opened" value="2" />
@@ -211,8 +148,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WoolDB/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="91" column="16" selection-start-line="91" selection-start-column="16" selection-end-line="91" selection-end-column="16" />
+            <state relative-caret-position="360">
+              <caret line="58" column="48" lean-forward="true" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -818,8 +755,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WoolDB/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="91" column="16" selection-start-line="91" selection-start-column="16" selection-end-line="91" selection-end-column="16" />
+        <state relative-caret-position="360">
+          <caret line="58" column="48" lean-forward="true" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
         </state>
       </provider>
     </entry>
