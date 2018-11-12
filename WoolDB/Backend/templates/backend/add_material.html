@@ -1,4 +1,4 @@
- {% extends 'Backend/base.html' %}
+{% extends 'Backend/base.html' %}
  {% load crispy_forms_tags %}
 {% block content %}
 
@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-lg-4"></div>
         <div class="col-lg-4">
-            <h3>Add a new yarn!</h3>
+            <h3>Add a new material!</h3>
         </div>
         <div class="col-lg-4"></div>
     </div>
@@ -21,9 +21,8 @@
         <div class="col-lg-4"></div>
         <div class="col-lg-4">
            <form method="post" >
-    {% csrf_token %}
-    {{ form|crispy }}
-   <button class="btn btn-success btn-lg" type="submit" name="Save">Save</button>
+    <div id='form-errors'>{{ form.errors }}</div>
+    {% crispy form %}
 </form>
         </div>
         <div class="col-lg-4"></div>
@@ -32,4 +31,10 @@
 </div>
 </div>
 
+<script>
+function addRecord(){
+    opener.location.reload();
+    window.close();
+    }
+</script>
 {% endblock %}

@@ -1,0 +1,60 @@
+ {% extends 'Backend/base.html' %}
+ {% load crispy_forms_tags %}
+{% block content %}
+
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <h3>Add a new yarn!</h3>
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+
+<div class="row">
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+    <div id='form-errors'>{{ form.errors }}</div>
+    {% crispy form %}
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+</div>
+</div>
+</div>
+
+ <div class="modal" id="YarnModal" tabindex="-1" role="dialog"
+                                    aria-labelledby="YarnModalLabel" >
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title" id="YarnModalLabel">Add</h4>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                            <div class="modal-body">
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="button"  class="btn btn-primary">Save changes</button>
+                                            </div>
+                                            </div>
+                                        </div>
+ </div>
+
+
+
+
+
+
+
+{% endblock %}
+
