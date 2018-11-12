@@ -1,0 +1,70 @@
+{% extends 'backend/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <h3>Add a new projectidea!</h3>
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+
+<div class="row">
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+           <form method="post" id="ProjectideaForm" data-colors-url="{% url 'ajax_load_colors' %}" novalidate>
+    {% csrf_token %}
+    {% crispy form %}
+
+</form>
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+<script >
+    $("#id_yarn").change(function() {
+    var url = $("#ProjectideaForm").attr("data-colors-url");
+    var yarnId = $(this).val();
+
+    $.ajax({
+    url: url,
+    data: {'yarn': yarnId},
+    success: function(data){
+    $("#id_color").html(data);
+    }
+            });
+                 });
+
+    $(document).ready(function(){
+      $('#yarn').click(function(){
+    window.open(this.href, "myWindowName", "width=1000, height=600");
+    return false;
+  });
+     });
+
+function addRecord(){
+    if(opener)
+    opener.location.reload();
+    }
+</script>
+
+
+
+
+
+
+
+{% endblock %}
