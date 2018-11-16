@@ -24,6 +24,38 @@ class ColorForm(forms.ModelForm):
             'notes': Textarea(attrs={'cols': 80, 'rows': 5}),
         }
 
+    def __init__(self, *args, **kwargs):
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', 'Submit'))
+        self.helper.form_action = 'add_color'
+        self.helper.form_id = 'colorform'
+        self.helper.layout = Layout(
+            Fieldset(
+                'Enter color properties',
+                'color',
+                'col_nr',
+                'quantity',
+                'notes',
+                Div(
+                    Div(
+                        Div(
+                            Div(
+                                Field('yarnshop'), css_class="col-lg-10"),
+                            Div(
+                                HTML("""<div><label>Missing?</label>
+                                <button href="{% url 'add_yarnshop_modal' %}" type="button" data-toggle="modal"
+                                data-target="#ColorModal" id="yarnshopModalButton" class="btn btn-info btn-sm"
+                                role="button">Add Yarnshop!</button></div>
+                                """), css_class="col-lg-2 text-center"
+                            ),
+                        ),
+                        css_class="row no-gutters"),
+                    css_class="container-fluid"),
+
+            ),
+        )
+        super(ColorForm, self).__init__(*args, **kwargs)
 
 
 class YarnForm(forms.ModelForm):
@@ -58,15 +90,17 @@ class YarnForm(forms.ModelForm):
                     Div(
                         Div(
                             Div(
-                                Field('manufacturer'), css_class="col-lg-10"),
+                                Field('manufacturer'),
+                                css_class="col-lg-10"),
                             Div(
                                 HTML("""<div><label>Missing?</label>
                                     <button href="{% url 'add_manufacturer_modal' %}" type="button" data-toggle="modal" data-target="#YarnModal"
-                                     id="manufacturerModalButton",                           
-                                    class="btn btn-info btn-sm ",                                                                      
-                                    role="button">Add!</a></div>                                       
+                                     id="manufacturerModalButton"                          
+                                    class="btn btn-info btn-sm "                                                                      
+                                    role="button">Add!</button></div>                                                                                                             
                                     """), css_class="col-lg-2 text-center"
-                                )
+                                ),
+                            
                            ),
                         css_class="row no-gutters"),
                     css_class="container-fluid"),
@@ -79,9 +113,9 @@ class YarnForm(forms.ModelForm):
                                 Field('materials'), css_class="col-lg-10"),
                             Div(
                                 HTML("""<div><label>Missing?</label>
-                                    <button type="button" data-toggle="modal" data-target="#YarnModal"
+                                    <button href="{% url 'add_material_modal' %}" type="button" data-toggle="modal" data-target="#YarnModal"
                                      id="materialModalButton" class="btn btn-info btn-sm" 
-                                    role="button">Add!</a></div>"""), css_class="col-lg-2 text-center"
+                                    role="button">Add!</button></div>"""), css_class="col-lg-2 text-center"
                                 )
                            ),
                         css_class="row no-gutters"),
@@ -92,7 +126,73 @@ class YarnForm(forms.ModelForm):
         super(YarnForm, self).__init__(*args, **kwargs)
 
 
+class YarnForm2(forms.ModelForm):
+    """add/edit a yarntype"""
 
+    class Meta:
+        model = Yarn
+        fields = ['name',
+                  'superwash',
+                  'notes',
+                  'manufacturer',
+                  'wash',
+                  'weight',
+                  'materials',
+                  ]
+        widgets = {
+            'notes': Textarea(attrs={'cols': 80, 'rows': 5}),
+        }
+
+    def __init__(self, *args, **kwargs):
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', 'Submit'))
+        self.helper.form_action = 'add_yarn'
+        self.helper.form_id = 'yarnform'
+        self.helper.layout = Layout(
+            Fieldset(
+                'Enter yarn properties',
+                'name',
+                'superwash',
+                'notes',
+                Div(
+                    Div(
+                        Div(
+                            Div(
+                                Field('manufacturer'),
+                                css_class="col-lg-10"),
+                            Div(
+                                HTML("""<div><label>Missing?</label>
+                                    <button href="{% url 'add_manufacturer_modal' %}" type="button" data-toggle="modal" data-target="#ProjectideaModal2"
+                                     id="manufacturerModalButton"                          
+                                    class="btn btn-info btn-sm "                                                                      
+                                    role="button">Add this!</button></div>                                                                                                             
+                                    """), css_class="col-lg-2 text-center"
+                            ),
+
+                        ),
+                        css_class="row no-gutters"),
+                    css_class="container-fluid"),
+                'wash',
+                'weight',
+                Div(
+                    Div(
+                        Div(
+                            Div(
+                                Field('materials'), css_class="col-lg-10"),
+                            Div(
+                                HTML("""<div><label>Missing?</label>
+                                    <button href="{% url 'add_material_modal' %}" type="button" data-toggle="modal" data-target="#ProjectideaModal2"
+                                     id="materialModalButton" class="btn btn-info btn-sm" 
+                                    role="button">Add this!</button></div>"""), css_class="col-lg-2 text-center"
+                            )
+                        ),
+                        css_class="row no-gutters"),
+                    css_class="container-fluid"),
+            ),
+
+        )
+        super(YarnForm2, self).__init__(*args, **kwargs)
 
 
 class ProjectideaForm(forms.ModelForm):
@@ -117,19 +217,33 @@ class ProjectideaForm(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('submit', 'Submit'))
-        self.helper.form_action = 'add'
-        self.Layout = (
+        self.helper.form_action = 'add_projectidea'
+        self.helper.layout = Layout(
             Fieldset('Properties',
                      'name',
                      'notes',
                      'yardage_needed',
                      'skeins_needed',
                      'weight',
-                     'yarn',
-                     )
+                     Div(
+                         Div(
+                             Div(
+                                 Div(
+                                     Field('yarn'), css_class="col-lg-10"),
+                                 Div(
+                                     HTML("""<div><label>Missing?</label>
+                                    <button href="{% url 'add_yarn_modal' %}" type="button" data-toggle="modal" data-target="#ProjectideaModal"
+                                     id="projectideaModalButton" class="btn btn-info btn-sm" 
+                                    role="button">Add!</button></div>"""), css_class="col-lg-2 text-center"
+                                 )
+                             ),
+                             css_class="row no-gutters"),
+                         css_class="container-fluid"),
+                     ),
+                        'color',
         )
-
         super(ProjectideaForm, self).__init__(*args, **kwargs)
+
 
         super().__init__(*args, **kwargs)
         self.fields['color'].queryset = Color.objects.none()
@@ -143,6 +257,7 @@ class ProjectideaForm(forms.ModelForm):
 
         elif self.instance.pk:
             self.fields['color'].queryset = self.instance.yarn.color_set.order_by('color')
+
 
 
 
@@ -171,7 +286,7 @@ class FinishedObjectForm(forms.ModelForm):
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('submit', 'Submit'))
         self.helper.form_action = 'finished'
-        self.Layout = (
+        self.helper.layout = Layout(
             Fieldset('Properties',
                      'name',
                      'projectidea',
@@ -241,6 +356,20 @@ class YarnshopForm(forms.ModelForm):
             'notes': Textarea(attrs={'cols': 80, 'rows': 5}),
         }
 
+    def __init__(self, *args, **kwargs):
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper. add_input(Submit('submit', 'Submit'))
+        self.helper.form_id = 'yarnshopform'
+        self.helper.form_action = 'add_yarnshop'
+        self.helper.layout = Layout(
+            Fieldset(
+                '',
+                'name',
+                'notes'
+            )
+        )
+        super(YarnshopForm, self).__init__(*args, **kwargs)
 
 class SwatchForm(forms.ModelForm):
     """create a new swatch"""
@@ -272,6 +401,7 @@ class MaterialForm(forms.ModelForm):
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('submit', 'Submit'))
         self.helper.form_action = 'add_material'
+        self.helper.form_id = 'materialform'
         self.helper.layout = Layout(
             Fieldset(
                     '',
@@ -280,23 +410,3 @@ class MaterialForm(forms.ModelForm):
         super(MaterialForm, self).__init__(*args, **kwargs)
 
 
-class MaterialFormModal(forms.ModelForm):
-    """create a new Material"""
-    class Meta:
-        model = Material
-        fields = ['name', 'notes']
-        widgets = {
-            'notes': Textarea(attrs={'cols': 80, 'rows': 5}),
-        }
-
-    def __init__(self, *args, **kwargs):
-        self.helper = FormHelper()
-        self.helper.form_method = 'post'
-        self.helper.add_input(Submit('submit', 'Submit'))
-
-        self.helper.layout = Layout(
-            Fieldset(
-                    '',
-                    'name',
-                    'notes'))
-        super(MaterialFormModal, self).__init__(*args, **kwargs)

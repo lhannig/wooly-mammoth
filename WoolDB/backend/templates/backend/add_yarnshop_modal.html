@@ -1,4 +1,3 @@
-
 {% load crispy_forms_tags %}
 {% block content %}
 
@@ -29,20 +28,20 @@
 <script type="text/javascript">
 
 $(function() {
-  $('#manufacturerform').submit(function(event) {
+  $('#yarnshopform').submit(function(event) {
     event.preventDefault(); // Prevent the form from submitting via the browser
     var $form = $(this);
     console.log("On submit.");
     $.ajax({
       method: $form.attr('method'),
-      url:  "{% url 'add_manufacturer_modal' %}",
+      url:  "{% url 'add_yarnshop_modal' %}",
       data: $form.serialize(),
       success: function(response) {
           console.log(response);
           var option = '<option value="' + response.id +
             '" selected="selected">' + response.name + '</option>';
-          $('#id_manufacturer').append(option);
-          $('#YarnModal').modal('hide');
+          $('#id_yarnshop').append(option);
+          $('#ColorModal').modal('hide');
 
 
       },

@@ -18,6 +18,7 @@ urlpatterns = [
     path('yarns/<int:yarntype_id>/delete', views.delete_yarn,
          name='delete_yarn'),
     path('yarns/add/manufacturer', views.add_manufacturer_modal, name='add_manufacturer_modal'),
+    path('yarns/add/material', views.add_material_modal, name='add_material_modal'),
 
 
     # Colors
@@ -30,6 +31,7 @@ urlpatterns = [
          views.edit_color, name='edit_color'),
     path('yarns/<int:yarntype_id>/colors/<int:color_id>/delete',
          views.delete_color, name='delete_color'),
+    path('yarns/colors/add/yarnshop', views.add_yarnshop_modal, name='add_yarnshop_modal'),
 
 
     # Projectideas
@@ -47,6 +49,7 @@ urlpatterns = [
     path('ajax/load-colors/', views.load_colors, name='ajax_load_colors'),
     path('projectideas/<int:projectidea_id>/finished', views.projectidea_to_finishedobject,
          name='projectidea_to_finishedobject'),
+    path('projectideas/add/yarn', views.add_yarn_modal, name='add_yarn_modal'),
 
     # finished objects
     path('finishedobjects', views.finishedobjects, name='finishedobjects'),
@@ -57,6 +60,7 @@ urlpatterns = [
          views.delete_finishedobject, name='delete_finishedobject'),
     path('finishedobjects/<int:finishedobject_id>/edit',
          views.edit_fo, name='edit_finishedobject'),
+
 
     # manufacturers
     path('manufacturers', views.manufacturers, name='manufacturers'),

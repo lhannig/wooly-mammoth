@@ -43,7 +43,7 @@
         <th>Materials</th>
     </tr>
     <tr>
-        <td>{{ yarn.superwash }}</td>
+        <td>{{ yarn.superwash|yesno:"Yes, No" }}</td>
         <td>{{ yarn.notes }}</td>
         <td>{{ yarn.manufacturer }}</td>
         <td>{{ yarn.wash }}</td>
@@ -77,7 +77,7 @@
         <td><a href="{% url 'color_detail' yarn.id c.id %}">{{c.color}}</a></td>
         <td>{{c.col_nr}}</td>
         <td>{{c.notes}}</td>
-        <td>{{c.yarnshop}}</td>
+        <td>{{c.yarnshop|default:"-" }}</td>
         <td>{{c.quantity}}</td>
     </tr>
     {% endfor %}

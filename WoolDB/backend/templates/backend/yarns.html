@@ -30,7 +30,7 @@
 <tr>
     <td>{{ yarn.manufacturer }}</td>
     <td><a href="{% url 'yarn_detail' yarn.id %}">{{ yarn.name }}</a> </td>
-    <td>{{ yarn.superwash }}</td>
+    <td>{{ yarn.superwash|yesno:"Yes, No" }}</td>
     <td>{{ yarn.weight }}</td>
     <td >
         <table>
@@ -81,7 +81,7 @@
 <tr>
     <td>{{ yarn.manufacturer }}</td>
     <td><a href="{% url 'yarn_detail' yarn.id %}">{{ yarn.name }}</a> </td>
-    <td>{{ yarn.superwash }}</td>
+    <td>{{ yarn.superwash|yesno:"Yes, No" }}</td>
     <td>{{ yarn.weight }}</td>
     <td >
         <table>

@@ -40,7 +40,7 @@
     <tr>
         <td>{{ color.col_nr}}</td>
         <td> {{ color.notes }}</td>
-        <td> {{ color.yarnshop }}</td>
+        <td> {{ color.yarnshop|default:"-"  }}</td>
         <td> {{ color.quantity }}</td>
     </tr>
 </table>

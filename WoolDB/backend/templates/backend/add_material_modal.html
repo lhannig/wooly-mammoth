@@ -29,21 +29,20 @@
 <script type="text/javascript">
 
 $(function() {
-  $('#manufacturerform').submit(function(event) {
+  $('#materialform').submit(function(event) {
     event.preventDefault(); // Prevent the form from submitting via the browser
     var $form = $(this);
     console.log("On submit.");
     $.ajax({
       method: $form.attr('method'),
-      url:  "{% url 'add_manufacturer_modal' %}",
+      url:  "{% url 'add_material_modal' %}",
       data: $form.serialize(),
       success: function(response) {
           console.log(response);
           var option = '<option value="' + response.id +
             '" selected="selected">' + response.name + '</option>';
-          $('#id_manufacturer').append(option);
+          $('#id_materials').append(option);
           $('#YarnModal').modal('hide');
-
 
       },
       error: function(response) {

@@ -10,11 +10,12 @@ from django.forms import formset_factory
 from crispy_forms.utils import render_crispy_form
 from django.template.context_processors import csrf
 from django.template import RequestContext
+import bleach
 
 from backend.models import Yarn, Manufacturer, Material, Needlesize, Color, \
                           Projectidea, Weight, FinishedObject, Yarnshop, Swatch
 from backend.forms import YarnForm, ColorForm, ProjectideaForm, FinishedObjectForm, ManufacturerForm,\
-                        YarnshopForm, SwatchForm, MaterialForm
+                        YarnshopForm, SwatchForm, MaterialForm, YarnForm2
 
 # Create your views here.
 
@@ -343,15 +344,17 @@ def add_manufacturer(request):
 
 
 def add_manufacturer_modal(request):
-    """add a new manufacturer"""
+    """add a new manufacturer when creating a new yarn"""
     form = ManufacturerForm()
     if request.method == 'POST':
         form = ManufacturerForm(request.POST)
 
         if form.is_valid():
             manufacturer = form.save()
+            newname = bleach.clean(manufacturer.name)
 
-            return JsonResponse({'name': manufacturer.name,
+
+            return JsonResponse({'name': newname,
                                  'id': manufacturer.id})
         else:
 
@@ -362,7 +365,66 @@ def add_manufacturer_modal(request):
                   {'form': form}, )
 
 
+def add_material_modal(request):
+    """add a new material when creating a new yarn"""
 
+    form = MaterialForm()
+    if request.method == 'POST':
+        form = MaterialForm(request.POST)
+
+        if form.is_valid():
+            material = form.save()
+            newname = bleach.clean(material.name)
+
+
+            return JsonResponse({'name': newname,
+                                 'id': material.id})
+        else:
+
+            return JsonResponse({'error': form.errors}, status=400)
+
+    return render(request, 'backend/add_material_modal.html',
+                  {'form': form}, )
+
+
+def add_yarnshop_modal(request):
+    """add a new yarnshop when creating a new color"""
+    form = YarnshopForm()
+    if request.method == 'POST':
+        form = YarnshopForm(request.POST)
+
+        if form.is_valid():
+            yarnshop = form.save()
+            newname = bleach.clean(yarnshop.name)
+
+            return JsonResponse({'name': newname, 'id': yarnshop.id})
+
+        else:
+
+            return JsonResponse({'error': form.errors}, status=400)
+
+    return render(request, 'backend/add_yarnshop_modal.html', {'form': form},)
+
+
+def add_yarn_modal(request):
+    """add a yarn when creating a new projectidea, uses different form because of the buttons"""
+    form = YarnForm2()
+
+
+    if request.method == 'POST':
+        form = YarnForm(request.POST)
+
+        if form.is_valid():
+            yarn = form.save()
+            newname = bleach.clean(yarn.name)
+
+            return JsonResponse({'name': newname, 'id': yarn.id})
+
+        else:
+
+            return JsonResponse({'error': form.errors}, status=400)
+
+    return render(request, 'backend/add_yarn_modal.html', {'form': form})
 
 
 
