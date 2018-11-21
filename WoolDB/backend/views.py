@@ -15,7 +15,7 @@ import bleach
 from backend.models import Yarn, Manufacturer, Material, Needlesize, Color, \
                           Projectidea, Weight, FinishedObject, Yarnshop, Swatch
 from backend.forms import YarnForm, ColorForm, ProjectideaForm, FinishedObjectForm, ManufacturerForm,\
-                        YarnshopForm, SwatchForm, MaterialForm, YarnForm2
+                        YarnshopForm, SwatchForm, MaterialForm
 
 # Create your views here.
 
@@ -194,9 +194,10 @@ def projectideas(request):
 
 def add_projectidea(request):
     """add a new idea for a project"""
-
+    yarnshopform = YarnshopForm()
     if request.method == 'POST':
         form = ProjectideaForm(request.POST)
+
         if form.is_valid():
             projectidea = form.save()
 
@@ -206,7 +207,7 @@ def add_projectidea(request):
     else:
         form = ProjectideaForm()
 
-    return render(request, 'backend/add_projectidea.html', {'form': form},)
+    return render(request, 'backend/add_projectidea.html', {'form': form, 'yarnshopform': yarnshopform},)
 
 
 def load_colors(request):
@@ -244,7 +245,9 @@ def edit_projectidea(request, projectidea_id):
   #  projectidea_id = request.POST.get('projectidea_id')
     instance = get_object_or_404(Projectidea, id=projectidea_id)
 
+
     form = ProjectideaForm(request.POST or None, instance=instance)
+    form.helper.form_action = 'edit'
     if form.is_valid():
         form.save()
 
@@ -365,6 +368,24 @@ def add_manufacturer_modal(request):
                   {'form': form}, )
 
 
+def add_yarnshop_collapse(request):
+    """open yarnshop form in a collapsible"""
+    form = YarnshopForm()
+    if request.method == 'POST':
+        form = YarnshopForm(request.POST)
+
+        if form.is_valid():
+            yarnshop = form.save()
+            newname = bleach.clean(yarnshop.name)
+
+            return JsonResponse({'name': newname,
+                                 'id': yarnshop.id})
+        else:
+            return JsonResponse({'error': form.errors}, status=400)
+
+    return render(request, 'backend/add_yarnshop_collapse.html', {'form': form})
+
+
 def add_material_modal(request):
     """add a new material when creating a new yarn"""
 
@@ -407,9 +428,8 @@ def add_yarnshop_modal(request):
 
 
 def add_yarn_modal(request):
-    """add a yarn when creating a new projectidea, uses different form because of the buttons"""
-    form = YarnForm2()
-
+    """add a yarn when creating a new projectidea"""
+    form = YarnForm()
 
     if request.method == 'POST':
         form = YarnForm(request.POST)
@@ -425,6 +445,24 @@ def add_yarn_modal(request):
             return JsonResponse({'error': form.errors}, status=400)
 
     return render(request, 'backend/add_yarn_modal.html', {'form': form})
+
+def add_color_modal(request):
+    """add a color when creating a new projectidea"""
+
+    form = ColorForm()
+    if request.method == 'POST':
+        form = ColorForm(request.POST)
+
+        if form.is_valid():
+            color = form.save()
+            newname = bleach.clean(color.name)
+
+            return JsonResponse({'name': newname, 'id': color.id})
+
+        else:
+            return JsonResponse({'error': form.errors}, status=400)
+
+    return render(request, 'backend/add_color_modal.html', {'form': form})
 
 
 
@@ -477,14 +515,18 @@ def swatches(request):
     """show all swatches"""
 
     swatches = Swatch.objects.all()
+    needlesizes = Needlesize.objects.all()
+    yarns = Yarn.objects.all()
 
-    return render(request, 'backend/swatches.html', {'swatches': swatches})
+    return render(request, 'backend/swatches.html', {'swatches': swatches,
+                                                     'needlesizes': needlesizes,
+                                                     'yarns': yarns})
 
 def add_swatch(request):
     """add a swatch"""
 
     if request.method == 'POST':
-        form = SwatchForm(request.POSt)
+        form = SwatchForm(request.POST)
         if form.is_valid():
             swatch = form.save()
 

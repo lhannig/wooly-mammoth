@@ -2,25 +2,8 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
- <div class="modal-dialog"  >
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="YarnModalLabel">Add</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        <div class="modal-body">
-            {% crispy form %}
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-        </div>
-    </div>
- </div>
+{% crispy form %}
+
 
 
 
@@ -33,6 +16,7 @@ $(function() {
     event.preventDefault(); // Prevent the form from submitting via the browser
     var $form = $(this);
     console.log("On submit.");
+    console.log('submitting add_manufacturer_modal');
     $.ajax({
       method: $form.attr('method'),
       url:  "{% url 'add_manufacturer_modal' %}",

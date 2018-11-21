@@ -28,10 +28,27 @@
 <script type="text/javascript">
 
 $(function() {
+    // open manufacturerform and load form from template
+    $('#manufacturerModalButton').click(function(){
+        console.log('from add_yarn_modal');
+        $('#ProjectideaModal2 .modal-body').load("{% url "add_manufacturer_modal" %}", function(){
+            $('#ProjectideaModal2').modal({show:true});
+        });
+    });
+    $('#materialModalButton').click(function(){
+        $('#ProjectideaModal2 .modal-body').load("{% url "add_material_modal" %}", function(){
+            $('#ProjectideaModal2').modal({show:true});
+        });
+    });
+
+
+
+  // save the new yarn
   $('#yarnform').submit(function(event) {
     event.preventDefault(); // Prevent the form from submitting via the browser
     var $form = $(this);
     console.log("On submit.");
+    alert('submitting add_yarn_modal');
     $.ajax({
       method: $form.attr('method'),
       url:  "{% url 'add_yarn_modal' %}",

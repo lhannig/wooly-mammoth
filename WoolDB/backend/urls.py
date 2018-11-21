@@ -50,7 +50,8 @@ urlpatterns = [
     path('projectideas/<int:projectidea_id>/finished', views.projectidea_to_finishedobject,
          name='projectidea_to_finishedobject'),
     path('projectideas/add/yarn', views.add_yarn_modal, name='add_yarn_modal'),
-
+    path('projectideas/add/color', views.add_color_modal, name='add_color_modal'),
+    path('projectideas/add/yarnshop', views.add_yarnshop_collapse, name='add_yarnshop_collapse'),
     # finished objects
     path('finishedobjects', views.finishedobjects, name='finishedobjects'),
     path('finishedobjects/add', views.add_fo, name='add_fo'),
@@ -73,6 +74,7 @@ urlpatterns = [
     path('yarnshops', views.yarnshops, name='yarnshops'),
     path('yarnshops/add', views.add_yarnshop, name='add_yarnshop'),
     path('yarnshops/<int:yarnshop_id>/delete', views.delete_yarnshop, name='delete_yarnshop'),
+
 
     # swatches
     path('swatches', views.swatches, name='swatches'),

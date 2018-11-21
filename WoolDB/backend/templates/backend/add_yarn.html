@@ -52,7 +52,20 @@
 
 
 
+<script>
+  $('#manufacturerModalButton').click(function(){
+  console.log('from add_yarn');
+  $('.modal-body').load("{% url "add_manufacturer_modal" %}", function(){
+  $('#YarnModal').modal({show:true});
+  });
+    });
+$('#materialModalButton').click(function(){
+  $('.modal-body').load("{% url "add_material_modal" %}", function(){
+  $('#YarnModal').modal({show:true});
+  });
+    });
 
+</script>
 
 
 

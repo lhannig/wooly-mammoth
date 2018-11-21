@@ -26,22 +26,31 @@
 {% endblock %}
 
 <script type="text/javascript">
-
 $(function() {
-  $('#manufacturerform').submit(function(event) {
+
+ // open yarnshopform in a collapsible
+    $('#yarnshopdiv').on('hidden.bs.collapse', function ()
+        $('#yarnshopdiv').load("{% url 'add_yarnshop_collapse' %}", function(){
+        $('#yarnshopdiv').collapse.show();
+        });
+    });
+
+ // save the new color
+  $('#colorform').submit(function(event) {
     event.preventDefault(); // Prevent the form from submitting via the browser
     var $form = $(this);
     console.log("On submit.");
+    alert('submitting add_color_modal');
     $.ajax({
       method: $form.attr('method'),
-      url:  "{% url 'add_manufacturer_modal' %}",
+      url:  "{% url 'add_color_modal' %}",
       data: $form.serialize(),
       success: function(response) {
           console.log(response);
           var option = '<option value="' + response.id +
             '" selected="selected">' + response.name + '</option>';
-          $('#id_manufacturer').append(option);
-          $('#YarnModal').modal('hide');
+          $('#id_color').append(option);
+          $('#ProjectideaModal').modal('hide');
 
 
       },
@@ -52,4 +61,5 @@ $(function() {
   });
 });
 
+}
 </script>

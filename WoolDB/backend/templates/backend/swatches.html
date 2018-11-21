@@ -36,12 +36,18 @@
         </td>
         <td>{{ swatch.n_rows_washed}}</td>
         <td>{{ swatch.n_stitches_washed }}</td>
-        <td> {{ s.needlesize }} </td>
+        <td> {{ swatch.needlesize }} </td>
 
         <td>
-            {{ p.yarn }}
+            {{ swatch.yarn }}
         </td>
-        <td> {{ p.notes }}</td>
+        <td> {{ swatch.notes }}</td>
+        <td>
+                    <form method="post" action="{% url 'delete_swatch' swatch.id %}">
+    {% csrf_token %}
+    <button class="btn btn-danger btn-sm pull-right" type="submit" name="Delete">Delete this swatch</button>
+</form>
+        </td>
           </tr>
     {% endfor %}
 </table>

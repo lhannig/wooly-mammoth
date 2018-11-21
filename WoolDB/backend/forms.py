@@ -44,11 +44,17 @@ class ColorForm(forms.ModelForm):
                                 Field('yarnshop'), css_class="col-lg-10"),
                             Div(
                                 HTML("""<div><label>Missing?</label>
-                                <button href="{% url 'add_yarnshop_modal' %}" type="button" data-toggle="modal"
-                                data-target="#ColorModal" id="yarnshopModalButton" class="btn btn-info btn-sm"
-                                role="button">Add Yarnshop!</button></div>
+                                <button type="button" data-toggle="collapse" data-target=".collapse"
+                                 id="yarnshopModalButton" class="btn btn-info btn-sm"
+                                role="button">Add!</button></div>
                                 """), css_class="col-lg-2 text-center"
                             ),
+                            Div(
+                                HTML("""<div id="yarnshopdiv" class="collapse">
+                                           content
+                                                    
+                                            </div>""")
+                            )
                         ),
                         css_class="row no-gutters"),
                     css_class="container-fluid"),
@@ -56,6 +62,7 @@ class ColorForm(forms.ModelForm):
             ),
         )
         super(ColorForm, self).__init__(*args, **kwargs)
+        self.fields['col_nr'].label = 'Color Number'
 
 
 class YarnForm(forms.ModelForm):
@@ -94,7 +101,7 @@ class YarnForm(forms.ModelForm):
                                 css_class="col-lg-10"),
                             Div(
                                 HTML("""<div><label>Missing?</label>
-                                    <button href="{% url 'add_manufacturer_modal' %}" type="button" data-toggle="modal" data-target="#YarnModal"
+                                    <button  type="button" 
                                      id="manufacturerModalButton"                          
                                     class="btn btn-info btn-sm "                                                                      
                                     role="button">Add!</button></div>                                                                                                             
@@ -113,7 +120,7 @@ class YarnForm(forms.ModelForm):
                                 Field('materials'), css_class="col-lg-10"),
                             Div(
                                 HTML("""<div><label>Missing?</label>
-                                    <button href="{% url 'add_material_modal' %}" type="button" data-toggle="modal" data-target="#YarnModal"
+                                    <button href="{% url 'add_material_modal' %}" type="button" 
                                      id="materialModalButton" class="btn btn-info btn-sm" 
                                     role="button">Add!</button></div>"""), css_class="col-lg-2 text-center"
                                 )
@@ -126,73 +133,7 @@ class YarnForm(forms.ModelForm):
         super(YarnForm, self).__init__(*args, **kwargs)
 
 
-class YarnForm2(forms.ModelForm):
-    """add/edit a yarntype"""
 
-    class Meta:
-        model = Yarn
-        fields = ['name',
-                  'superwash',
-                  'notes',
-                  'manufacturer',
-                  'wash',
-                  'weight',
-                  'materials',
-                  ]
-        widgets = {
-            'notes': Textarea(attrs={'cols': 80, 'rows': 5}),
-        }
-
-    def __init__(self, *args, **kwargs):
-        self.helper = FormHelper()
-        self.helper.form_method = 'post'
-        self.helper.add_input(Submit('submit', 'Submit'))
-        self.helper.form_action = 'add_yarn'
-        self.helper.form_id = 'yarnform'
-        self.helper.layout = Layout(
-            Fieldset(
-                'Enter yarn properties',
-                'name',
-                'superwash',
-                'notes',
-                Div(
-                    Div(
-                        Div(
-                            Div(
-                                Field('manufacturer'),
-                                css_class="col-lg-10"),
-                            Div(
-                                HTML("""<div><label>Missing?</label>
-                                    <button href="{% url 'add_manufacturer_modal' %}" type="button" data-toggle="modal" data-target="#ProjectideaModal2"
-                                     id="manufacturerModalButton"                          
-                                    class="btn btn-info btn-sm "                                                                      
-                                    role="button">Add this!</button></div>                                                                                                             
-                                    """), css_class="col-lg-2 text-center"
-                            ),
-
-                        ),
-                        css_class="row no-gutters"),
-                    css_class="container-fluid"),
-                'wash',
-                'weight',
-                Div(
-                    Div(
-                        Div(
-                            Div(
-                                Field('materials'), css_class="col-lg-10"),
-                            Div(
-                                HTML("""<div><label>Missing?</label>
-                                    <button href="{% url 'add_material_modal' %}" type="button" data-toggle="modal" data-target="#ProjectideaModal2"
-                                     id="materialModalButton" class="btn btn-info btn-sm" 
-                                    role="button">Add this!</button></div>"""), css_class="col-lg-2 text-center"
-                            )
-                        ),
-                        css_class="row no-gutters"),
-                    css_class="container-fluid"),
-            ),
-
-        )
-        super(YarnForm2, self).__init__(*args, **kwargs)
 
 
 class ProjectideaForm(forms.ModelForm):
@@ -232,17 +173,33 @@ class ProjectideaForm(forms.ModelForm):
                                      Field('yarn'), css_class="col-lg-10"),
                                  Div(
                                      HTML("""<div><label>Missing?</label>
-                                    <button href="{% url 'add_yarn_modal' %}" type="button" data-toggle="modal" data-target="#ProjectideaModal"
-                                     id="projectideaModalButton" class="btn btn-info btn-sm" 
+                                    <button  type="button" 
+                                     id="projectideaYarnModalButton" class="btn btn-info btn-sm" 
                                     role="button">Add!</button></div>"""), css_class="col-lg-2 text-center"
                                  )
                              ),
                              css_class="row no-gutters"),
                          css_class="container-fluid"),
                      ),
-                        'color',
+            Div(
+                Div(
+                    Div(
+                        Div(
+                            Field('color'), css_class="col-lg-10"),
+                        Div(
+                            HTML("""<div><label>Missing?</label>
+                                <button  type="button" 
+                                id="projectideaColorModalButton" class="btn btn-info btn-sm" 
+                                ole="button">Add!</button></div>"""),
+                            css_class="col-lg-2 text-center"
+                        )
+                    ),
+                    css_class="row no-gutters"),
+                css_class="container-fluid"),
         )
+
         super(ProjectideaForm, self).__init__(*args, **kwargs)
+        self.fields['skeins_needed'].label = 'Number of skeins needed'
 
 
         super().__init__(*args, **kwargs)
@@ -301,6 +258,8 @@ class FinishedObjectForm(forms.ModelForm):
 
         )
         super(FinishedObjectForm, self).__init__(*args, **kwargs)
+        self.fields['skeins_used'].label = 'Number of used skeins'
+        self.fields['stichnr'].label = 'Number of stitches'
 
         super().__init__(*args, **kwargs)
         self.fields['color'].queryset = Color.objects.none()
@@ -359,7 +318,7 @@ class YarnshopForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         self.helper = FormHelper()
         self.helper.form_method = 'post'
-        self.helper. add_input(Submit('submit', 'Submit'))
+        self.helper.add_input(Submit('submit', 'Submit'))
         self.helper.form_id = 'yarnshopform'
         self.helper.form_action = 'add_yarnshop'
         self.helper.layout = Layout(
@@ -386,6 +345,30 @@ class SwatchForm(forms.ModelForm):
         widgets = {
             'notes': Textarea(attrs={'cols': 80, 'rows': 5}),
         }
+
+    def __init__(self, *args, **kwargs):
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', 'Submit'))
+        self.helper.form_action = 'add_swatch'
+        self.helper.layout = Layout(
+            Fieldset(
+                '',
+                'name',
+                'n_rows',
+                'n_stitches',
+                'n_rows_washed',
+                'n_stitches_washed',
+                'needlesize',
+                'yarn',
+                'notes'
+            )
+        )
+        super(SwatchForm, self).__init__(*args, **kwargs)
+        self.fields['n_rows'].label = 'Number of rows'
+        self.fields['n_stitches'].label = 'Number of stitches'
+        self.fields['n_rows_washed'].label = 'Number of rows after washing'
+        self.fields['n_stitches_washed'].label = 'Number of stitches after washing'
 
 class MaterialForm(forms.ModelForm):
     """create a new Material"""

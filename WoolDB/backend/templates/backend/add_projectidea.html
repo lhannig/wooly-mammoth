@@ -62,6 +62,7 @@
                                                 </div>
                                             <div class="modal-body">
 
+
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -73,20 +74,62 @@
 
 
 <script >
-    $("#id_yarn").change(function() {
-    var url = $("#ProjectideaForm").attr("data-colors-url");
+$(function() {
+
+ // change color selection according to chosen yarn
+ $("#id_yarn").change(function() {
+    var url = "{% url 'ajax_load_colors' %}";
     var yarnId = $(this).val();
 
     $.ajax({
-    url: url,
-    data: {'yarn': yarnId},
-    success: function(data){
-    $("#id_color").html(data);
-    $('#ProjectideaModal2').modal('hide');
-    }
-            });
-                 });
+        url: url,
+        data: {'yarn': yarnId},
+        success: function(data){
+            $("#id_color").html(data);}
 
+        });
+  });
+
+
+    // open colorform/yarnform and load form from template
+    $('#projectideaYarnModalButton').click(function(){
+        console.log('from add_yarn_modal');
+        $('#ProjectideaModal .modal-dialog').load("{% url "add_yarn_modal" %}", function(){
+            $('#ProjectideaModal').modal({show:true});
+        });
+    });
+    $('#projectideaColorModalButton').click(function(){
+        $('#ProjectideaModal .modal-dialog').load("{% url "add_color_modal" %}", function(){
+            $('#ProjectideaModal').modal({show:true});
+        });
+    });
+
+
+  // after opening add yarn modal open add manufacturer modal to add missing manufacturer
+  $('#manufacturerform').submit(function(event) {
+    event.preventDefault(); // Prevent the form from submitting via the browser
+    var $form = $(this);
+    console.log("On submit.");
+    alert('submitting');
+    $.ajax({
+      method: $form.attr('method'),
+      url:  "{% url 'add_manufacturer_modal' %}",
+      data: $form.serialize(),
+      success: function(response) {
+          console.log(response);
+          var option = '<option value="' + response.id +
+            '" selected="selected">' + response.name + '</option>';
+          $('#id_manufacturer').append(option);
+
+      },
+      error: function(response) {
+        console.log(response);
+      }
+    });
+  });
+
+
+});
 
 </script>
 
