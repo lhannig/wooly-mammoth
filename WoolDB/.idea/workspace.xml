@@ -2,22 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e643b3c-3c68-47c0-a721-0ec0880fe2b5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/templates/backend/add_yarnshop_collapse.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/static/Backend/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/static/Backend/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/templates/backend/add_color_modal.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/backend/add_color_modal.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/templates/backend/add_manufacturer_modal.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/backend/add_manufacturer_modal.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/templates/backend/add_material_modal.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/backend/add_material_modal.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/templates/backend/add_projectidea.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/backend/add_projectidea.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/templates/backend/add_swatch.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/backend/add_swatch.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/templates/backend/add_yarn.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/backend/add_yarn.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/templates/backend/add_yarn_modal.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/backend/add_yarn_modal.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/templates/backend/add_yarnshop.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/backend/add_yarnshop.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/templates/backend/edit_projectidea.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/backend/edit_projectidea.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/templates/backend/finishedobjects.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/backend/finishedobjects.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/templates/backend/swatches.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/backend/swatches.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/templates/backend/add_yarnshop_collapse.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/backend/add_yarnshop_collapse.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/templates/backend/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/backend/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,56 +65,69 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="136" />
+          <entry key="css" value="1" />
+          <entry key="html" value="140" />
           <entry key="iml" value="1" />
           <entry key="js" value="3" />
           <entry key="name" value="1" />
-          <entry key="py" value="40" />
+          <entry key="py" value="41" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="136" />
+          <entry key="CSS" value="1" />
+          <entry key="HTML" value="140" />
           <entry key="IDEA_MODULE" value="1" />
           <entry key="JavaScript" value="3" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="40" />
+          <entry key="Python" value="41" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="3958" />
-          <entry key="py" value="12471" />
+          <entry key="css" value="173" />
+          <entry key="html" value="5624" />
+          <entry key="py" value="12883" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="3958" />
-          <entry key="Python" value="12471" />
+          <entry key="CSS" value="173" />
+          <entry key="HTML" value="5624" />
+          <entry key="Python" value="12883" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="53" column="50" selection-start-line="53" selection-start-column="50" selection-end-line="53" selection-end-column="50" />
+            <state relative-caret-position="482">
+              <caret line="186" column="48" selection-start-line="186" selection-start-column="48" selection-end-line="186" selection-end-column="48" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
-                <marker date="1542803899161" expanded="true" signature="10271:10276" ph="..." />
+                <marker date="1542878526057" expanded="true" signature="10059:10064" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/templates/backend/add_yarnshop.html">
+        <entry file="file://$PROJECT_DIR$/backend/static/Backend/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+            <state relative-caret-position="405">
+              <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/templates/backend/add_yarn.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="736">
+              <caret line="71" column="10" lean-forward="true" selection-start-line="71" selection-start-column="10" selection-end-line="71" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -130,8 +135,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/templates/backend/add_color_modal.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
+            <state relative-caret-position="345">
+              <caret line="32" column="14" lean-forward="true" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -139,44 +144,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/templates/backend/add_yarnshop_collapse.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="14" lean-forward="true" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+            <state relative-caret-position="690">
+              <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/templates/backend/add_color.html">
+        <entry file="file://$PROJECT_DIR$/backend/templates/backend/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/templates/backend/add_yarn_modal.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/templates/backend/add_projectidea.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="104" column="7" selection-start-line="104" selection-start-column="7" selection-end-line="104" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/templates/backend/edit_projectidea.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
+            <state relative-caret-position="570">
+              <caret line="38" column="72" selection-start-line="38" selection-start-column="72" selection-end-line="38" selection-end-column="72" />
             </state>
           </provider>
         </entry>
@@ -184,8 +162,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="370" column="35" selection-start-line="370" selection-start-column="35" selection-end-line="370" selection-end-column="35" />
+            <state relative-caret-position="435">
+              <caret line="389" column="53" lean-forward="true" selection-start-line="389" selection-start-column="53" selection-end-line="389" selection-end-column="53" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
                 <marker date="1542795026097" expanded="true" signature="3108:3109" ph="..." />
@@ -202,10 +180,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/templates/backend/add_material_modal.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/backend/templates/backend/add_projectidea.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="496">
+              <caret line="116" column="3" selection-start-line="116" selection-start-column="3" selection-end-line="116" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+            <state relative-caret-position="540">
+              <caret line="54" selection-start-line="54" selection-end-line="54" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -229,7 +225,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Backend/templates/Backend/base.html" />
         <option value="$PROJECT_DIR$/Backend/templates/Backend/add_manufacturer.html" />
         <option value="$PROJECT_DIR$/Backend/templates/Backend/add_material.html" />
         <option value="$PROJECT_DIR$/Backend/templates/Backend/add_finishedobject.html" />
@@ -259,7 +254,6 @@
         <option value="$PROJECT_DIR$/backend/templates/backend/projectideas.html" />
         <option value="$PROJECT_DIR$/backend/templates/backend/yarnshops.html" />
         <option value="$PROJECT_DIR$/WoolDB/urls.py" />
-        <option value="$PROJECT_DIR$/backend/templates/backend/base.html" />
         <option value="$PROJECT_DIR$/backend/templates/backend/yarns.html" />
         <option value="$PROJECT_DIR$/backend/templates/backend/yarn_detail.html" />
         <option value="$PROJECT_DIR$/backend/templates/backend/color.html" />
@@ -274,12 +268,14 @@
         <option value="$PROJECT_DIR$/backend/templates/backend/edit_projectidea.html" />
         <option value="$PROJECT_DIR$/backend/templates/backend/add_yarn_modal.html" />
         <option value="$PROJECT_DIR$/backend/templates/backend/add_yarnshop.html" />
-        <option value="$PROJECT_DIR$/backend/templates/backend/add_projectidea.html" />
-        <option value="$PROJECT_DIR$/backend/urls.py" />
         <option value="$PROJECT_DIR$/backend/views.py" />
-        <option value="$PROJECT_DIR$/backend/templates/backend/add_yarnshop_collapse.html" />
-        <option value="$PROJECT_DIR$/backend/templates/backend/add_color_modal.html" />
+        <option value="$PROJECT_DIR$/backend/urls.py" />
         <option value="$PROJECT_DIR$/backend/forms.py" />
+        <option value="$PROJECT_DIR$/backend/static/Backend/style.css" />
+        <option value="$PROJECT_DIR$/backend/templates/backend/base.html" />
+        <option value="$PROJECT_DIR$/backend/templates/backend/add_color_modal.html" />
+        <option value="$PROJECT_DIR$/backend/templates/backend/add_yarnshop_collapse.html" />
+        <option value="$PROJECT_DIR$/backend/templates/backend/add_projectidea.html" />
       </list>
     </option>
   </component>
@@ -306,6 +302,19 @@
               <item name="WoolDB" type="b2602c69:ProjectViewProjectNode" />
               <item name="WoolDB" type="462c0819:PsiDirectoryNode" />
               <item name="backend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WoolDB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WoolDB" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WoolDB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WoolDB" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="Backend" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="WoolDB" type="b2602c69:ProjectViewProjectNode" />
@@ -438,7 +447,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32964602" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -635,13 +644,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/templates/backend/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/templates/backend/add_yarnshop_modal.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
@@ -663,13 +665,6 @@
           <folding>
             <element signature="e#630#662#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/templates/backend/add_material_modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
@@ -722,13 +717,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/templates/backend/add_yarn.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="781">
-          <caret line="71" column="10" lean-forward="true" selection-start-line="71" selection-start-column="10" selection-end-line="71" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/templates/backend/add_manufacturer_modal.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -743,10 +731,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/backend/templates/backend/edit_projectidea.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/templates/backend/add_yarnshop.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/templates/backend/add_yarn_modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="38" column="94" lean-forward="true" selection-start-line="38" selection-start-column="94" selection-end-line="38" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/templates/backend/add_color.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/templates/backend/add_yarn.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="736">
+          <caret line="71" column="10" lean-forward="true" selection-start-line="71" selection-start-column="10" selection-end-line="71" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/templates/backend/add_material_modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/static/Backend/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/backend/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="370" column="35" selection-start-line="370" selection-start-column="35" selection-end-line="370" selection-end-column="35" />
+        <state relative-caret-position="435">
+          <caret line="389" column="53" lean-forward="true" selection-start-line="389" selection-start-column="53" selection-end-line="389" selection-end-column="53" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
             <marker date="1542795026097" expanded="true" signature="3108:3109" ph="..." />
@@ -761,73 +808,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/templates/backend/edit_projectidea.html">
+    <entry file="file://$PROJECT_DIR$/backend/templates/backend/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/templates/backend/add_projectidea.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="104" column="7" selection-start-line="104" selection-start-column="7" selection-end-line="104" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/templates/backend/add_yarnshop.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/templates/backend/add_color.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/templates/backend/add_yarn_modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/templates/backend/add_color_modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
+        <state relative-caret-position="570">
+          <caret line="38" column="72" selection-start-line="38" selection-start-column="72" selection-end-line="38" selection-end-column="72" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/templates/backend/add_yarnshop_collapse.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="14" lean-forward="true" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+        <state relative-caret-position="690">
+          <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/templates/backend/add_color_modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="32" column="14" lean-forward="true" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="53" column="50" selection-start-line="53" selection-start-column="50" selection-end-line="53" selection-end-column="50" />
+        <state relative-caret-position="482">
+          <caret line="186" column="48" selection-start-line="186" selection-start-column="48" selection-end-line="186" selection-end-column="48" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
-            <marker date="1542803899161" expanded="true" signature="10271:10276" ph="..." />
+            <marker date="1542878526057" expanded="true" signature="10059:10064" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/templates/backend/add_projectidea.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="116" column="3" selection-start-line="116" selection-start-column="3" selection-end-line="116" selection-end-column="7" />
         </state>
       </provider>
     </entry>

@@ -41,6 +41,8 @@
                                                 </div>
                                             <div class="modal-body">
 
+
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -74,7 +76,16 @@
 
 
 <script >
+
+// load yarnshopform into collapsible to be shown when button is clicked
+function load_yarnshopform(){
+    console.log('load_yarnshopform');
+    $('#yarnshopdiv').load("{% url 'add_yarnshop_collapse' %}");
+}
+
 $(function() {
+
+
 
  // change color selection according to chosen yarn
  $("#id_yarn").change(function() {
@@ -94,12 +105,13 @@ $(function() {
     // open colorform/yarnform and load form from template
     $('#projectideaYarnModalButton').click(function(){
         console.log('from add_yarn_modal');
-        $('#ProjectideaModal .modal-dialog').load("{% url "add_yarn_modal" %}", function(){
+        $('#ProjectideaModal .modal-dialog').load("{% url 'add_yarn_modal' %}", function(){
             $('#ProjectideaModal').modal({show:true});
         });
     });
+
     $('#projectideaColorModalButton').click(function(){
-        $('#ProjectideaModal .modal-dialog').load("{% url "add_color_modal" %}", function(){
+        $('#ProjectideaModal .modal-dialog').load("{% url 'add_color_modal' %}", function(){
             $('#ProjectideaModal').modal({show:true});
         });
     });
@@ -128,8 +140,7 @@ $(function() {
     });
   });
 
-
-});
+}
 
 </script>
 

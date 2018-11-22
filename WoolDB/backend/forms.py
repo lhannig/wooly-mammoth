@@ -44,18 +44,13 @@ class ColorForm(forms.ModelForm):
                                 Field('yarnshop'), css_class="col-lg-10"),
                             Div(
                                 HTML("""<div><label>Missing?</label>
-                                <button type="button" data-toggle="collapse" data-target=".collapse"
+                                <button type="button" data-toggle="collapse" data-target="#yarnshopdiv" onclick="load_yarnshopform()"
                                  id="yarnshopModalButton" class="btn btn-info btn-sm"
                                 role="button">Add!</button></div>
                                 """), css_class="col-lg-2 text-center"
                             ),
-                            Div(
-                                HTML("""<div id="yarnshopdiv" class="collapse">
-                                           content
-                                                    
-                                            </div>""")
-                            )
-                        ),
+
+                        ), Div(id='yarnshopdiv', css_class="collapse col-lg-12",),
                         css_class="row no-gutters"),
                     css_class="container-fluid"),
 
