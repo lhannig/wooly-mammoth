@@ -383,7 +383,8 @@ def add_yarnshop_collapse(request):
         else:
             return JsonResponse({'error': form.errors}, status=400)
 
-    return render(request, 'backend/add_yarnshop_collapse.html', {'form': form})
+    return render(request, 'backend/add_yarnshop_collapse.html',
+                  {'form': form})
 
 
 def add_material_modal(request):

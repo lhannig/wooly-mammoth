@@ -12,9 +12,7 @@
             </div>
         <div class="modal-body">
             {% crispy form %}
-            <div id="yarnshopcollapse2" class="collapse">
 
-            </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <button type="button" class="btn btn-primary">Save changes</button>
@@ -30,7 +28,13 @@
 <script type="text/javascript">
 
 
+
+
+
+
 $(function() {
+
+
 
 
  // save the new color
@@ -49,8 +53,6 @@ $(function() {
             '" selected="selected">' + response.name + '</option>';
           $('#id_color').append(option);
           $('#ProjectideaModal').modal('hide');
-
-
       },
       error: function(response) {
         console.log(response);
@@ -60,5 +62,5 @@ $(function() {
 });
 
 
-}
+
 </script>

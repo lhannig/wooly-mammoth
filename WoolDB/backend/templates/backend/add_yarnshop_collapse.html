@@ -5,11 +5,10 @@
 {% block content %}
 <h4>Add a new yarnshop!</h4>
 
-<form method="post" action="{% url 'add_yarnshop_collapse' %}">
-
-{{ form|crispy}}
+<form method="post" id="yarnshopform" action="{% url 'add_yarnshop_collapse' %}" >
+{{ form|crispy }}
     {% csrf_token %}
-    <input class="btn btn-primary" type="submit" value="Submit"  id="yarnshopsubmit" onclick="submityarnshopform(event)">
+    <input class="btn btn-primary" type="submit" value="Submit"  id="yarnshopsubmit" >
 
 </form>
 
@@ -22,28 +21,31 @@
 
 <script>
 // after opening add yarnshop collapse save new yarnshop and add option to select in colorform
-    function submityarnshopform(event) {
 
+$('#yarnshopform').submit(function(event){
+    alert('234');
     event.preventDefault(); // Prevent the form from submitting via the browser
     var $form = $(this);
     console.log("On submit yarnshopform");
 
     $.ajax({
-    alert('submitting yarnform');
       method: $form.attr('method'),
-      url:  "{% url 'add_yarnshop_collapse' %}",
+      url: "{% url 'add_yarnshop_collapse' %}",
       data: $form.serialize(),
+       dataType: "json",
       success: function(response) {
           console.log(response);
           var option = '<option value="' + response.id +
             '" selected="selected">' + response.name + '</option>';
           $('#id_yarnshop').append(option);
           $('#yarnshopdiv').collapse();
-
       },
       error: function(response) {
-        console.log(response);}
-        });
-      };
+        console.log(response);
+      }
+    });
+
+
+});
 
 </script>
