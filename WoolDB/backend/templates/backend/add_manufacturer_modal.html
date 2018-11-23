@@ -2,8 +2,12 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-{% crispy form %}
-
+<h4>Add a new manufacturer!</h4>
+<form method="post" id="manufacturerform" action="{% url 'add_manufacturer_modal' %}" >
+{{ form|crispy }}
+    {% csrf_token %}
+<input class="btn btn-primary" type="submit" value="Submit"  id="manufacturersubmit" >
+</form>
 
 
 
@@ -26,7 +30,7 @@ $(function() {
           var option = '<option value="' + response.id +
             '" selected="selected">' + response.name + '</option>';
           $('#id_manufacturer').append(option);
-          $('#YarnModal').modal('hide');
+          $('#manufacturerdiv').collapse('hide');
 
 
       },

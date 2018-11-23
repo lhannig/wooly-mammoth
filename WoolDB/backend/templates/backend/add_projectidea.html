@@ -52,27 +52,7 @@
                                         </div>
  </div>
 
- <div class="modal" id="ProjectideaModal2" tabindex="-1" role="dialog"
-                                    aria-labelledby="YarnModalLabel" >
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h4 class="modal-title" id="ProjectideaModalLabel">Add</h4>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                            <div class="modal-body">
 
-
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="button"  class="btn btn-primary">Save changes</button>
-                                            </div>
-                                            </div>
-                                        </div>
- </div>
 
 
 <script >
@@ -84,9 +64,19 @@ function load_yarnshopform(){
 
 };
 
+// load manufacturerform into collapsible to be shown when button is clicked
+function load_manufacturerform(){
+    console.log('load_manufacturerform');
+    $('#manufacturerdiv').load("{% url 'add_manufacturer_modal' %}");
 
+};
 
+// load materialform into collapsible to be shown when button is clicked
+function load_materialform(){
+    console.log('load_materialform');
+    $('#materialsdiv').load("{% url 'add_material_modal' %}");
 
+};
 
 
 $(function() {
@@ -123,28 +113,7 @@ $(function() {
     });
 
 
-  // after opening add yarn modal open add manufacturer modal to add missing manufacturer
-  $('#manufacturerform').submit(function(event) {
-    event.preventDefault(); // Prevent the form from submitting via the browser
-    var $form = $(this);
-    console.log("On submit.");
-    alert('submitting');
-    $.ajax({
-      method: $form.attr('method'),
-      url:  "{% url 'add_manufacturer_modal' %}",
-      data: $form.serialize(),
-      success: function(response) {
-          console.log(response);
-          var option = '<option value="' + response.id +
-            '" selected="selected">' + response.name + '</option>';
-          $('#id_manufacturer').append(option);
 
-      },
-      error: function(response) {
-        console.log(response);
-      }
-    });
-  });
 
 
 

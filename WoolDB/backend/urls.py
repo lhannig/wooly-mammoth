@@ -62,6 +62,7 @@ urlpatterns = [
          views.delete_finishedobject, name='delete_finishedobject'),
     path('finishedobjects/<int:finishedobject_id>/edit',
          views.edit_fo, name='edit_finishedobject'),
+    path('finishedobjects/add/projectidea', views.add_projectidea_modal, name='add_projectidea_modal'),
 
 
     # manufacturers

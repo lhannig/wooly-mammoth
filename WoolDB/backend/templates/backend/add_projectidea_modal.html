@@ -22,32 +22,26 @@
  </div>
  </div>
 
-
-{% endblock %}
-
 <script type="text/javascript">
 
 $(function() {
 
-
-
-
  // save the new color
-  $('#colorform').submit(function(event) {
+  $('#projectideaform').submit(function(event) {
     event.preventDefault(); // Prevent the form from submitting via the browser
     var $form = $(this);
     console.log("On submit.");
-    alert('submitting add_color_modal');
+    alert('submitting add_projectidea_modal');
     $.ajax({
       method: $form.attr('method'),
-      url: "{% url 'add_color_modal' %}",
+      url: "{% url 'add_projectidea_modal' %}",
       data: $form.serialize(),
       success: function(response) {
           console.log(response);
           var option = '<option value="' + response.id +
             '" selected="selected">' + response.name + '</option>';
-          $('#id_color').append(option);
-          $('#ProjectideaModal').modal('hide');
+          $('#id_projectidea').append(option);
+          $('#FinishedobjectModal').modal('hide');
       },
       error: function(response) {
         console.log(response);
@@ -59,3 +53,4 @@ $(function() {
 
 
 </script>
+{% endblock %}

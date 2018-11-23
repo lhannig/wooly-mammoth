@@ -8,7 +8,7 @@
 <form method="post" id="yarnshopform" action="{% url 'add_yarnshop_collapse' %}" >
 {{ form|crispy }}
     {% csrf_token %}
-    <input class="btn btn-primary" type="submit" value="Submit"  id="yarnshopsubmit" >
+    <input class="btn btn-outline-primary" type="submit" value="Submit"  id="yarnshopsubmit" >
 
 </form>
 
@@ -38,7 +38,7 @@ $('#yarnshopform').submit(function(event){
           var option = '<option value="' + response.id +
             '" selected="selected">' + response.name + '</option>';
           $('#id_yarnshop').append(option);
-          $('#yarnshopdiv').collapse();
+          $('#yarnshopdiv').collapse('hide');
       },
       error: function(response) {
         console.log(response);

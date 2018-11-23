@@ -97,13 +97,13 @@ class YarnForm(forms.ModelForm):
                             Div(
                                 HTML("""<div><label>Missing?</label>
                                     <button  type="button" 
-                                     id="manufacturerModalButton"                          
+                                     id="manufacturerModalButton"   data-toggle="collapse" data-target="#manufacturerdiv" onclick="load_manufacturerform()"                       
                                     class="btn btn-info btn-sm "                                                                      
                                     role="button">Add!</button></div>                                                                                                             
                                     """), css_class="col-lg-2 text-center"
                                 ),
                             
-                           ),
+                           ),Div(id='manufacturerdiv', css_class="collapse col-lg-12",),
                         css_class="row no-gutters"),
                     css_class="container-fluid"),
                 'wash',
@@ -115,11 +115,11 @@ class YarnForm(forms.ModelForm):
                                 Field('materials'), css_class="col-lg-10"),
                             Div(
                                 HTML("""<div><label>Missing?</label>
-                                    <button href="{% url 'add_material_modal' %}" type="button" 
+                                    <button type="button" data-toggle="collapse" data-target="#materialsdiv" onclick="load_materialform()"
                                      id="materialModalButton" class="btn btn-info btn-sm" 
                                     role="button">Add!</button></div>"""), css_class="col-lg-2 text-center"
                                 )
-                           ),
+                           ),Div(id='materialsdiv', css_class="collapse col-lg-12",),
                         css_class="row no-gutters"),
                     css_class="container-fluid"),
             ),
@@ -239,14 +239,53 @@ class FinishedObjectForm(forms.ModelForm):
         self.helper.add_input(Submit('submit', 'Submit'))
         self.helper.form_action = 'finished'
         self.helper.layout = Layout(
-            Fieldset('Properties',
+            Fieldset('',
                      'name',
-                     'projectidea',
+                       Div(
+                    Div(
+                        Div(
+                            Div(
+                                Field('projectidea'), css_class="col-lg-10"),
+                                Div(
+                                    HTML("""<div><label>Missing?</label>
+                                    <button  type="button" 
+                                     id="finishedobjectProjectideaModalButton" class="btn btn-info btn-sm" 
+                                    role="button">Add!</button></div>"""), css_class="col-lg-2 text-center"
+                                 )
+                             ),
+                             css_class="row no-gutters"),
+                         css_class="container-fluid"),
                      'recipient',
                      'stichnr',
                      'notes',
-                     'yarn',
-                     'color',
+                      Div(
+                    Div(
+                        Div(
+                            Div(
+                                Field('yarn'), css_class="col-lg-10"),
+                                Div(
+                                    HTML("""<div><label>Missing?</label>
+                                    <button  type="button" 
+                                     id="finishedobjectYarnModalButton" class="btn btn-info btn-sm" 
+                                    role="button">Add!</button></div>"""), css_class="col-lg-2 text-center"
+                                 )
+                             ),
+                             css_class="row no-gutters"),
+                         css_class="container-fluid"),
+                         Div(
+                    Div(
+                        Div(
+                            Div(
+                                Field('color'), css_class="col-lg-10"),
+                                Div(
+                                    HTML("""<div><label>Missing?</label>
+                                    <button  type="button" 
+                                     id="finishedobjectColorModalButton" class="btn btn-info btn-sm" 
+                                    role="button">Add!</button></div>"""), css_class="col-lg-2 text-center"
+                                 )
+                             ),
+                             css_class="row no-gutters"),
+                         css_class="container-fluid"),
                      'skeins_used',
                      'needlesize'
                      ),

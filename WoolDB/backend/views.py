@@ -408,6 +408,9 @@ def add_material_modal(request):
     return render(request, 'backend/add_material_modal.html',
                   {'form': form}, )
 
+def add_projectidea_modal(request):
+    """add a missing projectidea when creating a new finished object"""
+
 
 def add_yarnshop_modal(request):
     """add a new yarnshop when creating a new color"""

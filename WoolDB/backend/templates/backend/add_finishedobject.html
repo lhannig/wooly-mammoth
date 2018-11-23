@@ -18,12 +18,10 @@
     <div class="row">
         <div class="col-lg-4"></div>
         <div class="col-lg-4">
-           <form method="post" id="FinishedObjectForm" data-colors-url="{% url 'ajax_load_colors' %}" novalidate>
+
                <div id='form-errors'>{{ form.errors }}</div>
-    {% csrf_token %}
-    {{ form|crispy }}
-   <button class="btn btn-success btn-lg" type="submit" name="Save">Save</button>
-</form>
+    {% crispy form %}
+
         </div>
         <div class="col-lg-4"></div>
     </div>
@@ -32,7 +30,32 @@
 </div>
 
 
+ <div class="modal" id="FinishedobjectModal" tabindex="-1" role="dialog"
+                                    aria-labelledby="YarnModalLabel" >
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title" id="FinishedobjectModalLabel">Add</h4>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                            <div class="modal-body">
+
+
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="button"  class="btn btn-primary">Save changes</button>
+                                            </div>
+                                            </div>
+                                        </div>
+ </div>
+
+
 <script >
+$(function() {
     $("#id_yarn").change(function() {
     var url = $("#FinishedObjectForm").attr("data-colors-url");
     var yarnId = $(this).val();
@@ -45,6 +68,24 @@
     }
             });
                  });
+
+
+  // open colorform/yarnform and load form from template
+    $('#finishedobjectYarnModalButton').click(function(){
+        console.log('from add_yarn_modal');
+        $('#FinishedobjectModal .modal-dialog').load("{% url 'add_yarn_modal' %}", function(){
+            $('#FinishedojbectModal').modal({show:true});
+        });
+    });
+
+    $('#finishedobjectProjectideaModalButton').click(function(){
+        $('#FinishedobjectModal .modal-dialog').load("{% url 'add_projectidea_modal' %}", function(){
+            $('#ProjectideaModal').modal({show:true});
+        });
+    });
+
+
+});
 </script>
 
 {% endblock %}

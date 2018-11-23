@@ -2,8 +2,13 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
+<h4>Add a new material!</h4>
 
-{% crispy form %}
+<form method="post" id="materialform" action="{% url 'add_material_modal' %}" >
+{{ form|crispy }}
+    {% csrf_token %}
+<input class="btn btn-primary" type="submit" value="Submit"  id="materialsubmit" >
+</form>
 
 
 
@@ -12,12 +17,13 @@
 
 <script type="text/javascript">
 
-$(function() {
+
   $('#materialform').submit(function(event) {
     event.preventDefault(); // Prevent the form from submitting via the browser
     var $form = $(this);
     console.log("On submit.");
     $.ajax({
+
       method: $form.attr('method'),
       url:  "{% url 'add_material_modal' %}",
       data: $form.serialize(),
@@ -26,7 +32,7 @@ $(function() {
           var option = '<option value="' + response.id +
             '" selected="selected">' + response.name + '</option>';
           $('#id_materials').append(option);
-          $('#YarnModal').modal('hide');
+          $('#materialsdiv').collapse('hide');
 
       },
       error: function(response) {
@@ -34,6 +40,6 @@ $(function() {
       }
     });
   });
-});
+
 
 </script>

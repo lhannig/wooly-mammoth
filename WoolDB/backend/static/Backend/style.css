@@ -22,7 +22,9 @@ table {width:70%}
 input {margin: 5px}
 label {margin: 5px}
 
-#yarnshopdiv {background-color: #e6f2ff;
+#materialsdiv, #yarnshopdiv, #manufacturerdiv {
+                background-color: #e6f2ff;
                 border-radius: 5px;
                 padding-bottom: 15px;
-                margin-bottom: 5px}
+                margin-bottom: 5px
+}
