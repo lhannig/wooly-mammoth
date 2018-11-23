@@ -411,6 +411,24 @@ def add_material_modal(request):
 def add_projectidea_modal(request):
     """add a missing projectidea when creating a new finished object"""
 
+    form = ProjectideaForm()
+    if request.method == 'POST':
+        form = ProjectideaForm(request.POST)
+
+        if form.is_valid():
+            projectidea = form.save()
+            newname = bleach.clean(projectidea.name)
+
+            return JsonResponse({'name': newname, 'id': projectidea.id})
+
+        else:
+
+            return JsonResponse({'error': form.errors}, status=400)
+
+    return render(request, 'backend/add_projectidea_modal.html',
+                  {'form': form})
+
+
 
 def add_yarnshop_modal(request):
     """add a new yarnshop when creating a new color"""
@@ -449,6 +467,7 @@ def add_yarn_modal(request):
             return JsonResponse({'error': form.errors}, status=400)
 
     return render(request, 'backend/add_yarn_modal.html', {'form': form})
+
 
 def add_color_modal(request):
     """add a color when creating a new projectidea"""
