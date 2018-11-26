@@ -1,0 +1,44 @@
+
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<form method="post" id="manufacturerform" action="{% url 'add_manufacturer_modal' %}" >
+{{ form|crispy }}
+    {% csrf_token %}
+<input class="btn btn-primary" type="submit" value="Submit"  id="manufacturersubmit" >
+</form>
+
+
+
+{% endblock %}
+
+<script type="text/javascript">
+
+$(function() {
+  $('#manufacturerform').submit(function(event) {
+    event.preventDefault(); // Prevent the form from submitting via the browser
+    var $form = $(this);
+    console.log("On submit.");
+    console.log('submitting add_manufacturer_modal');
+    $.ajax({
+      method: $form.attr('method'),
+      url:  "{% url 'add_manufacturer_modal' %}",
+      data: $form.serialize(),
+      success: function(response) {
+          console.log(response);
+          var option = '<option value="' + response.id +
+            '" selected="selected">' + response.name + '</option>';
+          $('#id_manufacturer').append(option);
+          $('#manufacturerdiv').collapse('hide');
+
+
+      },
+      error: function(response) {
+        console.log(response);
+      }
+    });
+  });
+});
+
+</script>

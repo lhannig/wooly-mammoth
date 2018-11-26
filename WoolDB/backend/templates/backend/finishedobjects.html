@@ -1,0 +1,66 @@
+{% extends 'backend/base.html' %}
+
+{% block content %}
+
+<h3>Finished Objects</h3>
+<div class="container-fluid">
+    <div class="row align-items-center">
+        <div class="col-lg-1">
+            <p><a class="btn btn-success btn-lg"
+                  href="{% url 'add_fo' %}"
+                  role="button">Add a new finished object</a></p>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <h3 class="mt-2">All finished objects</h3>
+
+
+<table class="tabs">
+    <tr>
+        <th>Name</th>
+        <th>Recipient</th>
+        <th>Number of stitches</th>
+        <th>Notes</th>
+        <th>Yarn</th>
+        <th>Color</th>
+        <th>Number of skeins used</th>
+        <th>Needlesize</th>
+    </tr>
+    {% for fo in finishedobjects %}
+    <tr>
+        <td><a href="{% url 'finishedobject_detail' fo.id %}">{{ fo.name }}</a></td>
+        <td>{{ fo.recipient }}</td>
+        <td>{{ fo.stichnr }}</td>
+        <td>{{ fo.notes }}</td>
+        <td>{{ fo.yarn }}</td>
+          <td>
+            <table class="tabs">
+                {% for color in fo.color.all %}
+                <tr>
+                <td><a href="{% url 'color_detail'  fo.yarn.id color.id %}">{{ color.color }}</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </td>
+
+        <td>{{ fo.skeins_used }}</td>
+    <td>
+        <table class="tabs">
+            {% for needlesize in fo.needlesize.all %}
+            <tr>
+                <td>{{ needlesize }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+
+{% endblock %}

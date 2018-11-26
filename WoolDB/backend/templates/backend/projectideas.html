@@ -1,0 +1,59 @@
+{%extends 'backend/base.html' %}
+
+{% block content %}
+<h3>Projectideas</h3>
+
+<div class="container-fluid">
+    <div class="row align-items-center">
+        <div class="col-lg-1">
+            <p><a class="btn btn-success btn-lg"
+                  href="{% url 'add_projectidea' %}"
+                  role="button">Add a new projectidea</a></p>
+        </div>
+    </div>
+</div>
+
+
+
+<table class="tabs">
+    <tr>
+        <th>Name</th>
+        <th>Link</th>
+        <th>Yarn</th>
+        <th>Colors</th>
+        <th>Weight</th>
+        <th>Notes</th>
+        <th>Needed yardage</th>
+        <th>Needed nr of skeins</th>
+
+    </tr>
+    {% for p in projectideas.all %}
+    <tr>
+        <td><a href="{% url 'projectidea_detail' p.id %}">{{ p.name }}</a></td>
+        <td>{{ p.link }}</td>
+        <td>
+                {{ p.yarn }}
+        </td>
+        <td>
+            <table>
+            {% for c in p.color.all %}
+
+                <tr>
+                    <td>{{ c.color }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </td>
+
+        <td>
+            {{ p.weight }}
+        </td>
+        <td> {{ p.notes }}</td>
+        <td>{{ p.yardage_needed }}</td>
+        <td>{{ p.skeins_needed }}</td>
+
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

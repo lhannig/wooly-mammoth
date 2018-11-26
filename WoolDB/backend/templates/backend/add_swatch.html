@@ -1,0 +1,87 @@
+{% extends 'backend/base.html' %}
+ {% load crispy_forms_tags %}
+{% block content %}
+
+
+
+
+<div class="container-fluid">
+
+
+<div class="row">
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+
+    {% crispy form %}
+
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+</div>
+</div>
+</div>
+
+
+<div class="modal" id="SwatchModal" tabindex="-1" role="dialog"
+                                    aria-labelledby="YarnModalLabel" >
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title" id="YarnModalLabel">Add</h4>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                            <div class="modal-body">
+
+
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="button"  class="btn btn-primary">Save changes</button>
+                                            </div>
+                                            </div>
+                                        </div>
+ </div>
+
+
+
+
+<script >
+// load materialform into collapsible to be shown when button is clicked
+function load_materialform(){
+    console.log('load_materialform');
+    $('#materialsdiv').load("{% url 'add_material_modal' %}");
+
+};
+
+// load manufacturerform into collapsible to be shown when button is clicked
+function load_manufacturerform(){
+    console.log('load_manufacturerform');
+    $('#manufacturerdiv').load("{% url 'add_manufacturer_modal' %}");
+
+};
+
+
+
+$(function() {
+    // open colorform/yarnform and load form from template
+    $('#swatchYarnModalButton').click(function(){
+        console.log('from add_yarn_modal');
+        $('#SwatchModal .modal-dialog').load("{% url 'add_yarn_modal' %}", function(){
+            $('#SwatchModal').modal({show:true});
+        });
+    });
+
+
+});
+
+</script>
+
+
+
+{% endblock %}

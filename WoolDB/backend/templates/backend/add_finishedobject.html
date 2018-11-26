@@ -1,0 +1,123 @@
+{% extends 'backend/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <h3>Add a new finished object!</h3>
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+
+<div class="row">
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+
+               <div id='form-errors'>{{ form.errors }}</div>
+    {% crispy form %}
+
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+</div>
+</div>
+</div>
+
+
+ <div class="modal" id="FinishedobjectModal" tabindex="-1" role="dialog"
+                                    aria-labelledby="YarnModalLabel" >
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title" id="FinishedobjectModalLabel"></h4>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                            <div class="modal-body">
+
+
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="button"  class="btn btn-primary">Save changes</button>
+                                            </div>
+                                            </div>
+                                        </div>
+ </div>
+
+
+<script >
+
+// load yarnshopform into collapsible to be shown when button is clicked
+function load_yarnshopform(){
+    console.log('load_yarnshopform');
+    $('#yarnshopdiv').load("{% url 'add_yarnshop_collapse' %}");
+
+};
+
+// load manufacturerform into collapsible to be shown when button is clicked
+function load_manufacturerform(){
+    console.log('load_manufacturerform');
+    $('#manufacturerdiv').load("{% url 'add_manufacturer_modal' %}");
+
+};
+
+// load materialform into collapsible to be shown when button is clicked
+function load_materialform(){
+    console.log('load_materialform');
+    $('#materialsdiv').load("{% url 'add_material_modal' %}");
+
+};
+
+
+$(function() {
+
+ // change color selection according to chosen yarn
+ $("#id_yarn").change(function() {
+    var url = "{% url 'ajax_load_colors' %}";
+    var yarnId = $(this).val();
+
+    $.ajax({
+        url: url,
+        data: {'yarn': yarnId},
+        success: function(data){
+            $("#id_color").html(data);}
+
+        });
+  });
+
+
+  // open projectideaform/yarnform and load form from template
+    $('#finishedobjectYarnModalButton').click(function(){
+        console.log('from add_finishedobject');
+        $('#FinishedobjectModal .modal-dialog').load("{% url 'add_yarn_modal' %}", function(){
+            $('#FinishedobjectModal').modal({show:true});
+        });
+    });
+
+    $('#finishedobjectProjectideaModalButton').click(function(){
+        console.log('opened from add finishedobject');
+        $('#FinishedobjectModal .modal-dialog').load("{% url 'add_projectidea_modal' %}", function(){
+            $('#FinishedobjectModal').modal({show:true});
+        });
+    });
+
+     $('#finishedobjectColorModalButton').click(function(){
+        console.log('opened from add finishedobject');
+        $('#FinishedobjectModal .modal-dialog').load("{% url 'add_color_modal' %}", function(){
+            $('#FinishedobjectModal').modal({show:true});
+        });
+    });
+
+});
+</script>
+
+{% endblock %}
