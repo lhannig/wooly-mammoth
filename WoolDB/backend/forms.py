@@ -32,7 +32,7 @@ class ColorForm(forms.ModelForm):
         self.helper.form_id = 'colorform'
         self.helper.layout = Layout(
             Fieldset(
-                'Enter color properties',
+                'Color properties',
                 'color',
                 'col_nr',
                 'quantity',
@@ -84,7 +84,7 @@ class YarnForm(forms.ModelForm):
         self.helper.form_id = 'yarnform'
         self.helper.layout = Layout(
             Fieldset(
-                'Enter yarn properties',
+                'Yarn properties!',
                 'name',
                 'superwash',
                 'notes',
@@ -155,7 +155,7 @@ class ProjectideaForm(forms.ModelForm):
         self.helper.add_input(Submit('submit', 'Submit'))
         self.helper.form_action = 'add_projectidea'
         self.helper.layout = Layout(
-            Fieldset('Properties',
+            Fieldset('Projectidea properties',
                      'name',
                      'notes',
                      'yardage_needed',
@@ -212,6 +212,57 @@ class ProjectideaForm(forms.ModelForm):
 
 
 
+class ProjectideaForm2(forms.ModelForm):
+    """add/edit a projectidea"""
+    class Meta:
+        model = Projectidea
+        fields = ['name',
+                  'link',
+                  'notes',
+                  'yardage_needed',
+                  'skeins_needed',
+                  'weight',
+                  'yarn',
+                  'color'
+                  ]
+        widgets = {
+            'notes': Textarea(attrs={'cols': 80, 'rows': 5}),
+        }
+
+    def __init__(self, *args, **kwargs):
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', 'Submit'))
+        self.helper.form_action = 'add_projectidea'
+        self.helper.layout = Layout(
+            Fieldset('Projectidea properties',
+                     'name',
+                     'notes',
+                     'yardage_needed',
+                     'skeins_needed',
+                     'weight',
+                     'yarn',
+                     'color'
+                     ))
+
+        super(ProjectideaForm2, self).__init__(*args, **kwargs)
+        self.fields['skeins_needed'].label = 'Number of skeins needed'
+
+        super().__init__(*args, **kwargs)
+        self.fields['color'].queryset = Color.objects.none()
+
+        if 'yarn' in self.data:
+            try:
+                yarn_id = int(self.data.get('yarn'))
+                self.fields['color'].queryset = Color.objects.filter(yarntype=yarn_id).order_by('color')
+            except (ValueError, TypeError):
+                pass
+
+        elif self.instance.pk:
+            self.fields['color'].queryset = self.instance.yarn.color_set.order_by('color')
+
+
+
 
 class FinishedObjectForm(forms.ModelForm):
     """add a new finished object"""
@@ -239,7 +290,7 @@ class FinishedObjectForm(forms.ModelForm):
         self.helper.add_input(Submit('submit', 'Submit'))
         self.helper.form_action = 'finished'
         self.helper.layout = Layout(
-            Fieldset('',
+            Fieldset('Finished object properties',
                      'name',
                        Div(
                     Div(
@@ -307,9 +358,7 @@ class FinishedObjectForm(forms.ModelForm):
                 pass
 
         elif self.instance.pk:
-            self.fields[
-                'color'].queryset = self.instance.yarn.color_set.order_by(
-                'color')
+            self.fields['color'].queryset = self.instance.yarn.color_set.order_by('color')
 
 
 
@@ -331,7 +380,7 @@ class ManufacturerForm(forms.ModelForm):
         self.helper.form_action = 'add_manufacturer'
         self.helper.layout = Layout(
             Fieldset(
-                    '',
+                    'Manufacturer properties',
                     'name'))
         super(ManufacturerForm, self).__init__(*args, **kwargs)
 
@@ -357,7 +406,7 @@ class YarnshopForm(forms.ModelForm):
         self.helper.form_action = 'add_yarnshop'
         self.helper.layout = Layout(
             Fieldset(
-                '',
+                'Yarnshop properties',
                 'name',
                 'notes'
             )
@@ -387,17 +436,29 @@ class SwatchForm(forms.ModelForm):
         self.helper.form_action = 'add_swatch'
         self.helper.layout = Layout(
             Fieldset(
-                '',
+                'Add a new swatch!',
                 'name',
                 'n_rows',
                 'n_stitches',
                 'n_rows_washed',
                 'n_stitches_washed',
                 'needlesize',
-                'yarn',
+                 Div(
+                        Div(
+                            Div(
+                                Field('yarn'), css_class="col-lg-10"),
+                                Div(
+                                    HTML("""<div><label>Missing?</label>
+                                    <button  type="button" 
+                                     id="swatchYarnModalButton" class="btn btn-info btn-sm" 
+                                    role="button">Add!</button></div>"""), css_class="col-lg-2 text-center"
+                                 )
+                             ),
+                             css_class="row no-gutters"),
+                         css_class="container-fluid"),
                 'notes'
             )
-        )
+
         super(SwatchForm, self).__init__(*args, **kwargs)
         self.fields['n_rows'].label = 'Number of rows'
         self.fields['n_stitches'].label = 'Number of stitches'
@@ -421,7 +482,7 @@ class MaterialForm(forms.ModelForm):
         self.helper.form_id = 'materialform'
         self.helper.layout = Layout(
             Fieldset(
-                    '',
+                    'Material properties',
                     'name',
                     'notes'))
         super(MaterialForm, self).__init__(*args, **kwargs)

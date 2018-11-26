@@ -3,13 +3,7 @@
 {% block content %}
 
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-4"></div>
-        <div class="col-lg-4">
-            <h3>Add a new color!</h3>
-        </div>
-        <div class="col-lg-4"></div>
-    </div>
+
 
 <div class="row">
 <div class="container-fluid">
@@ -33,7 +27,7 @@
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h4 class="modal-title" id="YarnModalLabel">Add</h4>
+                                                    <h4 class="modal-title" id="YarnModalLabel"></h4>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                     </button>
@@ -49,6 +43,15 @@
                                         </div>
  </div>
 
+<script>
+
+// load yarnshopform into collapsible to be shown when button is clicked
+function load_yarnshopform(){
+    console.log('load_yarnshopform');
+    $('#yarnshopdiv').load("{% url 'add_yarnshop_collapse' %}");
+
+};
+</script>
 
 
 

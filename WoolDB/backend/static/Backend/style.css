@@ -28,3 +28,8 @@ label {margin: 5px}
                 padding-bottom: 15px;
                 margin-bottom: 5px
 }
+
+.modal-backdrop {
+    /* bug fix - no overlay */
+    display: none;
+}

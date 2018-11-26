@@ -15,7 +15,7 @@ import bleach
 from backend.models import Yarn, Manufacturer, Material, Needlesize, Color, \
                           Projectidea, Weight, FinishedObject, Yarnshop, Swatch
 from backend.forms import YarnForm, ColorForm, ProjectideaForm, FinishedObjectForm, ManufacturerForm,\
-                        YarnshopForm, SwatchForm, MaterialForm
+                        YarnshopForm, SwatchForm, MaterialForm, ProjectideaForm2
 
 # Create your views here.
 
@@ -411,9 +411,13 @@ def add_material_modal(request):
 def add_projectidea_modal(request):
     """add a missing projectidea when creating a new finished object"""
 
-    form = ProjectideaForm()
+    form = ProjectideaForm2()
+
+
     if request.method == 'POST':
-        form = ProjectideaForm(request.POST)
+        form = ProjectideaForm2(request.POST)
+
+
 
         if form.is_valid():
             projectidea = form.save()

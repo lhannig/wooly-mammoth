@@ -2,7 +2,6 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<h4>Add a new material!</h4>
 
 <form method="post" id="materialform" action="{% url 'add_material_modal' %}" >
 {{ form|crispy }}

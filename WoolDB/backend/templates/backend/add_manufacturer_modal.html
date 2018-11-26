@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<h4>Add a new manufacturer!</h4>
+
 <form method="post" id="manufacturerform" action="{% url 'add_manufacturer_modal' %}" >
 {{ form|crispy }}
     {% csrf_token %}
