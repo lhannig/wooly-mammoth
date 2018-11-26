@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'jquery',
     'crispy_forms',
-    'Backend.apps.StrickConfig',
+    'backend.apps.StrickConfig',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
