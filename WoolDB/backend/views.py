@@ -8,6 +8,7 @@ from django.template import loader
 from django.contrib import messages
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 from crispy_forms.utils import render_crispy_form
 from django.template.context_processors import csrf
@@ -29,6 +30,7 @@ def index(request):
     # return HttpResponse(template.render(context, request))
 
 
+@login_required
 def yarns(request):
     """shows all yarns in stash and yarns currently unstashed """
 
@@ -49,6 +51,7 @@ def yarns(request):
     })
 
 
+@login_required
 def yarn_detail(request, yarntype_id):
     """shows one single yarn type and its proberties"""
     colors = Color.objects.filter(yarntype=yarntype_id, own_it=True)
@@ -60,6 +63,7 @@ def yarn_detail(request, yarntype_id):
     })
 
 
+@login_required
 def delete_yarn(request, yarntype_id):
     """delete a yarntype from the database and all of its colors"""
 
@@ -69,6 +73,8 @@ def delete_yarn(request, yarntype_id):
 
     return redirect('yarns')
 
+
+@login_required
 def add_yarn(request):
     """Add a new yarn"""
 
@@ -94,7 +100,7 @@ def add_yarn(request):
                                                              'materialform': materialform})
 
 
-
+@login_required
 def edit_yarn(request, yarntype_id):
     """edit an existing yarn type"""
     yarn = get_object_or_404(Yarn, id=yarntype_id)
@@ -110,6 +116,8 @@ def edit_yarn(request, yarntype_id):
     return render(request, 'backend/edit_yarn.html', {'form': form, 'manufacturerform': manufacturerform,
                                                       'materialform': materialform})
 
+
+@login_required
 def color_detail(request, yarntype_id, color_id):
     """shows one color of a specific yarn"""
     color = Color.objects.filter(yarntype_id=yarntype_id).get(pk=color_id)
@@ -117,7 +125,7 @@ def color_detail(request, yarntype_id, color_id):
     return render(request, 'backend/color.html', {'color': color,})
 
 
-
+@login_required
 def add_color(request, yarntype_id):
     """add a new color for an existing yarn type"""
     if request.method == 'POST':
@@ -153,7 +161,7 @@ def add_color(request, yarntype_id):
     return render(request, 'backend/add_color.html', {'form': form, })
 
 
-
+@login_required
 def edit_color(request, yarntype_id, color_id):
     """edit an existing color"""
 
@@ -169,6 +177,8 @@ def edit_color(request, yarntype_id, color_id):
 
     return render(request, 'backend/edit_color.html', {'form': form, })
 
+
+@login_required
 def delete_color(request, yarntype_id, color_id):
     """ delete a color from the db """
     color = get_object_or_404(Color, pk=color_id)
@@ -179,6 +189,7 @@ def delete_color(request, yarntype_id, color_id):
     return redirect('yarn_detail', yarntype_id)
 
 
+@login_required
 def projectideas(request):
     """show all existing projectideas"""
     projectideas = Projectidea.objects.all()
@@ -194,6 +205,7 @@ def projectideas(request):
     })
 
 
+@login_required
 def add_projectidea(request):
     """add a new idea for a project"""
     yarnshopform = YarnshopForm()
@@ -212,6 +224,7 @@ def add_projectidea(request):
     return render(request, 'backend/add_projectidea.html', {'form': form, 'yarnshopform': yarnshopform},)
 
 
+@login_required
 def load_colors(request):
     """load colors depending on yarnchoice"""
     yarn_id = request.GET.get('yarn')
@@ -221,6 +234,7 @@ def load_colors(request):
                   {'colors': colors,})
 
 
+@login_required
 def projectidea_detail(request, projectidea_id):
     """display one projectidea"""
     projectidea = get_object_or_404(Projectidea, pk=projectidea_id)
@@ -232,6 +246,7 @@ def projectidea_detail(request, projectidea_id):
     })
 
 
+@login_required
 def delete_projectidea(request, projectidea_id):
     """remove a projectidea from db"""
     project = get_object_or_404(Projectidea, pk=projectidea_id)
@@ -242,6 +257,7 @@ def delete_projectidea(request, projectidea_id):
     return redirect('projectideas')
 
 
+@login_required
 def edit_projectidea(request, projectidea_id):
     """edit an existing projectidea"""
   #  projectidea_id = request.POST.get('projectidea_id')
@@ -258,6 +274,7 @@ def edit_projectidea(request, projectidea_id):
     return render(request, 'backend/edit_projectidea.html', {'form': form})
 
 
+@login_required
 def finishedobjects(request):
     """show all finished objects"""
     finishedobjects = FinishedObject.objects.all()
@@ -269,6 +286,7 @@ def finishedobjects(request):
                   {'finishedobjects': finishedobjects, 'yarns':yarns,
                             'needlesizes': needlesizes, 'colors':colors},)
 
+@login_required
 def add_fo(request):
     """add a finished object"""
 
@@ -288,6 +306,7 @@ def add_fo(request):
     return render(request, 'backend/add_finishedobject.html', {'form': form}, )
 
 
+@login_required
 def finishedobject_detail(request, finishedobject_id):
     """shows details of a selected finished object"""
 
@@ -299,6 +318,8 @@ def finishedobject_detail(request, finishedobject_id):
                   {'finishedobject': finishedobject, 'colors': colors,
                    'needlesizes': needlesizes},)
 
+
+@login_required
 def delete_finishedobject(request, finishedobject_id):
     """delete a finished object"""
 
@@ -309,6 +330,7 @@ def delete_finishedobject(request, finishedobject_id):
     return redirect('finishedobjects')
 
 
+@login_required
 def edit_fo(request, finishedobject_id):
     """edit an existing finished object"""
 
@@ -324,6 +346,7 @@ def edit_fo(request, finishedobject_id):
     return render(request, 'backend/edit_finishedobject.html', {'form': form})
 
 
+@login_required
 def manufacturers(request):
     """show all manufacturers in db"""
     manufacturers = Manufacturer.objects.all()
@@ -331,6 +354,7 @@ def manufacturers(request):
     return render(request, 'backend/manufacturers.html', {'manufacturers':manufacturers})
 
 
+@login_required
 def add_manufacturer(request):
     """add a new manufacturer"""
 
@@ -348,6 +372,7 @@ def add_manufacturer(request):
     return render(request, 'backend/add_manufacturer.html', {'form': form}, )
 
 
+@login_required
 def add_manufacturer_modal(request):
     """add a new manufacturer when creating a new yarn"""
     form = ManufacturerForm()
@@ -369,7 +394,7 @@ def add_manufacturer_modal(request):
     return render(request, 'backend/add_manufacturer_modal.html',
                   {'form': form}, )
 
-
+@login_required
 def add_yarnshop_collapse(request):
     """open yarnshop form in a collapsible"""
     form = YarnshopForm()
@@ -389,6 +414,7 @@ def add_yarnshop_collapse(request):
                   {'form': form})
 
 
+@login_required
 def add_material_modal(request):
     """add a new material when creating a new yarn"""
 
@@ -410,6 +436,8 @@ def add_material_modal(request):
     return render(request, 'backend/add_material_modal.html',
                   {'form': form}, )
 
+
+@login_required
 def add_projectidea_modal(request):
     """add a missing projectidea when creating a new finished object"""
 
@@ -436,6 +464,7 @@ def add_projectidea_modal(request):
 
 
 
+@login_required
 def add_yarnshop_modal(request):
     """add a new yarnshop when creating a new color"""
     form = YarnshopForm()
@@ -455,6 +484,7 @@ def add_yarnshop_modal(request):
     return render(request, 'backend/add_yarnshop_modal.html', {'form': form},)
 
 
+@login_required
 def add_yarn_modal(request):
     """add a yarn when creating a new projectidea"""
     form = YarnForm()
@@ -475,6 +505,7 @@ def add_yarn_modal(request):
     return render(request, 'backend/add_yarn_modal.html', {'form': form})
 
 
+@login_required
 def add_color_modal(request):
     """add a color when creating a new projectidea"""
 
@@ -494,7 +525,7 @@ def add_color_modal(request):
     return render(request, 'backend/add_color_modal.html', {'form': form})
 
 
-
+@login_required
 def delete_manufacturer(request, manufacturer_id):
     """delete selected manufacturer from db"""
 
@@ -506,6 +537,7 @@ def delete_manufacturer(request, manufacturer_id):
     return redirect('manufacturers')
 
 
+@login_required
 def yarnshops(request):
     """show all yarnshops"""
 
@@ -514,6 +546,7 @@ def yarnshops(request):
     return render(request, 'backend/yarnshops.html', {'yarnshops': yarnshops})
 
 
+@login_required
 def add_yarnshop(request):
     """add a new yarnshop"""
 
@@ -530,6 +563,7 @@ def add_yarnshop(request):
     return render(request, 'backend/add_yarnshop.html', {'form': form})
 
 
+@login_required
 def delete_yarnshop(request, yarnshop_id):
     """delete a specific yarnshop"""
 
@@ -540,6 +574,7 @@ def delete_yarnshop(request, yarnshop_id):
     return redirect('yarnshops')
 
 
+@login_required
 def swatches(request):
     """show all swatches"""
 
@@ -551,6 +586,7 @@ def swatches(request):
                                                      'needlesizes': needlesizes,
                                                      'yarns': yarns})
 
+@login_required
 def add_swatch(request):
     """add a swatch"""
 
@@ -567,6 +603,7 @@ def add_swatch(request):
     return render(request, 'backend/add_swatch.html', {'form': form})
 
 
+@login_required
 def delete_swatch(request, swatch_id):
     """delete swatch from db"""
 
@@ -577,6 +614,7 @@ def delete_swatch(request, swatch_id):
     return redirect('swatches')
 
 
+@login_required
 def materials(request):
     """show all materials"""
 
@@ -584,6 +622,8 @@ def materials(request):
 
     return render(request, 'backend/materials.html', {'materials': materials})
 
+
+@login_required
 def add_material(request):
     """ add a material"""
     if request.method == 'POST':
@@ -599,6 +639,7 @@ def add_material(request):
     return render(request, 'backend/add_material.html', {'form': form})
 
 
+@login_required
 def delete_material(request, material_id):
     """delete material from db"""
     material = get_object_or_404(Material, pk=material_id)
@@ -608,6 +649,7 @@ def delete_material(request, material_id):
     return redirect('materials')
 
 
+@login_required
 def projectidea_to_finishedobject(request, projectidea_id):
     """take a projectidea and make a new finished object with the data"""
 
