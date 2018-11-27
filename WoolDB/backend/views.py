@@ -6,10 +6,12 @@ from django.http import Http404
 from django.http import HttpResponse, JsonResponse
 from django.template import loader
 from django.contrib import messages
-from django.forms import formset_factory
+from django.contrib.auth import authenticate
+from django.contrib.auth.models import User
+
 from crispy_forms.utils import render_crispy_form
 from django.template.context_processors import csrf
-from django.template import RequestContext
+
 import bleach
 
 from backend.models import Yarn, Manufacturer, Material, Needlesize, Color, \

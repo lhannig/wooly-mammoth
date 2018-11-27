@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WoolDB</title>
+    {% load static %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="{% static 'bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'Backend/style.css' %}">
+
+      <script src="{% static 'misc/html5shiv.js' %}"></script>
+      <script src="{% static 'misc/respond.min.js' %}"></script>
+
+
+</head>
+<body>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{% static 'misc/jquery.js' %}"></script>
+    <script src="{% static 'misc/jquery-3.3.1.min.js'%}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'bootstrap/js/bootstrap.min.js'%}"></script>
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-11">
+
+            <div class="page-header">
+                <h1>The Wooly Mammoth Wooldatabase </h1>
+                <h2>Yarns in stash, ideas for projects and finished Objects!</h2>
+            </div>
+
+
+
+ <h4>Successfully logged out</h4>
+ <h4> <a href="{% url 'login' %}">Click here to log in again</a></h4>
+
+</body>
+</html>
