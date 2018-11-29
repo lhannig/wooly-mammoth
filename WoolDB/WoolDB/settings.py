@@ -25,7 +25,8 @@ SECRET_KEY_DEFAULT = "please change me!"
 SECRET_KEY = os.getenv("WDB_SECRET_KEY", SECRET_KEY_DEFAULT)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# set debug = '' for false
+DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
 if not DEBUG and SECRET_KEY == SECRET_KEY_DEFAULT:
     # Scream at admin!
