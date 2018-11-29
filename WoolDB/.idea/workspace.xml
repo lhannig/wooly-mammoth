@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9e643b3c-3c68-47c0-a721-0ec0880fe2b5" name="Default Changelist" comment="" />
+    <list default="true" id="9e643b3c-3c68-47c0-a721-0ec0880fe2b5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.ebextensions/django.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WoolDB/setting_prod.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoolDB/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/WoolDB/settings.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,12 +63,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="config" value="1" />
           <entry key="css" value="3" />
           <entry key="html" value="185" />
           <entry key="iml" value="1" />
           <entry key="js" value="3" />
           <entry key="name" value="1" />
-          <entry key="py" value="53" />
+          <entry key="py" value="54" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -72,37 +78,30 @@
           <entry key="HTML" value="185" />
           <entry key="IDEA_MODULE" value="1" />
           <entry key="JavaScript" value="3" />
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="53" />
+          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="Python" value="54" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="config" value="56" />
           <entry key="css" value="255" />
           <entry key="html" value="9519" />
-          <entry key="py" value="14296" />
+          <entry key="py" value="14412" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="255" />
           <entry key="HTML" value="9519" />
-          <entry key="Python" value="14296" />
+          <entry key="PLAIN_TEXT" value="56" />
+          <entry key="Python" value="14412" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/templates/registration/password_reset_form.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/templates/registration/password_reset_done.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -130,14 +129,35 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WoolDB/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="109" column="89" selection-start-line="109" selection-start-column="89" selection-end-line="109" selection-end-column="89" />
+            <state relative-caret-position="390">
+              <caret line="95" column="27" selection-start-line="95" selection-start-column="27" selection-end-line="95" selection-end-column="27" />
               <folding>
                 <element signature="e#307#316#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WoolDB/setting_prod.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="721">
+              <caret line="142" column="51" selection-start-line="142" selection-start-column="51" selection-end-line="142" selection-end-column="51" />
+              <folding>
+                <element signature="e#307#316#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.ebextensions/django.config">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -149,14 +169,14 @@
               <caret line="663" column="28" selection-start-line="663" selection-start-column="28" selection-end-line="663" selection-end-column="28" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
-                <marker date="1543498161441" expanded="true" signature="3271:3272" ph="..." />
-                <marker date="1543498161441" expanded="true" signature="11114:19570" ph="..." />
-                <marker date="1543498161441" expanded="true" signature="12158:12724" ph="..." />
-                <marker date="1543498161441" expanded="true" signature="13932:15566" ph="..." />
-                <marker date="1543498161441" expanded="true" signature="13983:15566" ph="..." />
-                <marker date="1543498161441" expanded="true" signature="15062:15566" ph="..." />
-                <marker date="1543498161441" expanded="true" signature="15616:15914" ph="..." />
-                <marker date="1543498161441" expanded="true" signature="15937:16105" ph="..." />
+                <marker date="1543498269354" expanded="true" signature="3271:3272" ph="..." />
+                <marker date="1543498269354" expanded="true" signature="11114:19570" ph="..." />
+                <marker date="1543498269354" expanded="true" signature="12158:12724" ph="..." />
+                <marker date="1543498269354" expanded="true" signature="13932:15566" ph="..." />
+                <marker date="1543498269354" expanded="true" signature="13983:15566" ph="..." />
+                <marker date="1543498269354" expanded="true" signature="15062:15566" ph="..." />
+                <marker date="1543498269354" expanded="true" signature="15616:15914" ph="..." />
+                <marker date="1543498269354" expanded="true" signature="15937:16105" ph="..." />
               </folding>
             </state>
           </provider>
@@ -205,8 +225,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Backend/templates/Backend/add_manufacturer_modal.html" />
-        <option value="$PROJECT_DIR$/backend/templates/backend/edit_color.html" />
         <option value="$PROJECT_DIR$/backend/templates/backend/edit_yarn.html" />
         <option value="$PROJECT_DIR$/backend/templates/backend/finishedobject_detail.html" />
         <option value="$PROJECT_DIR$/backend/templates/backend/index.html" />
@@ -254,8 +272,10 @@
         <option value="$PROJECT_DIR$/backend/templates/registration/password_reset_complete.html" />
         <option value="$PROJECT_DIR$/backend/views.py" />
         <option value="$PROJECT_DIR$/backend/templates/backend/base.html" />
-        <option value="$PROJECT_DIR$/WoolDB/settings.py" />
         <option value="$PROJECT_DIR$/WoolDB/settings_production.py" />
+        <option value="$PROJECT_DIR$/.ebextensions/django.config" />
+        <option value="$PROJECT_DIR$/WoolDB/settings.py" />
+        <option value="$PROJECT_DIR$/WoolDB/setting_prod.py" />
       </list>
     </option>
   </component>
@@ -281,20 +301,12 @@
             <path>
               <item name="WoolDB" type="b2602c69:ProjectViewProjectNode" />
               <item name="WoolDB" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name=".ebextensions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="WoolDB" type="b2602c69:ProjectViewProjectNode" />
               <item name="WoolDB" type="462c0819:PsiDirectoryNode" />
               <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WoolDB" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WoolDB" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="Backend" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="WoolDB" type="b2602c69:ProjectViewProjectNode" />
@@ -480,16 +492,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/backend/templates/backend/dropdownlist_colors.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/templates/backend/edit_color.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/templates/backend/edit_yarn.html">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -797,14 +799,14 @@
           <caret line="663" column="28" selection-start-line="663" selection-start-column="28" selection-end-line="663" selection-end-column="28" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-            <marker date="1543498161441" expanded="true" signature="3271:3272" ph="..." />
-            <marker date="1543498161441" expanded="true" signature="11114:19570" ph="..." />
-            <marker date="1543498161441" expanded="true" signature="12158:12724" ph="..." />
-            <marker date="1543498161441" expanded="true" signature="13932:15566" ph="..." />
-            <marker date="1543498161441" expanded="true" signature="13983:15566" ph="..." />
-            <marker date="1543498161441" expanded="true" signature="15062:15566" ph="..." />
-            <marker date="1543498161441" expanded="true" signature="15616:15914" ph="..." />
-            <marker date="1543498161441" expanded="true" signature="15937:16105" ph="..." />
+            <marker date="1543498269354" expanded="true" signature="3271:3272" ph="..." />
+            <marker date="1543498269354" expanded="true" signature="11114:19570" ph="..." />
+            <marker date="1543498269354" expanded="true" signature="12158:12724" ph="..." />
+            <marker date="1543498269354" expanded="true" signature="13932:15566" ph="..." />
+            <marker date="1543498269354" expanded="true" signature="13983:15566" ph="..." />
+            <marker date="1543498269354" expanded="true" signature="15062:15566" ph="..." />
+            <marker date="1543498269354" expanded="true" signature="15616:15914" ph="..." />
+            <marker date="1543498269354" expanded="true" signature="15937:16105" ph="..." />
           </folding>
         </state>
       </provider>
@@ -840,10 +842,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.ebextensions/django.config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/WoolDB/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="109" column="89" selection-start-line="109" selection-start-column="89" selection-end-line="109" selection-end-column="89" />
+        <state relative-caret-position="390">
+          <caret line="95" column="27" selection-start-line="95" selection-start-column="27" selection-end-line="95" selection-end-column="27" />
+          <folding>
+            <element signature="e#307#316#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WoolDB/setting_prod.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="721">
+          <caret line="142" column="51" selection-start-line="142" selection-start-column="51" selection-end-line="142" selection-end-column="51" />
           <folding>
             <element signature="e#307#316#0" expanded="true" />
           </folding>
