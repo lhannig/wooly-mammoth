@@ -32,18 +32,34 @@
         <div class="col-lg-11">
 
 <div class="page-header">
-    <h1>Wooldatabase: yarns in stash, ideas for projects and finished Objects!</h1>
+    <h1>The Wooly Mammoth Wooldatabase </h1>
+    <h2>Yarns in stash, ideas for projects and finished Objects!</h2>
 </div>
-<ul class="nav nav-pills">
- <li role="presentation"><a href="{% url 'index' %}"><strong>Home</strong></a></li>
- <li role="presentation"><a href="{% url 'yarns' %}"><strong>All yarns</strong></a></li>
-  <li role="presentation"><a href="{% url 'projectideas' %}"><strong>Projectideas</strong></a></li>
-    <li role="presentation"><a href="{% url 'finishedobjects' %}"><strong>Finished Objects</strong></a></li>
-    <li role="presentation"><a href="{% url 'manufacturers' %}"><strong>Manufacturers</strong></a></li>
-    <li role="presentation"><a href="{% url 'yarnshops' %}"><strong>Yarnshops</strong></a></li>
-    <li role="presentation"><a href="{% url 'swatches' %}"><strong>Swatches</strong></a></li>
-    <li role="presentation"><a href="{% url 'materials' %}"><strong>Materials</strong></a></li>
-</ul>
+
+<nav class="navbar  navbar-light bg-light"  id="sidebar">
+
+
+    <div class="collapse navbar-collapse  px-2" id="navbarSupportedContent">
+        <ul class="nav nav-pills">
+            <li class="nav-item active ">
+                <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a></li>
+            <li class="nav-item "><a href="{% url 'yarns' %}"><strong>All yarns</strong></a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'projectideas' %}"><strong>Projectideas</strong></a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'finishedobjects' %}"><strong>Finished Objects</strong></a></li>
+            <li class="nav-item"><a href="{% url 'manufacturers' %}"><strong>Manufacturers</strong></a></li>
+            <li class="nav-item"><a href="{% url 'yarnshops' %}"><strong>Yarnshops</strong></a></li>
+            <li class="nav-item"><a href="{% url 'swatches' %}"><strong>Swatches</strong></a></li>
+            <li class="nav-item"><a href="{% url 'materials' %}"><strong>Materials</strong></a></li>
+                {% if user.is_authenticated %}
+
+                <li class="nav-item"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+                    {% else %}
+                <li class="nav-item"><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+                    {% endif %}
+        </ul>
+    </div>
+</nav>
+
 
 <div>
     {% if messages %}

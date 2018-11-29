@@ -25,7 +25,8 @@ SECRET_KEY_DEFAULT = "please change me!"
 SECRET_KEY = os.getenv("WDB_SECRET_KEY", SECRET_KEY_DEFAULT)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# set debug = '' for false
+DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
 if not DEBUG and SECRET_KEY == SECRET_KEY_DEFAULT:
     # Scream at admin!
@@ -40,6 +41,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'backend.apps.StrickConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,7 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'jquery',
     'crispy_forms',
-    'backend.apps.StrickConfig',
+
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -137,3 +139,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Redirect to home URL after login (Default redirects to /accounts/profile/)
+LOGIN_REDIRECT_URL = '/backend'
