@@ -35,7 +35,7 @@ if not DEBUG and SECRET_KEY == SECRET_KEY_DEFAULT:
 
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mammoth-env.sfp5bv2ypm.eu-central-1.elasticbeanstalk.com']
 
 
 # Application definition
@@ -139,6 +139,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/backend'
