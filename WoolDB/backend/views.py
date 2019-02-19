@@ -92,11 +92,9 @@ def add_yarn(request):
         if form.is_valid():
             yarn = form.save()
 
-<<<<<<< Updated upstream
-            return HttpResponseRedirect(reverse('yarn_detail', args=yarn.pk))
-=======
+
             return HttpResponseRedirect(reverse('yarn_detail', args=[yarn.pk]))
->>>>>>> Stashed changes
+
 
         else:
             return render(request, 'backend/add_yarn.html', {'form': form, 'manufacturerform': manufacturerform,

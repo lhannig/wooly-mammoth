@@ -62,12 +62,6 @@ class ColorForm(forms.ModelForm):
 
 
 
-
-
-
-
-
-
 class YarnForm(forms.ModelForm):
     """add/edit a yarntype"""
     class Meta:
