@@ -101,16 +101,20 @@ $(function() {
     // open colorform/yarnform and load form from template
     $('#projectideaYarnModalButton').click(function(){
         console.log('from add_yarn_modal');
-        $('#ProjectideaModal .modal-dialog').load("{% url 'add_yarn_modal' %}", function(){
+        $('#ProjectideaModal .modal-dialog').load("{% url 'add_yarn_modal'  %}", function(){
             $('#ProjectideaModal').modal({show:true});
         });
     });
 
+
+
     $('#projectideaColorModalButton').click(function(){
-        $('#ProjectideaModal .modal-dialog').load("{% url 'add_color_modal' %}", function(){
+        $('#ProjectideaModal .modal-dialog').load("{% url 'add_color_modal'%}", function(){
             $('#ProjectideaModal').modal({show:true});
+
         });
     });
+
 
 
 });

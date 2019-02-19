@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, reverse
 from . import views
 
 urlpatterns = [
@@ -23,8 +23,7 @@ urlpatterns = [
 
     # Colors
     path('yarns/<int:yarntype_id>/colors/<int:color_id>',
-         views.color_detail,
-         name='color_detail'),
+         views.color_detail, name='color_detail'),
     path('yarns/<int:yarntype_id>/colors/add', views.add_color,
          name='add_color'),
     path('yarns/<int:yarntype_id>/colors/<int:color_id>/edit',
