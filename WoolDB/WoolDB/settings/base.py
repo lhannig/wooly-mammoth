@@ -35,7 +35,7 @@ if not DEBUG and SECRET_KEY == SECRET_KEY_DEFAULT:
 
 
 
-ALLOWED_HOSTS = ['mammoth-env.sfp5bv2ypm.eu-central-1.elasticbeanstalk.com']
+
 
 
 # Application definition
