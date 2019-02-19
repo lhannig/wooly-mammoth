@@ -33,9 +33,12 @@ if not DEBUG and SECRET_KEY == SECRET_KEY_DEFAULT:
 
 
 
+<<<<<<< Updated upstream:WoolDB/WoolDB/settings.py
 ALLOWED_HOSTS = []
 
 
+=======
+>>>>>>> Stashed changes:WoolDB/WoolDB/settings/base.py
 
 
 # Application definition
@@ -140,6 +143,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+<<<<<<< Updated upstream:WoolDB/WoolDB/settings.py
+=======
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
+
+>>>>>>> Stashed changes:WoolDB/WoolDB/settings/base.py
 
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
