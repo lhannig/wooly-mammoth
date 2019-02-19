@@ -56,8 +56,16 @@ class ColorForm(forms.ModelForm):
 
             ),
         )
+
         super(ColorForm, self).__init__(*args, **kwargs)
         self.fields['col_nr'].label = 'Color Number'
+
+
+
+
+
+
+
 
 
 class YarnForm(forms.ModelForm):
@@ -157,6 +165,7 @@ class ProjectideaForm(forms.ModelForm):
         self.helper.layout = Layout(
             Fieldset('Projectidea properties',
                      'name',
+                     'link',
                      'notes',
                      'yardage_needed',
                      'skeins_needed',

@@ -3,13 +3,13 @@ from itertools import islice, chain
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.exceptions import ValidationError
 from django.http import Http404
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.template import loader
 from django.contrib import messages
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-
+from django.urls import reverse
 from crispy_forms.utils import render_crispy_form
 from django.template.context_processors import csrf
 
@@ -74,6 +74,7 @@ def delete_yarn(request, yarntype_id):
     return redirect('yarns')
 
 
+
 @login_required
 def add_yarn(request):
     """Add a new yarn"""
@@ -83,8 +84,6 @@ def add_yarn(request):
 
     materialform = MaterialForm(request.POST)
 
-
-
     if request.method != "POST":
         return render(request, 'backend/add_yarn.html', {'form': form, 'manufacturerform': manufacturerform,
                                                          'materialform': materialform})
@@ -93,7 +92,7 @@ def add_yarn(request):
         if form.is_valid():
             yarn = form.save()
 
-            return redirect('yarn_detail', yarntype_id=yarn.pk)
+            return HttpResponseRedirect(reverse('yarn_detail', args=[yarn.pk]))
 
         else:
             return render(request, 'backend/add_yarn.html', {'form': form, 'manufacturerform': manufacturerform,
@@ -111,7 +110,7 @@ def edit_yarn(request, yarntype_id):
     if form.is_valid():
         form.save()
 
-        return redirect('yarn_detail', yarntype_id=yarn.id)
+        return HttpResponseRedirect(reverse('yarn_detail', args=[yarn.id]))
 
     return render(request, 'backend/edit_yarn.html', {'form': form, 'manufacturerform': manufacturerform,
                                                       'materialform': materialform})
@@ -128,37 +127,40 @@ def color_detail(request, yarntype_id, color_id):
 @login_required
 def add_color(request, yarntype_id):
     """add a new color for an existing yarn type"""
-    if request.method == 'POST':
-        form = ColorForm(request.POST)
-        if form.is_valid():
+    form = ColorForm(request.POST)
+    form.yarntype = get_object_or_404(Yarn, pk=yarntype_id)
+    form.helper.form_action = reverse('add_color', args=[yarntype_id])
+    if request.method != 'POST':
+        return render(request, 'backend/add_color.html', {'form': form, })
 
+    else:
+
+        if form.is_valid():
             color = form.save(commit=False)
+
             # check if color is already in db
             if Color.objects.filter(color=color.color,
                                     col_nr=color.col_nr,
                                     yarntype=yarntype_id):
                 col = Color.objects.get(color=color.color,
                                         yarntype=yarntype_id )
-                return redirect('edit_color', yarntype_id=col.yarntype.id,
-                                color_id=col.id)
+                return HttpResponseRedirect(reverse('edit_color', kwargs={yarntype_id: col.yarntype.id,
+                                color:col.id}))
+
+            else:
+
+                yarn = Yarn.objects.get(pk=yarntype_id)
+                color.yarntype = yarn
+
+                if color.quantity != None and color.quantity > 0:
+                    color.own_it = True
+                color.save()
 
 
-            yarn = Yarn.objects.get(pk=yarntype_id)
-            color.yarntype = yarn
-            if color.quantity > 0:
-                color.own_it = True
+                return HttpResponseRedirect(reverse('color_detail', args=[yarntype_id,
+                            color.pk]))
 
 
-            color.save()
-
-            return redirect('color_detail',
-                            yarntype_id=yarntype_id,
-                            color_id=color.pk)
-
-    else:
-        form = ColorForm()
-
-    return render(request, 'backend/add_color.html', {'form': form, })
 
 
 @login_required
@@ -171,9 +173,8 @@ def edit_color(request, yarntype_id, color_id):
         color.own_it = color.quantity > 0
         form.save()
 
-        return redirect('color_detail',
-                        yarntype_id=yarntype_id,
-                        color_id=color.id)
+        return HttpResponseRedirect(reverse('color_detail', args=[yarntype_id,
+                                                                  color.pk]))
 
     return render(request, 'backend/edit_color.html', {'form': form, })
 
@@ -211,12 +212,12 @@ def add_projectidea(request):
     yarnshopform = YarnshopForm()
     if request.method == 'POST':
         form = ProjectideaForm(request.POST)
-
+        form.helper.form_action = reverse('add_projectidea')
+        request.session['yarnchoice'] = form.yarn
         if form.is_valid():
             projectidea = form.save()
 
-            return redirect('projectidea_detail',
-                             projectidea_id=projectidea.pk)
+            return HttpResponseRedirect(reverse('projectidea_detail', args=[projectidea.pk]))
 
     else:
         form = ProjectideaForm()
@@ -260,7 +261,7 @@ def delete_projectidea(request, projectidea_id):
 @login_required
 def edit_projectidea(request, projectidea_id):
     """edit an existing projectidea"""
-  #  projectidea_id = request.POST.get('projectidea_id')
+
     instance = get_object_or_404(Projectidea, id=projectidea_id)
 
 
@@ -442,13 +443,8 @@ def add_projectidea_modal(request):
     """add a missing projectidea when creating a new finished object"""
 
     form = ProjectideaForm2()
-
-
     if request.method == 'POST':
         form = ProjectideaForm2(request.POST)
-
-
-
         if form.is_valid():
             projectidea = form.save()
             newname = bleach.clean(projectidea.name)
@@ -510,19 +506,25 @@ def add_color_modal(request):
     """add a color when creating a new projectidea"""
 
     form = ColorForm()
-    if request.method == 'POST':
+    form.helper.form_action = reverse('add_color_modal')
+    if request.method != 'POST':
+        return render(request, 'backend/add_color_modal.html', {'form': form})
+    else:
+        #yarn = get_object_or_404(Yarn, name=yarntype)
         form = ColorForm(request.POST)
+
+        form.yarntype=request.session['yarnchoice']
 
         if form.is_valid():
             color = form.save()
-            newname = bleach.clean(color.name)
+            newname = bleach.clean(color.yarntype.name + ' ' + color.color)
 
             return JsonResponse({'name': newname, 'id': color.id})
 
         else:
             return JsonResponse({'error': form.errors}, status=400)
 
-    return render(request, 'backend/add_color_modal.html', {'form': form})
+
 
 
 @login_required

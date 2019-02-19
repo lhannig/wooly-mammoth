@@ -28,13 +28,13 @@
 <script type="text/javascript">
 
 $(function() {
-
+    $('#id_yarntype').value = $('#id_yarn').val();
  // save the new color
   $('#colorform').submit(function(event) {
     event.preventDefault(); // Prevent the form from submitting via the browser
     var $form = $(this);
     console.log("On submit.");
-    alert('submitting add_color_modal');
+
     $.ajax({
       method: $form.attr('method'),
       url: "{% url 'add_color_modal' %}",
