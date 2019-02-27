@@ -1,0 +1,9 @@
+#!/bin/bash
+
+export WDB_DB_USER=postgres
+export WDB_DB_NAME=wool
+export WDB_DB_PASSWORD=stricken
+export WDB_DB_HOST=localhost
+export WDB_DB_PORT=5432
+
+exec python3 manage.py $@

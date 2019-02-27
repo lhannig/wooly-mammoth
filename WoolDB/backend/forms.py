@@ -61,13 +61,6 @@ class ColorForm(forms.ModelForm):
         self.fields['col_nr'].label = 'Color Number'
 
 
-
-
-
-
-
-
-
 class YarnForm(forms.ModelForm):
     """add/edit a yarntype"""
     class Meta:

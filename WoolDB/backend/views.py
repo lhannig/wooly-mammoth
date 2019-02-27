@@ -1,6 +1,6 @@
 from itertools import islice, chain
 
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.core.exceptions import ValidationError
 from django.http import Http404
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
@@ -92,7 +92,9 @@ def add_yarn(request):
         if form.is_valid():
             yarn = form.save()
 
+
             return HttpResponseRedirect(reverse('yarn_detail', args=[yarn.pk]))
+
 
         else:
             return render(request, 'backend/add_yarn.html', {'form': form, 'manufacturerform': manufacturerform,
